@@ -1,50 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import View.SolutionDisplayer?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.Pane?>
 <?import View.MazeDisplayer?>
-<?import View.SolutionDisplayer?>
-<BorderPane fx:controller="View.MyView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600"
-            minWidth="600" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600" minWidth="600" prefHeight="600.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyView"
+            onKeyPressed="#KeyPressed">
     <top>
         <VBox BorderPane.alignment="CENTER">
             <children>
-                <MenuBar>
+                <MenuBar VBox.vgrow="NEVER">
                     <menus>
                         <Menu mnemonicParsing="false" text="File">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="Close"/>
+                                <Menu mnemonicParsing="false" fx:id="btn_new" text="New Game">
+                                    <items>
+                                        <MenuItem fx:id="btn_newEasy" mnemonicParsing="false" text="Easy" onAction="#generateEasyMaze"/>
+                                        <MenuItem fx:id="btn_newMedium" mnemonicParsing="false" text="Medium" onAction="#generateMediumMaze"/>
+                                        <MenuItem fx:id="btn_newHard" mnemonicParsing="false" text="Hard" onAction="#generateHardMaze"/>
+                                    </items>
+                                </Menu>
+                                <MenuItem mnemonicParsing="false" text="Save" />
+                                <MenuItem mnemonicParsing="false" text="Open…" />
+                                <SeparatorMenuItem mnemonicParsing="false" />
+                                <MenuItem mnemonicParsing="false" text="Quit" />
                             </items>
                         </Menu>
-                        <Menu mnemonicParsing="false" text="Edit">
+                        <Menu mnemonicParsing="false" text="Preferences">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="Delete"/>
+                                <Menu mnemonicParsing="false" text="Solution Alogorithm">
+                                    <items>
+                                        <RadioMenuItem mnemonicParsing="false" selected="true" text="DFS">
+                                            <toggleGroup>
+                                                <ToggleGroup fx:id="algoGroup" />
+                                            </toggleGroup>
+                                        </RadioMenuItem>
+                                        <RadioMenuItem mnemonicParsing="false" text="BFS" toggleGroup="$algoGroup" />
+                                        <RadioMenuItem mnemonicParsing="false" text="Best" toggleGroup="$algoGroup" />
+                                    </items>
+                                </Menu>
                             </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Help">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="About"/>
+                                <MenuItem fx:id="btn_AboutUs" onAction="#AboutUs" mnemonicParsing="false" text="About Us" />
+                                <MenuItem fx:id="btn_AboutTheGame" onAction="#AboutTheGame" mnemonicParsing="false" text="About The Game" />
                             </items>
                         </Menu>
                     </menus>
                 </MenuBar>
-                <HBox prefHeight="43.0" prefWidth="600.0" style="-fx-background-color: #143546;">
+                <HBox prefHeight="86.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Button fx:id="hint" mnemonicParsing="false" text="hint" textAlignment="CENTER"
-                                HBox.hgrow="SOMETIMES">
+                        <Button fx:id="btn_hint" mnemonicParsing="false" onAction="#getHint" prefHeight="40.0" prefWidth="106.0" text="Get Hint">
                             <HBox.margin>
-                                <Insets left="10.0" top="10.0"/>
+                                <Insets left="20.0" top="20.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Region HBox.hgrow="ALWAYS">
+                            <padding>
+                                <Insets left="20.0" top="20.0" />
+                            </padding>
+                        </Region>
+                        <Button fx:id="btn_revealSolution" onAction="#revealSolution" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Reveal Solution">
+                            <HBox.margin>
+                                <Insets right="20.0" top="20.0" />
                             </HBox.margin>
                         </Button>
                     </children>
@@ -55,22 +88,20 @@
     <bottom>
         <HBox BorderPane.alignment="CENTER">
             <children>
-                <Label text="Status bar"/>
+                <Label text="Status bar" />
             </children>
         </HBox>
     </bottom>
     <center>
         <Pane BorderPane.alignment="CENTER">
             <children>
-                <MazeDisplayer fx:id="mazeDisplayer" height="600.0" width="600.0"
-                               imageFileNameWall="resources/Images/tile_24.jpg"/>
+                <MazeDisplayer fx:id="mazeDisplayer" height="600.0" imageFileNameWall="resources/Images/tile_24.jpg" width="600.0" />
             </children>
             <children>
-                <SolutionDisplayer fx:id="solutionDisplayer" height="600.0" width="600.0"
-                                   imageFileNameSolution="resources/Images/tile_24.jpg"/>
+                <SolutionDisplayer fx:id="solutionDisplayer" height="600.0" imageFileNameSolution="resources/Images/tile_24.jpg" width="600.0" />
             </children>
             <padding>
-                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </padding>
         </Pane>
     </center>

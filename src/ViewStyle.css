@@ -7,7 +7,7 @@ Button {
     -fx-font-family: "Arial Narrow";
     -fx-font-weight: bold;
     -fx-background-radius: 200px, 200px, 200px, 200px;
-    -fx-background-color: linear-gradient(#61a2b1, #58150f);
+    -fx-background-color: linear-gradient(#b1813c, #f0ee8a);
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
 

@@ -15,13 +15,7 @@ import java.util.Optional;
 
 public class Main extends Application {
 
-    //@Override
-    //public void start(Stage primaryStage) throws Exception{
-    //     Parent root = FXMLLoader.load(getClass().getResource("View/BasicView.fxml"));
-    //    primaryStage.setTitle("Hello World");
-    //    primaryStage.setScene(new Scene(root, 600, 600));
-    //    primaryStage.show();
-    //}
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -38,8 +32,8 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         //--------------
         MyView view = fxmlLoader.getController();
-        //view.setResizeEvent(scene);
-        //view.setViewModel(viewModel);
+        view.setResizeEvent(scene);
+        view.setViewModel(viewModel);
         viewModel.addObserver(view);
         //--------------
         SetStageCloseEvent(primaryStage);
