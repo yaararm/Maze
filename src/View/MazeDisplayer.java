@@ -56,7 +56,6 @@ public class MazeDisplayer extends Canvas {
                     }
                 }
 
-
             } catch (FileNotFoundException e) {
                 //e.printStackTrace();
             }
@@ -72,6 +71,7 @@ public class MazeDisplayer extends Canvas {
     public void setImageFileNameWall(String imageFileNameWall) {
         this.ImageFileNameWall.set(imageFileNameWall);
     }
+
 
     //endregion
 }

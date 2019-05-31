@@ -1,6 +1,3 @@
-/**
- * dfjkghfskjghfkgjfshglk
- */
 
 import Model.MyModel;
 import View.MyView;
