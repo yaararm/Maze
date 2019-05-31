@@ -1,7 +1,13 @@
 .root{
-        -fx-background-color:#f7e9c0;
-}
 
+        -fx-background-color:#f7e9c0;
+    /* -fx-background-image : url("C:\Users\YAARA\Desktop\picformaze\back1.jpg") */
+
+}
+/*
+body{
+    -fx-background-image: url( "C:\Users\YAARA\Desktop\ATP-Project-PartC\resources\Images\Roundbale1.jpg");
+}*/
 Button {
     -fx-text-fill: black;
     -fx-font-family: "Arial Narrow";

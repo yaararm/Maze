@@ -26,8 +26,8 @@ public class Main extends Application {
         //--------------
         primaryStage.setTitle("My Application!");
         FXMLLoader fxmlLoader = new FXMLLoader();
-        Parent root = fxmlLoader.load(getClass().getResource("View/BasicView.fxml").openStream());
-        Scene scene = new Scene(root, 800, 700);
+        Parent root = fxmlLoader.load(getClass().getResource("View/base2.fxml").openStream());
+        Scene scene = new Scene(root, 400, 250);
         scene.getStylesheets().add(getClass().getResource("ViewStyle.css").toExternalForm());
         primaryStage.setScene(scene);
         //--------------
