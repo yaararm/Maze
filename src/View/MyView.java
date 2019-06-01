@@ -7,6 +7,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,11 +18,13 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.ResourceBundle;
 
 
-public class MyView implements Observer {
+public class MyView implements Observer  {
     @FXML
     private MyViewModel viewModel;
     public MazeDisplayer mazeDisplayer;
@@ -178,7 +181,6 @@ public class MyView implements Observer {
         stage.setScene(scene);
 
     }
-
 
 
 
