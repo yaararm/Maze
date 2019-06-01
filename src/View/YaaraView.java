@@ -32,6 +32,9 @@ public class YaaraView implements Observer {
     public javafx.scene.control.Toggle btn_music;
     public javafx.scene.control.ToggleGroup difficult;
     public javafx.scene.control.Button btn_start;
+    public javafx.scene.control.Toggle btn_hard;
+    public javafx.scene.control.Toggle btn_easy;
+    public javafx.scene.control.Toggle btn_medium;
 
     private Boolean musicIsOn = true;
     public static MediaPlayer mediaPlayer;
@@ -144,6 +147,9 @@ public class YaaraView implements Observer {
         if (difficult.getSelectedToggle()!=null){
             btn_start.setDisable(false);
             showAlert("YES");
+
+
+
         }
         else
             showAlert("you have to choose difficulty level");
@@ -154,13 +160,22 @@ public class YaaraView implements Observer {
     }
 
     public void easy_level(ActionEvent actionEvent) {
+        if (btn_hard.isSelected()||btn_medium.isSelected()||btn_easy.isSelected())
         btn_start.setDisable(false);
+        else
+            btn_start.setDisable(true);
 
     }
     public void medium_level(ActionEvent actionEvent) {
-        btn_start.setDisable(false);
+        if (btn_hard.isSelected()||btn_medium.isSelected()||btn_easy.isSelected())
+            btn_start.setDisable(false);
+        else
+            btn_start.setDisable(true);
     }
     public void hard_level(ActionEvent actionEvent) {
-        btn_start.setDisable(false);
+        if (btn_hard.isSelected()||btn_medium.isSelected()||btn_easy.isSelected())
+            btn_start.setDisable(false);
+        else
+            btn_start.setDisable(true);
     }
 }
