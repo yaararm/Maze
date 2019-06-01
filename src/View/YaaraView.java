@@ -55,7 +55,7 @@ public class YaaraView implements Observer {
         mazeDisplayer.setMaze(maze);
         int characterPositionRow = viewModel.getCharacterPositionRow();
         int characterPositionColumn = viewModel.getCharacterPositionColumn();
-        mazeDisplayer.setCharacterPosition(characterPositionRow, characterPositionColumn);
+       // mazeDisplayer.setCharacterPosition(characterPositionRow, characterPositionColumn);
         //this.characterPositionRow.set(characterPositionRow + "");
         //this.characterPositionColumn.set(characterPositionColumn + "");
     }
