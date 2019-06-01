@@ -1,5 +1,6 @@
 import Model.MyModel;
 import View.MyView;
+import View.YaaraView;
 import ViewModel.MyViewModel;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -8,9 +9,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.layout.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+import java.awt.*;
+import java.io.File;
 import java.util.Optional;
 
 public class Main extends Application {
@@ -24,19 +30,27 @@ public class Main extends Application {
         MyViewModel viewModel = new MyViewModel(model);
         model.addObserver(viewModel);
         //--------------
-        primaryStage.setTitle("My Application!");
+        primaryStage.setTitle("Savta Haya Meta");
         FXMLLoader fxmlLoader = new FXMLLoader();
-        Parent root = fxmlLoader.load(getClass().getResource("View/base2.fxml").openStream());
-        Scene scene = new Scene(root, 400, 250);
+        Parent root = fxmlLoader.load(getClass().getResource("View/base6.fxml").openStream());
+        Scene scene = new Scene(root, 560, 330);
         scene.getStylesheets().add(getClass().getResource("ViewStyle.css").toExternalForm());
         primaryStage.setScene(scene);
+
+
+        //maybe on "setmusic?"
+        String musicFile = "resources/startMusic.mp3";     // For example
+        Media sound = new Media(new File(musicFile).toURI().toString());
+        YaaraView.mediaPlayer = new MediaPlayer(sound);
+        YaaraView.mediaPlayer.play();
         //--------------
-        MyView view = fxmlLoader.getController();
+        YaaraView view = fxmlLoader.getController();
         view.setResizeEvent(scene);
         view.setViewModel(viewModel);
         viewModel.addObserver(view);
         //--------------
         SetStageCloseEvent(primaryStage);
+
         primaryStage.show();
     }
 
