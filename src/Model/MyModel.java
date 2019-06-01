@@ -3,6 +3,11 @@ package Model;
 import Server.Server;
 import algorithms.mazeGenerators.Maze;
 import algorithms.mazeGenerators.MyMazeGenerator;
+import algorithms.mazeGenerators.Position;
+import algorithms.search.DepthFirstSearch;
+import algorithms.search.MazeState;
+import algorithms.search.SearchableMaze;
+import algorithms.search.Solution;
 import javafx.scene.input.KeyCode;
 
 import java.util.Observable;
@@ -15,6 +20,7 @@ import IO.MyDecompressorInputStream;
 import Server.ServerStrategyGenerateMaze;
 import Server.ServerStrategySolveSearchProblem;
 import Server.Server;
+import test.PrintableMazeSolution;
 
 public class MyModel extends Observable implements IModel {
 
@@ -51,6 +57,8 @@ public class MyModel extends Observable implements IModel {
         MyMazeGenerator mazeGenerator = new MyMazeGenerator();
         Maze m = mazeGenerator.generate(width, height);
         this.realMaze = m;
+        characterPositionRow = realMaze.getStartPosition().getRowIndex();
+        characterPositionColumn = realMaze.getStartPosition().getColumnIndex();
 
         setChanged();
         notifyObservers();
@@ -102,5 +110,26 @@ public class MyModel extends Observable implements IModel {
     @Override
     public int getCharacterPositionColumn() {
         return characterPositionColumn;
+    }
+
+    public Solution getSolution(){
+        Position realStartPoint = realMaze.getStartPosition();
+        realMaze.setStartPosition(new Position(characterPositionRow,characterPositionColumn));
+        //ToDo check Preferences here!!!!
+        DepthFirstSearch d = new DepthFirstSearch();
+        Solution s =d.solve(new SearchableMaze(realMaze));
+        realMaze.setStartPosition(realStartPoint);
+        return s;
+    }
+    public int[][] getNextStep(){
+        int[][] mazeToreturn = new int[realMaze.getRowLength()][realMaze.getColumnLength()];
+        Solution s = getSolution();
+        Position p =((MazeState)s.getSolutionPath().get(1)).getCurrentP();
+        mazeToreturn[p.getColumnIndex()][p.getRowIndex()]=1;
+
+        //ToDo change part B and set printableMaze mehod to be public- maybe set new func to return the new sol
+
+        return mazeToreturn;
+
     }
 }
