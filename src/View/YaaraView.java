@@ -23,10 +23,11 @@ import java.util.Observable;
 import java.util.Observer;
 
 
-public class YaaraView implements Observer {
+public class YaaraView  {
     @FXML
     private MyViewModel viewModel;
     public MazeDisplayer mazeDisplayer;
+    Scene mazeScene;
 
 
     public javafx.scene.control.Toggle btn_music;
@@ -40,46 +41,28 @@ public class YaaraView implements Observer {
     public static MediaPlayer mediaPlayer;
     public String difficultLevel ;
 
-    @Override
-    public void update(Observable o, Object arg) {
-        if (o == viewModel) {
-            //displayMaze(viewModel.getMaze());
-           // btn_new.setDisable(false);
-
-            // btn_generateMaze.setDisable(false);
-        }
+    public void setMazeScene(Scene mazeScene) {
+        this.mazeScene = mazeScene;
     }
+
 
     public void setViewModel(MyViewModel viewModel) {
         this.viewModel = viewModel;
     }
-/*
-    public void displayMaze(int[][] maze) {
-        mazeDisplayer.setMaze(maze);
-        int characterPositionRow = viewModel.getCharacterPositionRow();
-        int characterPositionColumn = viewModel.getCharacterPositionColumn();
-       // mazeDisplayer.setCharacterPosition(characterPositionRow, characterPositionColumn);
-        //this.characterPositionRow.set(characterPositionRow + "");
-        //this.characterPositionColumn.set(characterPositionColumn + "");
-    }
 
 
-    public void revealSolution() {
-        showAlert("Solving maze..");
-    }
-*/
+
+
+ public void revealSolution() {
+     showAlert("Solving maze..");
+ }
+
     private void showAlert(String alertMessage) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText(alertMessage);
         alert.show();
     }
-/*
-    public void KeyPressed(KeyEvent keyEvent) {
 
-        //viewModel.moveCharacter(keyEvent.getCode());
-        keyEvent.consume();
-    }
-*/
     public void setResizeEvent(Scene scene) {
         long width = 0;
         long height = 0;
@@ -97,41 +80,6 @@ public class YaaraView implements Observer {
             }
         });
     }
-/*
-    public void AboutUs(ActionEvent actionEvent) {
-        showAlert("this is us!!!!!!!!");
-
-        try {
-            Stage stage = new Stage();
-            stage.setTitle("About Us");
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            Parent root = fxmlLoader.load(getClass().getResource("AboutUs.fxml").openStream());
-            Scene scene = new Scene(root, 400, 350);
-            stage.setScene(scene);
-            stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
-            stage.show();
-        } catch (Exception e) {
-
-        }
-    }
-
-    public void AboutTheGame(ActionEvent actionEvent) {
-        showAlert("this is maze!!!!!!!!");
-
-        try {
-            Stage stage = new Stage();
-            stage.setTitle("About The Game");
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            Parent root = fxmlLoader.load(getClass().getResource("AboutTheGame.fxml").openStream());
-            Scene scene = new Scene(root, 400, 350);
-            stage.setScene(scene);
-            stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
-            stage.show();
-        } catch (Exception e) {
-
-        }
-    }
-*/
     public void musicMute(ActionEvent actionEvent) {
         if (musicIsOn) {//mute
             this.mediaPlayer.stop();
@@ -147,6 +95,10 @@ public class YaaraView implements Observer {
         if (difficult.getSelectedToggle()!=null){
             btn_start.setDisable(false);
             showAlert("YES");
+
+            Stage stage = (Stage) btn_start.getScene().getWindow();
+            stage.setScene(mazeScene);
+
 
 
 
