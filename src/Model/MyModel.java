@@ -3,6 +3,11 @@ package Model;
 import Server.Server;
 import algorithms.mazeGenerators.Maze;
 import algorithms.mazeGenerators.MyMazeGenerator;
+import algorithms.mazeGenerators.Position;
+import algorithms.search.DepthFirstSearch;
+import algorithms.search.MazeState;
+import algorithms.search.SearchableMaze;
+import algorithms.search.Solution;
 import javafx.scene.input.KeyCode;
 
 import java.util.Observable;
@@ -15,6 +20,7 @@ import IO.MyDecompressorInputStream;
 import Server.ServerStrategyGenerateMaze;
 import Server.ServerStrategySolveSearchProblem;
 import Server.Server;
+import test.PrintableMazeSolution;
 
 public class MyModel extends Observable implements IModel {
 
@@ -22,41 +28,28 @@ public class MyModel extends Observable implements IModel {
     Maze realMaze;
     private Server mazeGeneratingServer;
     private Server solveSearchProblemServer;
-    private int[][] maze = { // a stub...//ToDo change to real maze
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-            {1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1},
-            {0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1},
-            {1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1},
-            {1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1},
-            {1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1},
-            {1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1},
-            {1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1},
-            {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1},
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1}
-    };
+
+    private int characterPositionRow = 1;
+    private int characterPositionColumn = 1;
+    private int characterPositionX = 0;
+    private int characterPositionY = 0;
 
     public MyModel() {
-            //Server mazeGeneratingServer = new Server(5400, 1000, new ServerStrategyGenerateMaze());
-            //Server solveSearchProblemServer = new Server(5401, 1000, new ServerStrategySolveSearchProblem());
-            //startServers();
-
-
+        mazeGeneratingServer = new Server(5400, 1000, new ServerStrategyGenerateMaze());
+        solveSearchProblemServer = new Server(5401, 1000, new ServerStrategySolveSearchProblem());
     }
 
 
     public void startServers() {
-        //mazeGeneratingServer.start();
-        //solveSearchProblemServer.start();
+        mazeGeneratingServer.start();
+        solveSearchProblemServer.start();
     }
 
     public void stopServers() {
-        //mazeGeneratingServer.stop();
-        //solveSearchProblemServer.stop();
+        mazeGeneratingServer.stop();
+        solveSearchProblemServer.stop();
     }
 
-
-    private int characterPositionRow = 1;
-    private int characterPositionColumn = 1;
 
     @Override
     public void generateMaze(int width, int height) {
@@ -64,15 +57,28 @@ public class MyModel extends Observable implements IModel {
         MyMazeGenerator mazeGenerator = new MyMazeGenerator();
         Maze m = mazeGenerator.generate(width, height);
         this.realMaze = m;
+        characterPositionRow = realMaze.getStartPosition().getRowIndex();
+        characterPositionColumn = realMaze.getStartPosition().getColumnIndex();
 
         setChanged();
         notifyObservers();
 
     }
 
+    // public boolean isAWall() {
+    //     return realMaze.
+    // }
+
     @Override
     public int[][] getMaze() {
-        return maze;
+        int[][] mazeToreturn = new int[realMaze.getRowLength()][realMaze.getColumnLength()];
+        for (int i = 0; i < realMaze.getColumnLength(); i++) {
+            for (int j = 0; j < realMaze.getRowLength(); j++) {
+                if (realMaze.isWall(i, j)) mazeToreturn[j][i] = 1; //Todo !!!!!!!!!!!!!!!!!!!!!!!!
+            }
+        }
+        realMaze.print();
+        return mazeToreturn;
     }
 
     @Override
@@ -93,6 +99,7 @@ public class MyModel extends Observable implements IModel {
         }
         setChanged();
         notifyObservers();
+
     }
 
     @Override
@@ -103,5 +110,26 @@ public class MyModel extends Observable implements IModel {
     @Override
     public int getCharacterPositionColumn() {
         return characterPositionColumn;
+    }
+
+    public Solution getSolution(){
+        Position realStartPoint = realMaze.getStartPosition();
+        realMaze.setStartPosition(new Position(characterPositionRow,characterPositionColumn));
+        //ToDo check Preferences here!!!!
+        DepthFirstSearch d = new DepthFirstSearch();
+        Solution s =d.solve(new SearchableMaze(realMaze));
+        realMaze.setStartPosition(realStartPoint);
+        return s;
+    }
+    public int[][] getNextStep(){
+        int[][] mazeToreturn = new int[realMaze.getRowLength()][realMaze.getColumnLength()];
+        Solution s = getSolution();
+        Position p =((MazeState)s.getSolutionPath().get(1)).getCurrentP();
+        mazeToreturn[p.getColumnIndex()][p.getRowIndex()]=1;
+
+        //ToDo change part B and set printableMaze mehod to be public- maybe set new func to return the new sol
+
+        return mazeToreturn;
+
     }
 }
