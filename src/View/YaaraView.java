@@ -40,7 +40,7 @@ public class YaaraView implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         if (o == viewModel) {
-            displayMaze(viewModel.getMaze());
+            //displayMaze(viewModel.getMaze());
            // btn_new.setDisable(false);
 
             // btn_generateMaze.setDisable(false);
@@ -50,7 +50,7 @@ public class YaaraView implements Observer {
     public void setViewModel(MyViewModel viewModel) {
         this.viewModel = viewModel;
     }
-
+/*
     public void displayMaze(int[][] maze) {
         mazeDisplayer.setMaze(maze);
         int characterPositionRow = viewModel.getCharacterPositionRow();
@@ -64,19 +64,19 @@ public class YaaraView implements Observer {
     public void revealSolution() {
         showAlert("Solving maze..");
     }
-
+*/
     private void showAlert(String alertMessage) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText(alertMessage);
         alert.show();
     }
-
+/*
     public void KeyPressed(KeyEvent keyEvent) {
 
         //viewModel.moveCharacter(keyEvent.getCode());
         keyEvent.consume();
     }
-
+*/
     public void setResizeEvent(Scene scene) {
         long width = 0;
         long height = 0;
@@ -94,7 +94,7 @@ public class YaaraView implements Observer {
             }
         });
     }
-
+/*
     public void AboutUs(ActionEvent actionEvent) {
         showAlert("this is us!!!!!!!!");
 
@@ -128,7 +128,7 @@ public class YaaraView implements Observer {
 
         }
     }
-
+*/
     public void musicMute(ActionEvent actionEvent) {
         if (musicIsOn) {//mute
             this.mediaPlayer.stop();
@@ -141,24 +141,26 @@ public class YaaraView implements Observer {
 
     public void openMazeWindow(ActionEvent actionEvent) { // connect with tomer view after start
 
-        if (difficultLevel!=null){
+        if (difficult.getSelectedToggle()!=null){
+            btn_start.setDisable(false);
             showAlert("YES");
         }
         else
             showAlert("you have to choose difficulty level");
-
-
     }
 
+    private void ButtonStart(ActionEvent event) {
+        btn_start.setDisable(true);
+    }
 
     public void easy_level(ActionEvent actionEvent) {
-        difficultLevel ="EASY";
+        btn_start.setDisable(false);
 
     }
     public void medium_level(ActionEvent actionEvent) {
-        difficultLevel="MEDIUM";
+        btn_start.setDisable(false);
     }
     public void hard_level(ActionEvent actionEvent) {
-        difficultLevel="HARD";
+        btn_start.setDisable(false);
     }
 }

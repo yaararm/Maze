@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="330.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.YaaraView">
+<AnchorPane prefHeight="330.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.YaaraView">
    <children>
       <VBox layoutX="10.0" layoutY="10.0" prefHeight="317.0" prefWidth="552.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -66,7 +66,7 @@
                         <Insets />
                      </HBox.margin>
                   </Region>
-                  <Button fx:id="btn_start" mnemonicParsing="false" onAction="#openMazeWindow" prefHeight="37.0" prefWidth="81.0" text="start">
+                  <Button fx:id="btn_start" mnemonicParsing="false" disable="true" onAction="#openMazeWindow" prefHeight="37.0" prefWidth="81.0" text="start">
                      <HBox.margin>
                         <Insets bottom="20.0" right="40.0" top="40.0" />
                      </HBox.margin>
