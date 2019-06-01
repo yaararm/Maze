@@ -5,6 +5,7 @@ import javafx.beans.property.StringProperty;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,16 +16,23 @@ public class MazeDisplayer extends Canvas {
     private int characterPositionRow = 1;
     private int characterPositionColumn = 1;
 
+
+
     public void setMaze(int[][] maze) {
         this.maze = maze;
         redraw();
     }
-
-    public void setCharacterPosition(int row, int column) {
-        characterPositionRow = row;
-        characterPositionColumn = column;
+    public void setSize(double newHeight,double newWidth){
+        setHeight(Math.min(newHeight,newWidth));
+        setWidth(Math.min(newHeight,newWidth));
         redraw();
     }
+
+    //public void setCharacterPosition(int row, int column) {
+    //    characterPositionRow = row;
+    //    characterPositionColumn = column;
+    //    redraw();
+    //}
 
     public int getCharacterPositionRow() {
         return characterPositionRow;
@@ -36,8 +44,10 @@ public class MazeDisplayer extends Canvas {
 
     public void redraw() {
         if (maze != null) {
-            double canvasHeight = getHeight();
+            double canvasHeight =getHeight();
             double canvasWidth = getWidth();
+
+
             double cellHeight = canvasHeight / maze.length;
             double cellWidth = canvasWidth / maze[0].length;
 
@@ -45,6 +55,7 @@ public class MazeDisplayer extends Canvas {
                 Image wallImage = new Image(new FileInputStream(ImageFileNameWall.get()));
                 GraphicsContext gc = getGraphicsContext2D();
                 gc.clearRect(0, 0, getWidth(), getHeight());
+
 
                 //Draw Maze
                 for (int i = 0; i < maze.length; i++) {
@@ -55,7 +66,6 @@ public class MazeDisplayer extends Canvas {
                         }
                     }
                 }
-
 
             } catch (FileNotFoundException e) {
                 //e.printStackTrace();
@@ -72,6 +82,7 @@ public class MazeDisplayer extends Canvas {
     public void setImageFileNameWall(String imageFileNameWall) {
         this.ImageFileNameWall.set(imageFileNameWall);
     }
+
 
     //endregion
 }

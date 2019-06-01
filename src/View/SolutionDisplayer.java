@@ -20,8 +20,13 @@ public class SolutionDisplayer extends Canvas{
     private int characterPositionRow = 1;
     private int characterPositionColumn = 1;
 
-    public void setSolution(int[][] maze) {
-        this.solution = maze;
+    public void setSolution(int[][] mazeSol) {
+        this.solution = mazeSol;
+        redraw();
+    }
+    public void setSize(double newheight,double newWidth){
+        setHeight(Math.min(newheight,newWidth));
+        setWidth(Math.min(newheight,newWidth));
         redraw();
     }
 

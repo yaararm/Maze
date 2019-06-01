@@ -3,6 +3,7 @@ package ViewModel;
 
 import Model.IModel;
 
+import algorithms.mazeGenerators.Position;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.input.KeyCode;
@@ -38,6 +39,12 @@ public class MyViewModel extends Observable implements Observer {
     public void generateMaze(int width, int height){
         model.generateMaze(width, height);
     }
+
+    public int[][] getNextStep(){
+        return model.getNextStep();
+    }
+
+
 
     public void moveCharacter(KeyCode movement){
         model.moveCharacter(movement);
