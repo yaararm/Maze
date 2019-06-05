@@ -45,7 +45,7 @@ public class Main extends Application {
 
 
         //maybe on "setmusic?"
-        String musicFile = "resources/startMusic.mp3";     // For example
+        String musicFile = "resources/opening.mp3";     // For example
         Media sound = new Media(new File(musicFile).toURI().toString());
         YaaraView.mediaPlayer = new MediaPlayer(sound);
         YaaraView.mediaPlayer.play();
@@ -55,6 +55,7 @@ public class Main extends Application {
         MyView view = fxmlLoader2.getController();
         YaaraView yaaraView = fxmlLoader1.getController();
         yaaraView.setMazeScene(mazeScene);
+        yaaraView.setMazeView(view);
         //--------------------------
         view.setResizeEvent(mazeScene);
         view.setViewModel(viewModel);

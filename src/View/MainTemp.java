@@ -1,12 +1,8 @@
-package View.Character;
+package View;
 
-import View.MazeDisplayer;
-import View.SolutionDisplayer;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -16,14 +12,13 @@ import javafx.stage.Stage;
 
 import java.util.HashMap;
 
-public class Main extends Application {
+public class MainTemp extends Application {
     private HashMap<KeyCode,Boolean> keys = new HashMap<>();
     //Image image = new Image(getClass().getResourceAsStream("path Here"));
-     Image image = new Image("file:resources/Images/download.png");
-    ImageView imageView = new ImageView(image);
-    Charecter player = new Charecter(imageView);
 
-    public Pane p = new Pane();
+    Character player = new Character();
+
+    //public Pane p = new Pane();
 
     public Pane root = new Pane();
 
@@ -34,9 +29,9 @@ public class Main extends Application {
         //primaryStage.setScene(new Scene(root, 300, 275));
         //primaryStage.show();
          root.setPrefSize(600,600);
-         MazeDisplayer m = new MazeDisplayer();
-         SolutionDisplayer s = new SolutionDisplayer();
-         root.getChildren().addAll(player,m,s);
+         //MazeDisplayer m = new MazeDisplayer();
+         //SolutionDisplayer s = new SolutionDisplayer();
+         root.getChildren().add(player);
          Scene scene = new Scene(root);
          root.setBackground(new Background(new BackgroundFill(Color.WHEAT, null, null)));
 
@@ -45,7 +40,7 @@ public class Main extends Application {
          AnimationTimer timer = new AnimationTimer() {
              @Override
              public void handle(long now) {
-                 update();
+                 update1();
              }
          };
          timer.start();
@@ -54,7 +49,7 @@ public class Main extends Application {
          primaryStage.show();
     }
 
-    public void update(){//TODO check if moovment is leagel here!!!!!!!!!!!
+    public void update1(){//TODO check if moovment is leagel here!!!!!!!!!!!
          if (isPressed(KeyCode.UP)){
              player.animation.play();
              player.animation.setOffsetY(0);//ToDo change value
