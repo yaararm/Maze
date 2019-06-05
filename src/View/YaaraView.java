@@ -19,14 +19,14 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
 
 public class YaaraView  {
     @FXML
-    private MyViewModel viewModel;
-    public MazeDisplayer mazeDisplayer;
+    private MyView mazeView;
     Scene mazeScene;
 
 
@@ -44,18 +44,13 @@ public class YaaraView  {
     public void setMazeScene(Scene mazeScene) {
         this.mazeScene = mazeScene;
     }
-
-
-    public void setViewModel(MyViewModel viewModel) {
-        this.viewModel = viewModel;
+    public void setMazeView(MyView view) {
+        this.mazeView = view;
     }
 
 
 
 
- public void revealSolution() {
-     showAlert("Solving maze..");
- }
 
     private void showAlert(String alertMessage) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -90,43 +85,55 @@ public class YaaraView  {
         }
     }
 
-    public void openMazeWindow(ActionEvent actionEvent) { // connect with tomer view after start
+    public void openMazeWindow(ActionEvent actionEvent) throws IOException { // connect with tomer view after start
 
         if (difficult.getSelectedToggle()!=null){
             btn_start.setDisable(false);
-            showAlert("YES");
-
+            //showAlert("YES");
+            UpdateDifficultyAtMazeContriller();
             Stage stage = (Stage) btn_start.getScene().getWindow();
             stage.setScene(mazeScene);
-
-
+            stage.centerOnScreen();
 
 
         }
         else
             showAlert("you have to choose difficulty level");
     }
+    public void UpdateDifficultyAtMazeContriller() throws IOException { // connect with tomer view after start
 
-    private void ButtonStart(ActionEvent event) {
+        mazeView.setDifficulty(difficultLevel);
+        mazeView.generateFirstMaze();
+
+
+    }
+        private void ButtonStart(ActionEvent event) {
         btn_start.setDisable(true);
     }
 
     public void easy_level(ActionEvent actionEvent) {
-        if (btn_hard.isSelected()||btn_medium.isSelected()||btn_easy.isSelected())
-        btn_start.setDisable(false);
+        if (btn_hard.isSelected()||btn_medium.isSelected()||btn_easy.isSelected()){
+            difficultLevel = "easy";
+            btn_start.setDisable(false);
+        }
+
         else
             btn_start.setDisable(true);
 
     }
     public void medium_level(ActionEvent actionEvent) {
-        if (btn_hard.isSelected()||btn_medium.isSelected()||btn_easy.isSelected())
+        if (btn_hard.isSelected()||btn_medium.isSelected()||btn_easy.isSelected()){
+            difficultLevel = "medium";
             btn_start.setDisable(false);
+        }
         else
             btn_start.setDisable(true);
     }
     public void hard_level(ActionEvent actionEvent) {
-        if (btn_hard.isSelected()||btn_medium.isSelected()||btn_easy.isSelected())
+        if (btn_hard.isSelected()||btn_medium.isSelected()||btn_easy.isSelected()){
+            difficultLevel = "hard";
             btn_start.setDisable(false);
+        }
         else
             btn_start.setDisable(true);
     }

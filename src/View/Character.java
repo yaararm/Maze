@@ -1,13 +1,16 @@
-package View.Character;
+package View;
 
 
 import javafx.animation.ScaleTransition;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
-public class Charecter extends Pane {
+public class Character extends Pane {
 
     //character configuration
     ImageView imageview;
@@ -17,11 +20,13 @@ public class Charecter extends Pane {
     int OFFSET_Y = 0;
     int WIDTH = 64;
     int HEIGHT = 64;
+    private StringProperty ImageFileName = new SimpleStringProperty();
+
 
     SpriteAnimation animation;
 
-    public Charecter(ImageView imageview) {
-        this.imageview = imageview;
+    public Character() {
+        this.imageview = new ImageView(new Image("file:resources/Images/download.png"));
         this.imageview.setViewport(new Rectangle2D(OFFSET_X, OFFSET_Y, WIDTH, HEIGHT));
         animation = new SpriteAnimation(imageview, Duration.millis(500), count, COLUMNS, OFFSET_X, OFFSET_Y, WIDTH, HEIGHT);
         getChildren().addAll(imageview);
@@ -60,5 +65,16 @@ public class Charecter extends Pane {
         st.play();
         //ToDo re-set move lenght now
     }
+    //region Properties
 
+    public String getImageFileNameWall() {
+        return ImageFileName.get();
+    }
+
+    public void setImageFileNameWall(String imageFileNameWall) {
+        this.ImageFileName.set(imageFileNameWall);
+    }
+
+
+    //endregion
 }
