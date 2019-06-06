@@ -8,6 +8,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.input.KeyCode;
 
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -60,5 +61,12 @@ public class MyViewModel extends Observable implements Observer {
 
     public int getCharacterPositionColumn() {
         return characterPositionColumnIndex;
+    }
+
+    public void saveMazeToFile (){
+         model.saveMazeToFile() ;
+    }
+    public void openExistMaze(){
+        model.openExistMaze();
     }
 }

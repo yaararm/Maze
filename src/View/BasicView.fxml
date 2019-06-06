@@ -34,8 +34,8 @@
                                         <MenuItem fx:id="btn_newHard" mnemonicParsing="false" text="Hard" onAction="#generateHardMaze"/>
                                     </items>
                                 </Menu>
-                                <MenuItem mnemonicParsing="false" text="Save" />
-                                <MenuItem mnemonicParsing="false" text="Open…" />
+                                <MenuItem fx:id = "btn_save" mnemonicParsing="false" text="Save" onAction="#saveMazeToFile" />
+                                <MenuItem fx:id = "btn_open" mnemonicParsing="false" text="Open…" onAction="#openExistMaze" />
                                 <SeparatorMenuItem mnemonicParsing="false" />
                                 <MenuItem mnemonicParsing="false" text="Quit" />
                             </items>

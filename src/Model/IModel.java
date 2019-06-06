@@ -4,6 +4,8 @@ import algorithms.mazeGenerators.Position;
 import algorithms.search.Solution;
 import javafx.scene.input.KeyCode;
 
+import java.io.IOException;
+
 public interface IModel {
     void generateMaze(int width, int height);
     void moveCharacter(KeyCode movement);
@@ -12,4 +14,8 @@ public interface IModel {
     int getCharacterPositionColumn();
     int[][] getNextStep();
     Solution getSolution();
+
+    void saveMazeToFile() ;
+
+    void openExistMaze();
 }

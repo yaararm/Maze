@@ -15,6 +15,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
@@ -35,6 +36,8 @@ public class MyView implements Observer {
     public javafx.scene.control.Menu btn_new;
     public javafx.scene.layout.Pane mainPane;
     public javafx.scene.layout.BorderPane mainBorderPane;
+    public javafx.scene.control.MenuItem btn_save;
+    public javafx.scene.control.MenuItem btn_open;
 
     public MyView() {
         player = new Character();
@@ -81,8 +84,6 @@ public class MyView implements Observer {
 
 
         btn_new.setDisable(true);
-
-
         generateMaze(35, 35);
     }
 
@@ -248,4 +249,10 @@ public class MyView implements Observer {
         keys.put(keyEvent.getCode(),false);
     }
 
+    public void saveMazeToFile(ActionEvent actionEvent) {
+        viewModel.saveMazeToFile();
+    }
+    public void openExistMaze(ActionEvent actionEvent) {
+        viewModel.openExistMaze();
+    }
 }

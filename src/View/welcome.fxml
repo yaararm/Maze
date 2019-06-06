@@ -11,21 +11,28 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPAne" prefHeight="330.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.YaaraView">
+<?import javafx.scene.effect.DropShadow?>
+<AnchorPane fx:id="anchorPAne" prefHeight="330.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.YaaraView">
    <children>
       <VBox layoutX="10.0" layoutY="10.0" prefHeight="317.0" prefWidth="552.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox prefHeight="215.0" prefWidth="560.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="552.0" text="Help  the brothers find grandma Haya!" textFill="#d18b8b">
-                     <font>
+                  <Label id="text_up" alignment="CENTER" prefHeight="37.0" prefWidth="552.0" text="Help  the brothers find grandma Haya!" textFill="#a23778">
+                      <effect>
+                          <DropShadow color="#777576" offsetX="1.0" offsetY="1.0" spread="0.75"  />
+                      </effect>
+                      <font>
                         <Font name="Arial Rounded MT Bold" size="22.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
-            <Label id="text_level" alignment="CENTER" prefHeight="17.0" prefWidth="313.0" text="please choose your difficulty level:" textFill="#d18b8b">
-               <VBox.margin>
+            <Label id="text_level" alignment="CENTER" prefHeight="17.0" prefWidth="313.0" text="please choose your difficulty level:" textFill="#d55e5e">
+                <effect>
+                    <DropShadow color="#000000" offsetX="1.0" offsetY="1.0"  spread="0.5" />
+                </effect>
+                <VBox.margin>
                   <Insets />
                </VBox.margin>
                <font>
@@ -34,20 +41,20 @@
             </Label>
             <HBox id="btn_level" prefHeight="63.0" prefWidth="560.0">
                <children>
-                  <ToggleButton fx:id="btn_easy" onAction="#easy_level" mnemonicParsing="false" prefHeight="49.0" prefWidth="72.0" text="Easy">
+                  <ToggleButton fx:id="btn_easy" mnemonicParsing="false" onAction="#easy_level" prefHeight="49.0" prefWidth="72.0" text="Easy">
                      <toggleGroup>
-                        <ToggleGroup fx:id="difficult"/>
+                        <ToggleGroup fx:id="difficult" />
                      </toggleGroup>
                      <HBox.margin>
                         <Insets bottom="10.0" left="80.0" top="10.0" />
                      </HBox.margin>
                   </ToggleButton>
-                  <ToggleButton fx:id="btn_medium" onAction="#medium_level" mnemonicParsing="false" prefHeight="47.0" prefWidth="73.0" text="Medium" toggleGroup="$difficult">
+                  <ToggleButton fx:id="btn_medium" mnemonicParsing="false" onAction="#medium_level" prefHeight="47.0" prefWidth="73.0" text="Medium" toggleGroup="$difficult">
                      <HBox.margin>
                         <Insets bottom="10.0" left="70.0" right="70.0" top="10.0" />
                      </HBox.margin>
                   </ToggleButton>
-                  <ToggleButton fx:id="btn_hard" onAction="#hard_level" mnemonicParsing="false" prefHeight="49.0" prefWidth="73.0" text="Hard" toggleGroup="$difficult">
+                  <ToggleButton fx:id="btn_hard" mnemonicParsing="false" onAction="#hard_level" prefHeight="49.0" prefWidth="73.0" text="Hard" toggleGroup="$difficult">
                      <HBox.margin>
                         <Insets bottom="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
@@ -66,7 +73,7 @@
                         <Insets />
                      </HBox.margin>
                   </Region>
-                  <Button fx:id="btn_start" mnemonicParsing="false" disable="true" onAction="#openMazeWindow" prefHeight="37.0" prefWidth="81.0" text="start">
+                  <Button fx:id="btn_start" disable="true" mnemonicParsing="false" onAction="#openMazeWindow" prefHeight="37.0" prefWidth="81.0" text="start">
                      <HBox.margin>
                         <Insets bottom="20.0" right="40.0" top="40.0" />
                      </HBox.margin>

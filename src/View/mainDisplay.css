@@ -1,7 +1,7 @@
 .root{
 
         -fx-background-color:#f7e9c0;
-
+    -fx-background-image : url('file:resources/Images/back1.jpg');
 }/*
 #AnchorPane{
     -fx-background-image: url("file:resources/Images/Roundbale1.jpg");

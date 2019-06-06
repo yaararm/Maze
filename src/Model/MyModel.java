@@ -8,8 +8,10 @@ import algorithms.search.DepthFirstSearch;
 import algorithms.search.MazeState;
 import algorithms.search.SearchableMaze;
 import algorithms.search.Solution;
+import javafx.scene.control.Alert;
 import javafx.scene.input.KeyCode;
 
+import java.io.*;
 import java.util.Observable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -20,6 +22,9 @@ import IO.MyDecompressorInputStream;
 import Server.ServerStrategyGenerateMaze;
 import Server.ServerStrategySolveSearchProblem;
 import Server.Server;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 import test.PrintableMazeSolution;
 
 public class MyModel extends Observable implements IModel {
@@ -131,5 +136,64 @@ public class MyModel extends Observable implements IModel {
 
         return mazeToreturn;
 
+    }
+    public Object getMyObject(){
+        return realMaze;
+    }
+@Override
+    public void saveMazeToFile (){
+
+    SavedMaze mySave = new SavedMaze(realMaze, getCharacterPositionRow(), getCharacterPositionColumn());
+
+    FileChooser fileChooser = new FileChooser();
+    FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+    fileChooser.getExtensionFilters().add(extFilter);
+    fileChooser.setTitle("Save the Maze");
+    Stage window = new Stage();
+    File file = fileChooser.showSaveDialog(window);
+    try {
+        if (file != null) {
+
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+            oos.writeObject(mySave);
+            oos.close();
+        }
+
+
+    } catch (IOException e) {
+        showAlert("File could not be saved");
+
+    }
+}
+    @Override
+    public void openExistMaze() {
+    FileChooser fileChooser = new FileChooser();
+    fileChooser.setTitle("Load the Maze");
+    Stage window = new Stage();
+
+       File file = fileChooser.showOpenDialog(window);
+
+        try {
+            if (file != null) {
+             ObjectInputStream oin = new ObjectInputStream(new FileInputStream(file)) ;
+             SavedMaze mySave = (SavedMaze)oin.readObject();
+             this.realMaze = mySave.getMaze();
+             this.characterPositionRow = mySave.getRowPosition();
+             this.characterPositionColumn = mySave.getColumnPosition();
+                setChanged();
+                notifyObservers();
+
+         }
+        } catch (IOException | ClassNotFoundException e) {
+            showAlert("File could not be upload");
+
+        }
+    }
+
+//ToDo show alert when file not exist/ file not saved
+    private void showAlert(String alertMessage) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText(alertMessage);
+        alert.show();
     }
 }
