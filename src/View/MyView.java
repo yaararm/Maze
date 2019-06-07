@@ -182,14 +182,14 @@ public class MyView implements Observer {
     }
 
     public void AboutTheGame(ActionEvent actionEvent) {
-        showAlert("this is maze!!!!!!!!");
+        //showAlert("this is maze!!!!!!!!");
 
         try {
             Stage stage = new Stage();
             stage.setTitle("About The Game");
             FXMLLoader fxmlLoader = new FXMLLoader();
             Parent root = fxmlLoader.load(getClass().getResource("AboutTheGame.fxml").openStream());
-            Scene scene = new Scene(root, 400, 350);
+            Scene scene = new Scene(root, 650, 350);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
             stage.show();
