@@ -1,4 +1,4 @@
-package View;
+package View.Character;
 
 
 import javafx.animation.ScaleTransition;
@@ -20,6 +20,7 @@ public class Character extends Pane {
     int OFFSET_Y = 0;
     int WIDTH = 64;
     int HEIGHT = 64;
+    double oldSize = 64;
     private StringProperty ImageFileName = new SimpleStringProperty();
 
 
@@ -33,12 +34,16 @@ public class Character extends Pane {
 
     }
 
+    public double getOldSize() {
+        return oldSize;
+    }
+
     public void moveX(int x) {
         boolean right = x > 0 ? true : false;
         for (int i = 0; i < Math.abs(x); i++) {
             if (right) {
                 //  if (this.getTranslateX() <= this.get)
-                    this.setTranslateX(this.getTranslateX() + 1); //ToDo calculate value for moovment
+                this.setTranslateX(this.getTranslateX() + 1); //ToDo calculate value for moovment
             } else if (this.getTranslateX() >= 0) { //prevent leave the screen
                 this.setTranslateX(this.getTranslateX() - 1);
             }
@@ -58,11 +63,18 @@ public class Character extends Pane {
         }
 
     }
-    public void scale() {
+
+    public void scale(double newSize) {
         ScaleTransition st = new ScaleTransition(Duration.millis(1), this);
-        st.setToX(5);
-        st.setToY(5);
-        st.play();
+        double precentege = (newSize - oldSize) / oldSize;
+        if (precentege != -1) {
+            st.setToX(1);
+            st.setToY(1);
+            st.setToX(1 + precentege);
+            st.setToY(1 + precentege);
+            st.play();
+            oldSize = oldSize * (1 + precentege);
+        }
         //ToDo re-set move lenght now
     }
     //region Properties

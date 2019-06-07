@@ -1,7 +1,10 @@
 package View;
 
+import View.Character.Character;
 import ViewModel.MyViewModel;
 import javafx.animation.AnimationTimer;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -12,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.ScrollEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -22,14 +26,16 @@ import java.util.Observer;
 
 
 public class MyView implements Observer {
-    public Character player;
+    //public Character player;
     private String mazeDifficulty;
-    private HashMap<KeyCode, Boolean> keys = new HashMap<>();
+    //private HashMap<KeyCode, Boolean> keys = new HashMap<>();
 
     @FXML
     private MyViewModel viewModel;
     public MazeDisplayer mazeDisplayer;
     public SolutionDisplayer solutionDisplayer;
+    public ChracterDisplayer chracterDisplayer;
+
     public javafx.scene.control.MenuItem btn_newEasy;
     public javafx.scene.control.MenuItem btn_newMedium;
     public javafx.scene.control.MenuItem btn_newHard;
@@ -39,16 +45,17 @@ public class MyView implements Observer {
     public javafx.scene.control.MenuItem btn_save;
     public javafx.scene.control.MenuItem btn_open;
 
-    public MyView() {
-        player = new Character();
-    }
-
-
     @Override
     public void update(Observable o, Object arg) {
         if (o == viewModel) {
-            displayMaze(viewModel.getMaze());
-            btn_new.setDisable(false);
+            if ((int) arg == 1) {
+                displayMaze(viewModel.getMaze());
+                displayCharecter(viewModel.getMaze()[0].length);
+                btn_new.setDisable(false);
+
+            } else if ((int) arg == 2) {
+                displayCharecter(viewModel.getMaze()[0].length);
+            }
 
             // btn_generateMaze.setDisable(false);
         }
@@ -59,15 +66,20 @@ public class MyView implements Observer {
     }
 
     public void displayMaze(int[][] maze) {
-        //mazeDisplayer.setSize(mainPane.getHeight(),mainPane.getWidth());
         mazeDisplayer.setMaze(maze);
-        //mazeDisplayer.redraw();
-        //int characterPositionRow = viewModel.getCharacterPositionRow();
-        //int characterPositionColumn = viewModel.getCharacterPositionColumn();
-        //mazeDisplayer.setCharacterPosition(characterPositionRow, characterPositionColumn);
-        //this.characterPositionRow.set(characterPositionRow + "");
-        //this.characterPositionColumn.set(characterPositionColumn + "");
+
     }
+
+    public void displayCharecter(int lenght) {
+        chracterDisplayer.setArraySize(lenght);
+
+        int characterPositionRow = viewModel.getCharacterPositionRow();
+        int characterPositionColumn = viewModel.getCharacterPositionColumn();
+        chracterDisplayer.setCharacterPosition(characterPositionRow, characterPositionColumn);
+        this.characterPositionRow.set(characterPositionRow + "");
+        this.characterPositionColumn.set(characterPositionColumn + "");
+    }
+
 
     public void generateMaze(int i, int j) {
         viewModel.generateMaze(i, j);
@@ -103,7 +115,9 @@ public class MyView implements Observer {
     }
 
     public void revealSolution() {
-        showAlert("Solving maze..");
+        int[][] sol = viewModel.getAllSolution();
+        solutionDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
+        solutionDisplayer.setSolution(sol);
     }
 
     private void showAlert(String alertMessage) {
@@ -112,9 +126,9 @@ public class MyView implements Observer {
         alert.show();
     }
 
-    public void KeyPressed2(KeyEvent keyEvent) {
+    public void KeyPressed(KeyEvent keyEvent) {
 
-        //viewModel.moveCharacter(keyEvent.getCode());
+        viewModel.moveCharacter(keyEvent.getCode());
         keyEvent.consume();
     }
 
@@ -124,7 +138,7 @@ public class MyView implements Observer {
             System.out.println("Height: " + scene.getHeight() + " Width: " + scene.getWidth());
             mazeDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
             solutionDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
-            //ToDo redraw set size of character too;
+            chracterDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
 
         };
 
@@ -184,17 +198,12 @@ public class MyView implements Observer {
         }
     }
 
-    public void setNewScene(Stage stage, Scene scene) {
-        stage.setScene(scene);
-
-    }
 
     public void setDifficulty(String diff) {
         this.mazeDifficulty = diff;
     }
 
     public void generateFirstMaze() {
-        initPlayer();
         if (mazeDifficulty != null) {
             if (mazeDifficulty == "easy") generateEasyMaze();
             if (mazeDifficulty == "medium") generateMediumMaze();
@@ -202,52 +211,37 @@ public class MyView implements Observer {
         }
     }
 
-    public void initPlayer() {
-        mainPane.getChildren().add(player);
-        AnimationTimer timer = new AnimationTimer() {
-            @Override
-            public void handle(long now) {
-                move();
-            }
-        };
-        timer.start();
+    //region String Property for Binding
+    public StringProperty characterPositionRow = new SimpleStringProperty();
 
+    public StringProperty characterPositionColumn = new SimpleStringProperty();
+
+    public String getCharacterPositionRow() {
+        return characterPositionRow.get();
     }
 
-    public void move() {//TODO check if moovment is leagel here!!!!!!!!!!!
-        player.animation.play();
-
-        if (isPressed(KeyCode.UP)) {
-            player.animation.play();
-            player.animation.setOffsetY(0);//ToDo change value
-            player.moveY(-2);
-        } else if (isPressed(KeyCode.DOWN)) {
-            player.animation.play();
-            player.animation.setOffsetY(128);//ToDo change value
-            player.moveY(2);
-        } else if (isPressed(KeyCode.RIGHT)) {
-            player.animation.play();
-            player.animation.setOffsetY(192);//ToDo change value
-            player.moveX(2);
-        } else if (isPressed(KeyCode.LEFT)) {
-            player.animation.play();
-            player.animation.setOffsetY(64);//ToDo change value
-            player.moveX(-2);
-        } else {
-            player.animation.stop();
-        }
-
+    public StringProperty characterPositionRowProperty() {
+        return characterPositionRow;
     }
 
-    private boolean isPressed(KeyCode key) {
-        return keys.getOrDefault(key, false);
+    public String getCharacterPositionColumn() {
+        return characterPositionColumn.get();
     }
-    public void KeyPressed(KeyEvent keyEvent) {
-        keys.put(keyEvent.getCode(),true);
+
+    public StringProperty characterPositionColumnProperty() {
+        return characterPositionColumn;
     }
-    public void KeyReleased(KeyEvent keyEvent) {
-        keys.put(keyEvent.getCode(),false);
+
+    public void redraw() {
+        mazeDisplayer.redraw();
+        solutionDisplayer.redraw();
     }
+
+    public void scroll(ScrollEvent event) {
+        viewModel.scroll(event, mazeDisplayer);
+    }
+
+    //endregion
 
     public void saveMazeToFile(ActionEvent actionEvent) {
         viewModel.saveMazeToFile();
@@ -256,3 +250,6 @@ public class MyView implements Observer {
         viewModel.openExistMaze();
     }
 }
+
+
+

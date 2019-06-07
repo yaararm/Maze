@@ -66,7 +66,7 @@ public class MyModel extends Observable implements IModel {
         characterPositionColumn = realMaze.getStartPosition().getColumnIndex();
 
         setChanged();
-        notifyObservers();
+        notifyObservers(1);
 
     }
 
@@ -82,28 +82,40 @@ public class MyModel extends Observable implements IModel {
                 if (realMaze.isWall(i, j)) mazeToreturn[j][i] = 1; //Todo !!!!!!!!!!!!!!!!!!!!!!!!
             }
         }
-        realMaze.print();
         return mazeToreturn;
     }
 
     @Override
     public void moveCharacter(KeyCode movement) { //ToDo make checks here!!
-        switch (movement) {
-            case UP:
-                characterPositionRow--;
-                break;
-            case DOWN:
-                characterPositionRow++;
-                break;
-            case RIGHT:
-                characterPositionColumn++;
-                break;
-            case LEFT:
-                characterPositionColumn--;
-                break;
+        try {
+            switch (movement) {
+                case UP:
+                    if (!realMaze.isWall(characterPositionRow - 1, characterPositionColumn)) {
+                        characterPositionRow--;
+                    }
+                    break;
+                case DOWN:
+                    if (!realMaze.isWall(characterPositionRow + 1, characterPositionColumn)) {
+                        characterPositionRow++;
+                    }
+                    break;
+                case RIGHT:
+                    if (!realMaze.isWall(characterPositionRow, characterPositionColumn + 1)) {
+                        characterPositionColumn++;
+                    }
+                    break;
+                case LEFT:
+                    if (!realMaze.isWall(characterPositionRow, characterPositionColumn - 1)) {
+                        characterPositionColumn--;
+                    }
+                    break;
+            }
+        }
+        catch (Exception e){
+            System.out.println(e+"");
         }
         setChanged();
-        notifyObservers();
+        notifyObservers(2);
 
     }
 
@@ -117,26 +129,38 @@ public class MyModel extends Observable implements IModel {
         return characterPositionColumn;
     }
 
-    public Solution getSolution(){
+    public Solution getSolution() {
         Position realStartPoint = realMaze.getStartPosition();
-        realMaze.setStartPosition(new Position(characterPositionRow,characterPositionColumn));
+        realMaze.setStartPosition(new Position(characterPositionRow, characterPositionColumn));
         //ToDo check Preferences here!!!!
         DepthFirstSearch d = new DepthFirstSearch();
-        Solution s =d.solve(new SearchableMaze(realMaze));
+        Solution s = d.solve(new SearchableMaze(realMaze));
         realMaze.setStartPosition(realStartPoint);
         return s;
     }
-    public int[][] getNextStep(){
+
+    public int[][] getAllSolution() {
         int[][] mazeToreturn = new int[realMaze.getRowLength()][realMaze.getColumnLength()];
         Solution s = getSolution();
-        Position p =((MazeState)s.getSolutionPath().get(1)).getCurrentP();
-        mazeToreturn[p.getColumnIndex()][p.getRowIndex()]=1;
+        for (int i = 1; i < s.getSolutionPath().size(); i++) {
+            Position p = ((MazeState) s.getSolutionPath().get(i)).getCurrentP();
+            mazeToreturn[p.getColumnIndex()][p.getRowIndex()] = 1;
+        }
+        return mazeToreturn;
+    }
+
+    public int[][] getNextStep() {
+        int[][] mazeToreturn = new int[realMaze.getRowLength()][realMaze.getColumnLength()];
+        Solution s = getSolution();
+        Position p = ((MazeState) s.getSolutionPath().get(1)).getCurrentP();
+        mazeToreturn[p.getColumnIndex()][p.getRowIndex()] = 1;
 
         //ToDo change part B and set printableMaze mehod to be public- maybe set new func to return the new sol
 
         return mazeToreturn;
 
     }
+
     public Object getMyObject(){
         return realMaze;
     }
@@ -189,8 +213,9 @@ public class MyModel extends Observable implements IModel {
 
         }
     }
+  
+    //ToDo show alert when file not exist/ file not saved
 
-//ToDo show alert when file not exist/ file not saved
     private void showAlert(String alertMessage) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText(alertMessage);

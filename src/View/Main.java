@@ -66,7 +66,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    private void SetStageCloseEvent(Stage primaryStage,MyModel model) { //ToDo close servers
+    private void SetStageCloseEvent(Stage primaryStage,MyModel model) {
         primaryStage.setOnCloseRequest(e -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             Optional<ButtonType> result = alert.showAndWait();
