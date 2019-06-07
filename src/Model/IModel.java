@@ -12,4 +12,6 @@ public interface IModel {
     int getCharacterPositionColumn();
     int[][] getNextStep();
     Solution getSolution();
-}
+    public int[][] getAllSolution();
+
+    }

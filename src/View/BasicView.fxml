@@ -16,10 +16,13 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import View.MazeDisplayer?>
-<!--    KeyReleased    -->
+<!--    onKeyReleased="#KeyReleased"
+onKeyReleased="#KeyReleased"     -->
+
+<?import View.ChracterDisplayer?>
 <BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600" minWidth="600" prefHeight="600.0" prefWidth="600.0"
             xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyView"
-            onKeyPressed="#KeyPressed" onKeyReleased="#KeyReleased" >
+            onKeyPressed="#KeyPressed" >
     <top>
         <VBox BorderPane.alignment="CENTER">
             <children>
@@ -97,8 +100,7 @@
             <children>
                 <MazeDisplayer fx:id="mazeDisplayer" height="600" width="600" imageFileNameWall="resources/Images/tile_24.png"  />
                 <SolutionDisplayer fx:id="solutionDisplayer" height="600.0" imageFileNameSolution="resources/Images/tile_51.png" width="600.0" />
-
-
+                <ChracterDisplayer fx:id="chracterDisplayer" height="600" width="600" imageFileNameSolution="resources/Images/char1.png"  />
             </children>
             <padding>
                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

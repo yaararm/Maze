@@ -14,8 +14,15 @@ public class MazeDisplayer extends Canvas {
     private int[][] maze;
     private int characterPositionRow = 1;
     private int characterPositionColumn = 1;
+    private double cellHeight,cellWidth;
 
+    public double getCellHeight() {
+        return cellHeight;
+    }
 
+    public double getCellWidth() {
+        return cellWidth;
+    }
 
     public void setMaze(int[][] maze) {
         this.maze = maze;
@@ -47,8 +54,8 @@ public class MazeDisplayer extends Canvas {
             double canvasWidth = getWidth();
 
 
-            double cellHeight = canvasHeight / maze.length;
-            double cellWidth = canvasWidth / maze[0].length;
+            cellHeight = canvasHeight / maze.length;
+            cellWidth = canvasWidth / maze[0].length;
 
             try {
                 Image wallImage = new Image(new FileInputStream(ImageFileNameWall.get()));

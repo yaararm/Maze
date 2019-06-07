@@ -25,8 +25,8 @@ import java.util.Observer;
 
 
 public class YaaraView  {
-    @FXML
     private MyView mazeView;
+    @FXML
     Scene mazeScene;
 
 
