@@ -13,5 +13,7 @@ public interface IModel {
     int[][] getNextStep();
     Solution getSolution();
     public int[][] getAllSolution();
+    void saveMazeToFile() ;
+    void openExistMaze();
 
     }

@@ -79,4 +79,12 @@ public class MyViewModel extends Observable implements Observer {
 
     public void scroll(ScrollEvent event, MazeDisplayer mazeDisplayer) { //ToDo
     }
+
+    public void saveMazeToFile() {
+        model.saveMazeToFile();
+    }
+
+    public void openExistMaze() {
+        model.openExistMaze();
+    }
 }

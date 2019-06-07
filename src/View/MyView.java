@@ -242,7 +242,12 @@ public class MyView implements Observer {
 
 
     //endregion
-
+    public void saveMazeToFile(ActionEvent actionEvent) {
+        viewModel.saveMazeToFile();
+    }
+    public void openExistMaze(ActionEvent actionEvent) {
+        viewModel.openExistMaze();
+    }
 }
 
 
