@@ -165,14 +165,14 @@ public class MyView implements Observer {
 
 
     public void AboutUs(ActionEvent actionEvent) {
-        showAlert("this is us!!!!!!!!");
+        //showAlert("this is us!!!!!!!!");
 
         try {
             Stage stage = new Stage();
             stage.setTitle("About Us");
             FXMLLoader fxmlLoader = new FXMLLoader();
-            Parent root = fxmlLoader.load(getClass().getResource("AboutUs.fxml").openStream());
-            Scene scene = new Scene(root, 400, 350);
+            Parent root = fxmlLoader.load(getClass().getResource("trying.fxml").openStream());
+            Scene scene = new Scene(root, 550, 400);
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
             stage.show();
