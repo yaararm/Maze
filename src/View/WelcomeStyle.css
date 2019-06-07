@@ -55,7 +55,7 @@ MenuButton{
     -fx-font-family: "Arial Narrow";
     -fx-font-weight: bold;
     -fx-background-radius: 200px, 200px, 200px, 200px;
-    -fx-background-color: linear-gradient(	#2E8B57, 	#98FB98);
+    -fx-background-color: linear-gradient(	#ffe184, #ffc3c5);
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
 #btn_easy:hover {
@@ -72,7 +72,7 @@ MenuButton{
 
 #btn_easy:selected {
 
-    -fx-background-color: linear-gradient(	 	#9ACD32,#2E8B57);
+    -fx-background-color: linear-gradient(#9ACD32,#2E8B57);
 //-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
     -fx-background-insets: 0 0 -1 0, 0, 1, 2;
     -fx-background-radius: 200px, 200px, 200px, 200px;
@@ -80,16 +80,119 @@ MenuButton{
     -fx-text-fill: -fx-text-base-color;
     -fx-alignment: CENTER;
     -fx-content-display: LEFT;
-    -fx-border-color:black;
-    -fx-border-width: 4 ;
-    -fx-border-radius: 200px, 600px, 600px, 200px;
-    /*
--fx-outline-color: blue;
--fx-outline-insets: 5;
--fx-outline-width: 3;
--fx-outline-style: dashed;
-*/
 
+}
+
+#btn_medium {
+    -fx-text-fill: black;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-background-radius: 200px, 200px, 200px, 200px;
+    -fx-background-color: linear-gradient(	#ffe184, #ffc3c5);
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+#btn_medium:hover {
+
+    -fx-background-color: linear-gradient(#ff741b, #af5353);
+//-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 200px, 200px, 200px, 200px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
+
+#btn_medium:selected {
+
+    -fx-background-color: linear-gradient(	#ff741b, #af5353);
+//-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 200px, 200px, 200px, 200px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+
+}
+
+#btn_hard {
+    -fx-text-fill: black;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-background-radius: 200px, 200px, 200px, 200px;
+    -fx-background-color: linear-gradient(	#ffe184, #ffc3c5);
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+#btn_hard:hover {
+
+    -fx-background-color: linear-gradient(#FF4500,#4d0000);
+//-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 200px, 200px, 200px, 200px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
+
+#btn_hard:selected {
+
+    -fx-background-color: linear-gradient(#FF4500,#4d0000);
+//-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 200px, 200px, 200px, 200px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
+
+
+#btn_start {
+    -fx-background-image: url('file:resources/Images/56-512.png');
+    -fx-background-size: 18 18;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:right ;
+
+
+    -fx-text-fill: black;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-background-radius: 200px, 200px, 200px, 200px;
+    -fx-background-color: linear-gradient(#00FFFF, #33d6ff);
+    -fx-alignment: left;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+
+}
+#btn_start:hover {
+    -fx-background-image: url('file:resources/Images/56-512.png');
+    -fx-background-size: 18 18;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:right;
+    -fx-background-color: linear-gradient(#00FFFF,#4d4dff);
+//-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 200px, 200px, 200px, 200px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: left;
+    -fx-content-display: LEFT;
+}
+
+#btn_start:selected {
+    -fx-background-image: url('file:resources/Images/56-512.png');
+    -fx-background-size: 18 18;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:right;
+    -fx-background-color: linear-gradient(#00FFFF,#4d4dff);
+//-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 200px, 200px, 200px, 200px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: left;
+    -fx-content-display: LEFT;
 }
 #btn_music {
     -fx-background-image: url('file:resources/Images/volume-512.png');
@@ -105,7 +208,7 @@ MenuButton{
     -fx-background-repeat: no-repeat;
     -fx-background-position:center;
     -fx-background-color: linear-gradient(#c653c6, #FFE4E1);
-    //-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+//-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
     -fx-background-insets: 0 0 -1 0, 0, 1, 2;
     -fx-background-radius: 200px, 200px, 200px, 200px;
     -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
@@ -120,110 +223,6 @@ MenuButton{
     -fx-background-repeat: no-repeat;
     -fx-background-position:center;
     -fx-background-color: linear-gradient(#c653c6, #FFE4E1);
-    //-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
-    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
-    -fx-background-radius: 200px, 200px, 200px, 200px;
-    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
-    -fx-text-fill: -fx-text-base-color;
-    -fx-alignment: CENTER;
-    -fx-content-display: LEFT;
-}
-
-#btn_medium {
-    -fx-text-fill: black;
-    -fx-font-family: "Arial Narrow";
-    -fx-font-weight: bold;
-    -fx-background-radius: 200px, 200px, 200px, 200px;
-    -fx-background-color: linear-gradient(#FFA500,	#F4A460);
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
-}
-#btn_medium:hover {
-
-    -fx-background-color: linear-gradient(#FFA500,	#CD5C5C);
-//-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
-    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
-    -fx-background-radius: 200px, 200px, 200px, 200px;
-    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
-    -fx-text-fill: -fx-text-base-color;
-    -fx-alignment: CENTER;
-    -fx-content-display: LEFT;
-}
-
-#btn_medium:selected {
-
-    -fx-background-color: linear-gradient(	#FFA500, #CD5C5C);
-//-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
-    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
-    -fx-background-radius: 200px, 200px, 200px, 200px;
-    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
-    -fx-text-fill: -fx-text-base-color;
-    -fx-alignment: CENTER;
-    -fx-content-display: LEFT;
-    -fx-border-color:black;
-    -fx-border-width: 2 2 2 2 ;
-    -fx-border-radius: 210px, 210px, 250px, 210px;
-}
-
-#btn_hard {
-    -fx-text-fill: black;
-    -fx-font-family: "Arial Narrow";
-    -fx-font-weight: bold;
-    -fx-background-radius: 200px, 200px, 200px, 200px;
-    -fx-background-color: linear-gradient(#DC143C,#FF4500	);
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
-}
-#btn_hard:hover {
-
-    -fx-background-color: linear-gradient(#DC143C,#4d0000);
-//-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
-    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
-    -fx-background-radius: 200px, 200px, 200px, 200px;
-    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
-    -fx-text-fill: -fx-text-base-color;
-    -fx-alignment: CENTER;
-    -fx-content-display: LEFT;
-}
-
-#btn_hard:selected {
-
-    -fx-background-color: linear-gradient(#DC143C,#4d0000);
-//-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
-    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
-    -fx-background-radius: 200px, 200px, 200px, 200px;
-    -fx-border-color:black;
-    -fx-border-width: 2 2 2 2 ;
-    -fx-border-radius: 210px, 210px, 250px, 210px;
-    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
-    -fx-text-fill: -fx-text-base-color;
-    -fx-alignment: CENTER;
-    -fx-content-display: LEFT;
-}
-
-
-#btn_start {
-    -fx-text-fill: black;
-    -fx-font-family: "Arial Narrow";
-    -fx-font-weight: bold;
-    -fx-background-radius: 200px, 200px, 200px, 200px;
-    -fx-background-color: linear-gradient(#00FFFF, #33d6ff);
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
-
-}
-#btn_start:hover {
-
-    -fx-background-color: linear-gradient(#00FFFF,#4d4dff);
-//-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
-    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
-    -fx-background-radius: 200px, 200px, 200px, 200px;
-    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
-    -fx-text-fill: -fx-text-base-color;
-    -fx-alignment: CENTER;
-    -fx-content-display: LEFT;
-}
-
-#btn_start:selected {
-
-    -fx-background-color: linear-gradient(#00FFFF,#4d4dff);
 //-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
     -fx-background-insets: 0 0 -1 0, 0, 1, 2;
     -fx-background-radius: 200px, 200px, 200px, 200px;

@@ -10,6 +10,7 @@ import javafx.beans.property.StringProperty;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.ScrollEvent;
 
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -80,11 +81,10 @@ public class MyViewModel extends Observable implements Observer {
     public void scroll(ScrollEvent event, MazeDisplayer mazeDisplayer) { //ToDo
     }
 
-    public void saveMazeToFile() {
-        model.saveMazeToFile();
+    public void saveMazeToFile (){
+         model.saveMazeToFile() ;
     }
-
-    public void openExistMaze() {
+    public void openExistMaze(){
         model.openExistMaze();
     }
 }

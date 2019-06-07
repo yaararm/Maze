@@ -39,4 +39,5 @@ public class SavedMaze implements Serializable {
     public int getColumnPosition() {
         return columnPosition;
     }
+
 }

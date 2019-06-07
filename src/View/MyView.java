@@ -19,6 +19,7 @@ import javafx.scene.input.ScrollEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
@@ -41,6 +42,8 @@ public class MyView implements Observer {
     public javafx.scene.control.Menu btn_new;
     public javafx.scene.layout.Pane mainPane;
     public javafx.scene.layout.BorderPane mainBorderPane;
+    public javafx.scene.control.MenuItem btn_save;
+    public javafx.scene.control.MenuItem btn_open;
 
     @Override
     public void update(Observable o, Object arg) {
@@ -93,8 +96,6 @@ public class MyView implements Observer {
 
 
         btn_new.setDisable(true);
-
-
         generateMaze(35, 35);
     }
 
@@ -240,8 +241,8 @@ public class MyView implements Observer {
         viewModel.scroll(event, mazeDisplayer);
     }
 
-
     //endregion
+
     public void saveMazeToFile(ActionEvent actionEvent) {
         viewModel.saveMazeToFile();
     }
