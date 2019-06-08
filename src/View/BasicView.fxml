@@ -96,11 +96,11 @@ onKeyReleased="#KeyReleased"     -->
         </HBox>
     </bottom>
     <center>
-        <Pane fx:id="mainPane" BorderPane.alignment="CENTER" style="-fx-background-color: #111111;">
+        <Pane fx:id="mainPane" BorderPane.alignment="CENTER" style="-fx-background-color: TRANSPARENT;">
             <children>
                 <MazeDisplayer fx:id="mazeDisplayer" height="600" width="600" imageFileNameWall="resources/Images/tile_24.png"  />
                 <SolutionDisplayer fx:id="solutionDisplayer" height="600.0" imageFileNameSolution="resources/Images/tile_51.png" width="600.0" />
-                <ChracterDisplayer fx:id="chracterDisplayer" height="600" width="600" imageFileNameSolution="resources/Images/char1.png"  />
+                <ChracterDisplayer fx:id="chracterDisplayer" height="600" width="600" imageFileNameSolution="resources/Images/char2.png"  />
             </children>
             <padding>
                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

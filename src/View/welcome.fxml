@@ -23,7 +23,7 @@
                           <DropShadow color="#777576" offsetX="1.0" offsetY="1.0" spread="0.75"  />
                       </effect>
                       <font>
-                        <Font name="Arial Rounded MT Bold" size="22.0" />
+                        <Font name="Aharoni Bold" size="22.0" />
                      </font>
                   </Label>
                </children>
