@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.text.Font?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyView" style="-fx-background-image: url('file:resources/Images/field.jpg')">
+            
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="75.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" >
+	   <image>
+			<Image url="/View/yaara.jpg" />
+		</image>
+	  </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="314.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" >
+	  <image>
+                                <Image url="/View/pp.jpg" />
+                            </image>
+	  </ImageView>
+      <Text id="dev" layoutX="40.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developers: Yaara Rumney Tomer Godelli" wrappingWidth="514.0" fill="#ffad42">
+          <effect>
+              <DropShadow color="#777576" offsetX="1.0" offsetY="1.0" spread="0.75"  />
+          </effect>
+          <font>
+              <Font name="Aharoni Bold" size="22.0"/>
+          </font>
+      </Text>
+      <Text layoutX="30.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="study information system and program engineer" wrappingWidth="512.13673400878906" fill="#800669">
+          <effect>
+              <DropShadow color="#777576" offsetX="1.0" offsetY="1.0" spread="0.75"  />
+          </effect>
+          <font>
+              <Font name="Aharoni Bold" size="20.0"/>
+          </font>
+   </Text>
+       <Text layoutX="314.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tomer live in kibbutz netzer Sereni" wrappingWidth="200" fill="#000000">
+           <effect>
+               <DropShadow color="#777576" offsetX="1.0" offsetY="1.0" spread="0.75"  />
+           </effect>
+           <font>
+               <Font name="Aharoni Bold" size="16.0"/>
+           </font>
+       </Text>
+    <Text layoutX="75.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yaara lives in kibbutz maagan michael" wrappingWidth="200" fill="#000000">
+        <effect>
+            <DropShadow color="#777576" offsetX="1.0" offsetY="1.0" spread="0.75"  />
+        </effect>
+        <font>
+            <Font name="Aharoni Bold" size="16.0"/>
+        </font>
+    </Text>
+        </children>
+</AnchorPane>
