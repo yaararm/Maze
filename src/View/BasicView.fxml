@@ -63,6 +63,8 @@ onKeyReleased="#KeyReleased"     -->
                             <items>
                                 <MenuItem fx:id="btn_AboutUs" onAction="#AboutUs" mnemonicParsing="false" text="About Us" />
                                 <MenuItem fx:id="btn_AboutTheGame" onAction="#AboutTheGame" mnemonicParsing="false" text="About The Game" />
+                                <MenuItem fx:id="btn_HowToPlay" onAction="#HowToPlay" mnemonicParsing="false" text="How To Play" />
+
                             </items>
                         </Menu>
                     </menus>

@@ -199,6 +199,9 @@ public class MyView implements Observer {
 
         }
     }
+    public void HowToPlay(){
+
+    }
 
 
     public void setDifficulty(String diff) {
