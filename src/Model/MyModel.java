@@ -136,17 +136,17 @@ public class MyModel extends Observable implements IModel {
             } catch (Exception e) {
                 System.out.println(e + "");
             }
+            if(characterPositionColumn == realMaze.getGoalPosition().getColumnIndex() &&
+                    characterPositionRow == realMaze.getGoalPosition().getRowIndex()){
+                solved = true;
+                setChanged();
+                notifyObservers(3); //solved the maze!!!
+            }
+            else{
+                setChanged();
+                notifyObservers(2);
+            }
 
-        }
-        if(characterPositionColumn == realMaze.getGoalPosition().getColumnIndex() &&
-                characterPositionRow == realMaze.getGoalPosition().getRowIndex()){
-            solved = true;
-            setChanged();
-            notifyObservers(3); //solved the maze!!!
-        }
-        else{
-            setChanged();
-            notifyObservers(2);
         }
 
 

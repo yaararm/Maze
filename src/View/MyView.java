@@ -17,14 +17,19 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.ScrollEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Optional;
+
+import static javafx.scene.media.MediaPlayer.INDEFINITE;
 
 
 public class MyView implements Observer {
@@ -47,6 +52,8 @@ public class MyView implements Observer {
     public javafx.scene.control.MenuItem btn_save;
     public javafx.scene.control.MenuItem btn_open;
     public javafx.scene.control.Toggle tg_mute;
+    public javafx.scene.control.Button btn_hint;
+    public javafx.scene.control.Button btn_revealSolution;
 
 
     @Override
@@ -65,20 +72,32 @@ public class MyView implements Observer {
             }
         }
 
-        // btn_generateMaze.setDisable(false);
     }
 
     private void mazeSolved() {
         YaaraView.mediaPlayer.stop();
+        String musicFile = "resources/End.mp3";     // For example
+        Media sound = new Media(new File(musicFile).toURI().toString());
+        MediaPlayer FinishSong = new MediaPlayer(sound);
+        FinishSong.play();
         //showAlert("congratulation");
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"congratulations!! great job!\n would you like to start a new game? ");
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK) {
             // ... user chose OK
-            // Close program
+            generateFirstMaze();
+
         } else {
             // ... user chose CANCEL or closed the dialog
+            solutionDisplayer.clear();
+            btn_hint.setDisable(true);
+            btn_revealSolution.setDisable(true);
         }
+        FinishSong.stop();
+
+        YaaraView.mediaPlayer.play();
+
+
     }
 
 
@@ -105,6 +124,8 @@ public class MyView implements Observer {
     public void generateMaze(int i, int j) {
         solutionDisplayer.clear();
         viewModel.generateMaze(i, j);
+        btn_hint.setDisable(false);
+        btn_revealSolution.setDisable(false);
     }
 
     public void generateEasyMaze() {
@@ -191,6 +212,7 @@ public class MyView implements Observer {
 
         try {
             Stage stage = new Stage();
+            stage.setResizable(false);
             stage.setTitle("About Us");
             FXMLLoader fxmlLoader = new FXMLLoader();
             Parent root = fxmlLoader.load(getClass().getResource("aboutUs.fxml").openStream());
@@ -208,6 +230,7 @@ public class MyView implements Observer {
 
         try {
             Stage stage = new Stage();
+            stage.setResizable(false);
             stage.setTitle("About The Game");
             FXMLLoader fxmlLoader = new FXMLLoader();
             Parent root = fxmlLoader.load(getClass().getResource("AboutTheGame.fxml").openStream());
@@ -223,6 +246,7 @@ public class MyView implements Observer {
     public void HowToPlay(ActionEvent actionEvent) {
         try {
             Stage stage = new Stage();
+            stage.setResizable(false);
             stage.setTitle("How To Play");
             FXMLLoader fxmlLoader = new FXMLLoader();
             Parent root = fxmlLoader.load(getClass().getResource("howToPlay.fxml").openStream());
