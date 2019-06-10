@@ -15,6 +15,8 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.util.Optional;
 
+import static javafx.scene.media.MediaPlayer.INDEFINITE;
+
 public class Main extends Application {
 
 
@@ -44,11 +46,8 @@ public class Main extends Application {
         primaryStage.setScene(welcomeScene);
 
 
-        //maybe on "setmusic?"
-        String musicFile = "resources/opening.mp3";     // For example
-        Media sound = new Media(new File(musicFile).toURI().toString());
-        YaaraView.mediaPlayer = new MediaPlayer(sound);
-        YaaraView.mediaPlayer.play();
+        startMusic();
+
 
 
         //--------------
@@ -80,6 +79,13 @@ public class Main extends Application {
             }
         });
 
+    }
+    private void startMusic(){
+        String musicFile = "resources/opening.mp3";     // For example
+        Media sound = new Media(new File(musicFile).toURI().toString());
+        YaaraView.mediaPlayer = new MediaPlayer(sound);
+        YaaraView.mediaPlayer.setCycleCount(INDEFINITE);
+        YaaraView.mediaPlayer.play();
     }
 
     public static void main(String[] args) {

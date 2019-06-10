@@ -44,6 +44,8 @@ public class MyView implements Observer {
     public javafx.scene.layout.BorderPane mainBorderPane;
     public javafx.scene.control.MenuItem btn_save;
     public javafx.scene.control.MenuItem btn_open;
+    public javafx.scene.control.Toggle tg_mute;
+
 
     @Override
     public void update(Observable o, Object arg) {
@@ -248,6 +250,17 @@ public class MyView implements Observer {
     }
     public void openExistMaze(ActionEvent actionEvent) {
         viewModel.openExistMaze();
+    }
+
+    public void mute(ActionEvent actionEvent){
+        if(tg_mute.isSelected()){
+        YaaraView.mediaPlayer.setVolume(0);
+        }
+        else{
+            YaaraView.mediaPlayer.setVolume(1);
+
+        }
+        mainPane.requestFocus();
     }
 }
 

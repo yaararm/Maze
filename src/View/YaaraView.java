@@ -37,7 +37,6 @@ public class YaaraView  {
     public javafx.scene.control.Toggle btn_easy;
     public javafx.scene.control.Toggle btn_medium;
 
-    private Boolean musicIsOn = true;
     public static MediaPlayer mediaPlayer;
     public String difficultLevel ;
 
@@ -76,12 +75,10 @@ public class YaaraView  {
         });
     }
     public void musicMute(ActionEvent actionEvent) {
-        if (musicIsOn) {//mute
-            this.mediaPlayer.stop();
-            musicIsOn = false;
+        if (btn_music.isSelected()) {//mute
+            this.mediaPlayer.setVolume(0);
         } else {// on
-            this.mediaPlayer.play();
-            musicIsOn = true;
+            this.mediaPlayer.setVolume(1);
         }
     }
 
