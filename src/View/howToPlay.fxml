@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<?import javafx.scene.effect.DropShadow?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyView" style="-fx-background-image: url('file:resources/Images/field.jpg')">
+
+   <children>
+
+          <Text id="dev" layoutX="10" layoutY="30" strokeType="OUTSIDE" strokeWidth="0.0"
+                text="Every time you run it, a different maze is generated.
+          &#10;You start at the entrance at the upper left and work your way through the maze to the exit at the lower right. All mazes are solvable.
+          &#10;&#10;You can select the difficulty of the maze you wish to generate by choosing one of the 3 levels we offer: easy, medium or hard.
+          &#10;&#10;You can save the game, and come back to play it when ever you want!
+          &#10;&#10;You can ask for help: play with the full solutions path or show a sneek peak from the way to grandma!" wrappingWidth="560.0" fill="#252525">
+              <effect>
+                  <DropShadow color="#c8c6c7" offsetX="1.0" offsetY="1.0" spread="0.2"  />
+              </effect>
+         <font>
+            <Font name="Aharoni Bold" size="21.0" />
+         </font>
+          </Text>
+
+   </children>
+</AnchorPane>
+
+
