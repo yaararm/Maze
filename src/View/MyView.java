@@ -75,12 +75,26 @@ public class MyView implements Observer {
     }
 
     private void mazeSolved() {
+        try {
+            Stage stage = new Stage();
+            stage.setResizable(false);
+            stage.setTitle("Winning!!!");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            Parent root = fxmlLoader.load(getClass().getResource("endScene.fxml").openStream());
+            Scene scene = new Scene(root, 580, 380);
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
+            stage.show();
+        } catch (Exception e) {
+
+        }
         YaaraView.mediaPlayer.stop();
         String musicFile = "resources/End.mp3";     // For example
         Media sound = new Media(new File(musicFile).toURI().toString());
         MediaPlayer FinishSong = new MediaPlayer(sound);
         FinishSong.play();
         //showAlert("congratulation");
+        /*
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"congratulations!! great job!\n would you like to start a new game? ");
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK) {
@@ -93,6 +107,7 @@ public class MyView implements Observer {
             btn_hint.setDisable(true);
             btn_revealSolution.setDisable(true);
         }
+        */
         FinishSong.stop();
 
         YaaraView.mediaPlayer.play();
@@ -316,6 +331,12 @@ public class MyView implements Observer {
 
         }
         mainPane.requestFocus();
+    }
+    public void newGame(ActionEvent actionEvent){
+
+    }
+    public void quitFunction(ActionEvent actionEvent){
+
     }
 }
 

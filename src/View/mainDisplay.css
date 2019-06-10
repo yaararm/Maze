@@ -1,7 +1,7 @@
 .root {
 
     -fx-background-color: #f7e9c0;
-    -fx-background-image: url('file:resources/Images/hay3.jpg');
+    -fx-background-image: url('file:resources/Images/hay4.jpg');
 }
 
 Button {
@@ -78,4 +78,23 @@ MenuButton{
     -fx-content-display: LEFT;
     -fx-background-color: linear-gradient(#00b2b2, #4eb86a);
 
+}
+#btn_restart{
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 200px, 200px, 200px, 200px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-background-color: linear-gradient(#00b2b2, #4eb86a);
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
+
+#btn_exit{
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 200px, 200px, 200px, 200px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-background-color: linear-gradient(#ffad42, #b8542d);
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
 }
