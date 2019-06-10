@@ -170,7 +170,7 @@ public class MyModel extends Observable implements IModel {
     SavedMaze mySave = new SavedMaze(realMaze, getCharacterPositionRow(), getCharacterPositionColumn());
 
     FileChooser fileChooser = new FileChooser();
-    FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+    FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Maze files ", "*.maze");
     fileChooser.getExtensionFilters().add(extFilter);
     fileChooser.setTitle("Save the Maze");
     Stage window = new Stage();
@@ -205,7 +205,7 @@ public class MyModel extends Observable implements IModel {
              this.characterPositionRow = mySave.getRowPosition();
              this.characterPositionColumn = mySave.getColumnPosition();
                 setChanged();
-                notifyObservers();
+                notifyObservers(1);
 
          }
         } catch (IOException | ClassNotFoundException e) {

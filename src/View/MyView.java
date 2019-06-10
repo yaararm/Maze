@@ -199,8 +199,19 @@ public class MyView implements Observer {
 
         }
     }
-    public void HowToPlay(){
+    public void HowToPlay(ActionEvent actionEvent){
+        try {
+            Stage stage = new Stage();
+            stage.setTitle("How To Play");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            Parent root = fxmlLoader.load(getClass().getResource("AboutTheGame.fxml").openStream());
+            Scene scene = new Scene(root, 650, 350);
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
+            stage.show();
+        } catch (Exception e) {
 
+        }
     }
 
 
