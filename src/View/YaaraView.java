@@ -63,17 +63,16 @@ public class YaaraView  {
         scene.widthProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneWidth, Number newSceneWidth) {
-                System.out.println("Width: " + newSceneWidth);
                 //ToDo redraw maze sol and character
             }
         });
         scene.heightProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneHeight, Number newSceneHeight) {
-                System.out.println("Height: " + newSceneHeight);
             }
         });
     }
+
     public void musicMute(ActionEvent actionEvent) {
         if (btn_music.isSelected()) {//mute
             this.mediaPlayer.setVolume(0);
@@ -85,13 +84,14 @@ public class YaaraView  {
         }
     }
 
-    public void openMazeWindow(ActionEvent actionEvent) throws IOException { // connect with tomer view after start
+    public void openMazeWindow() throws IOException { // connect with tomer view after start
 
         if (difficult.getSelectedToggle()!=null){
             btn_start.setDisable(false);
             //showAlert("YES");
             UpdateDifficultyAtMazeContriller();
             Stage stage = (Stage) btn_start.getScene().getWindow();
+            stage.setResizable(true);
             stage.setScene(mazeScene);
             stage.centerOnScreen();
 
@@ -106,9 +106,6 @@ public class YaaraView  {
         mazeView.generateFirstMaze();
 
 
-    }
-        private void ButtonStart(ActionEvent event) {
-        btn_start.setDisable(true);
     }
 
     public void easy_level(ActionEvent actionEvent) {

@@ -134,7 +134,6 @@ public class MyModel extends Observable implements IModel {
                         break;
                 }
             } catch (Exception e) {
-                System.out.println(e + "");
             }
             if(characterPositionColumn == realMaze.getGoalPosition().getColumnIndex() &&
                     characterPositionRow == realMaze.getGoalPosition().getRowIndex()){
