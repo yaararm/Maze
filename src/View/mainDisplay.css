@@ -1,7 +1,7 @@
 .root {
 
     -fx-background-color: #f7e9c0;
-    //-fx-background-image: url('file:resources/Images/back1.jpg');
+    -fx-background-image: url('file:resources/Images/hay3.jpg');
 }
 
 Button {
@@ -19,6 +19,7 @@ Button:hover{
     -fx-background-radius: 200px, 200px, 200px, 200px;
     -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
     -fx-text-fill: -fx-text-base-color;
+    -fx-background-color: linear-gradient(#00b2b2, #4eb86a);
     -fx-alignment: CENTER;
     -fx-content-display: LEFT;
 }
@@ -59,6 +60,8 @@ MenuButton{
     -fx-text-fill: -fx-text-base-color;
     -fx-alignment: CENTER;
     -fx-content-display: LEFT;
+    -fx-background-color: linear-gradient(#00cbcb, #53d481);
+
 }
 
 #tg_mute:selected {
@@ -66,11 +69,13 @@ MenuButton{
     -fx-background-size: 18 18;
     -fx-background-repeat: no-repeat;
     -fx-background-position:center;
-    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+
     -fx-background-insets: 0 0 -1 0, 0, 1, 2;
     -fx-background-radius: 200px, 200px, 200px, 200px;
     -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
     -fx-text-fill: -fx-text-base-color;
     -fx-alignment: CENTER;
     -fx-content-display: LEFT;
+    -fx-background-color: linear-gradient(#00b2b2, #4eb86a);
+
 }
