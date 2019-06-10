@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.ScrollEvent;
@@ -23,6 +24,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Optional;
 
 
 public class MyView implements Observer {
@@ -57,11 +59,28 @@ public class MyView implements Observer {
 
             } else if ((int) arg == 2) {
                 displayCharecter(viewModel.getMaze()[0].length);
+            } else if ((int) arg == 3) {
+                displayCharecter(viewModel.getMaze()[0].length);
+                mazeSolved();
             }
+        }
 
-            // btn_generateMaze.setDisable(false);
+        // btn_generateMaze.setDisable(false);
+    }
+
+    private void mazeSolved() {
+        YaaraView.mediaPlayer.stop();
+        //showAlert("congratulation");
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            // ... user chose OK
+            // Close program
+        } else {
+            // ... user chose CANCEL or closed the dialog
         }
     }
+
 
     public void setViewModel(MyViewModel viewModel) {
         this.viewModel = viewModel;
@@ -84,6 +103,7 @@ public class MyView implements Observer {
 
 
     public void generateMaze(int i, int j) {
+        solutionDisplayer.clear();
         viewModel.generateMaze(i, j);
     }
 
@@ -150,7 +170,7 @@ public class MyView implements Observer {
 
 
     }
-
+//ToDo
     public void setMaximizeEvent(Stage stage) {
         stage.maximizedProperty().addListener(new ChangeListener<Boolean>() {
             //ToDo fix here!!!!!! doesnt work
@@ -199,7 +219,8 @@ public class MyView implements Observer {
 
         }
     }
-    public void HowToPlay(ActionEvent actionEvent){
+
+    public void HowToPlay(ActionEvent actionEvent) {
         try {
             Stage stage = new Stage();
             stage.setTitle("How To Play");
@@ -248,10 +269,6 @@ public class MyView implements Observer {
         return characterPositionColumn;
     }
 
-    public void redraw() {
-        mazeDisplayer.redraw();
-        solutionDisplayer.redraw();
-    }
 
     public void scroll(ScrollEvent event) {
         viewModel.scroll(event, mazeDisplayer);
@@ -262,15 +279,15 @@ public class MyView implements Observer {
     public void saveMazeToFile(ActionEvent actionEvent) {
         viewModel.saveMazeToFile();
     }
+
     public void openExistMaze(ActionEvent actionEvent) {
         viewModel.openExistMaze();
     }
 
-    public void mute(ActionEvent actionEvent){
-        if(tg_mute.isSelected()){
-        YaaraView.mediaPlayer.setVolume(0);
-        }
-        else{
+    public void mute(ActionEvent actionEvent) {
+        if (tg_mute.isSelected()) {
+            YaaraView.mediaPlayer.setVolume(0);
+        } else {
             YaaraView.mediaPlayer.setVolume(1);
 
         }

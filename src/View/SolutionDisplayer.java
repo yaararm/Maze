@@ -1,4 +1,5 @@
 package View;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.EventHandler;
@@ -15,7 +16,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 
-public class SolutionDisplayer extends Canvas{
+public class SolutionDisplayer extends Canvas {
     private int[][] solution;
     private int characterPositionRow = 1;
     private int characterPositionColumn = 1;
@@ -24,9 +25,10 @@ public class SolutionDisplayer extends Canvas{
         this.solution = mazeSol;
         redraw();
     }
-    public void setSize(double newheight,double newWidth){
-        setHeight(Math.min(newheight,newWidth));
-        setWidth(Math.min(newheight,newWidth));
+
+    public void setSize(double newheight, double newWidth) {
+        setHeight(Math.min(newheight, newWidth));
+        setWidth(Math.min(newheight, newWidth));
         redraw();
     }
 
@@ -72,6 +74,15 @@ public class SolutionDisplayer extends Canvas{
         }
     }
 
+    public void clear() {
+        if (solution != null) {
+
+            GraphicsContext gc = getGraphicsContext2D();
+            gc.clearRect(0, 0, getWidth(), getHeight());
+
+        }
+    }
+
     //region Properties
     private StringProperty imageFileNameSolution = new SimpleStringProperty();
 
@@ -85,6 +96,6 @@ public class SolutionDisplayer extends Canvas{
 
 
     //endregion
-    }
+}
 
 

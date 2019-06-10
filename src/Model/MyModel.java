@@ -4,14 +4,14 @@ import Server.Server;
 import algorithms.mazeGenerators.Maze;
 import algorithms.mazeGenerators.MyMazeGenerator;
 import algorithms.mazeGenerators.Position;
-import algorithms.search.DepthFirstSearch;
-import algorithms.search.MazeState;
-import algorithms.search.SearchableMaze;
-import algorithms.search.Solution;
+import algorithms.search.*;
 import javafx.scene.control.Alert;
 import javafx.scene.input.KeyCode;
 
 import java.io.*;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -33,6 +33,8 @@ public class MyModel extends Observable implements IModel {
     Maze realMaze;
     private Server mazeGeneratingServer;
     private Server solveSearchProblemServer;
+    private Solution currentSol;
+    private boolean solved;
 
     private int characterPositionRow = 1;
     private int characterPositionColumn = 1;
@@ -55,24 +57,43 @@ public class MyModel extends Observable implements IModel {
         solveSearchProblemServer.stop();
     }
 
-
     @Override
     public void generateMaze(int width, int height) {
-        //Generate maze
-        MyMazeGenerator mazeGenerator = new MyMazeGenerator();
-        Maze m = mazeGenerator.generate(width, height);
-        this.realMaze = m;
-        characterPositionRow = realMaze.getStartPosition().getRowIndex();
-        characterPositionColumn = realMaze.getStartPosition().getColumnIndex();
-
-        setChanged();
-        notifyObservers(1);
-
+        try {
+            Client client = new Client(InetAddress.getLocalHost(), 5400, new IClientStrategy() {
+                @Override
+                public void clientStrategy(InputStream inFromServer, OutputStream outToServer) {
+                    try {
+                        ObjectOutputStream toServer = new ObjectOutputStream(outToServer);
+                        ObjectInputStream fromServer = new ObjectInputStream(inFromServer);
+                        toServer.flush();
+                        int[] mazeDimensions = new int[]{width, height};
+                        toServer.writeObject(mazeDimensions); //send maze dimensions to server
+                        toServer.flush();
+                        byte[] compressedMaze = (byte[]) fromServer.readObject(); //read generated maze (compressed with MyCompressor) from server
+                        InputStream is = new MyDecompressorInputStream(new ByteArrayInputStream(compressedMaze));
+                        byte[] decompressedMaze = new byte[1000000]; //allocating byte[] for the decompressed maze -
+                        is.read(decompressedMaze); //Fill decompressedMaze with bytes
+                        Maze maze = new Maze(decompressedMaze);
+                        realMaze = maze;
+                        //maze.print();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            client.communicateWithServer();
+        } catch (
+                UnknownHostException e) {
+            e.printStackTrace();
+        }
+            characterPositionRow = realMaze.getStartPosition().getRowIndex();
+            characterPositionColumn = realMaze.getStartPosition().getColumnIndex();
+            solved = false;
+            setChanged();
+            notifyObservers(1);
     }
 
-    // public boolean isAWall() {
-    //     return realMaze.
-    // }
 
     @Override
     public int[][] getMaze() {
@@ -82,40 +103,52 @@ public class MyModel extends Observable implements IModel {
                 if (realMaze.isWall(i, j)) mazeToreturn[j][i] = 1; //Todo !!!!!!!!!!!!!!!!!!!!!!!!
             }
         }
+        mazeToreturn[realMaze.getGoalPosition().getColumnIndex()][realMaze.getGoalPosition().getRowIndex()] = 2;
         return mazeToreturn;
     }
 
     @Override
     public void moveCharacter(KeyCode movement) { //ToDo make checks here!!
-        try {
-            switch (movement) {
-                case UP:
-                    if (!realMaze.isWall(characterPositionRow - 1, characterPositionColumn)) {
-                        characterPositionRow--;
-                    }
-                    break;
-                case DOWN:
-                    if (!realMaze.isWall(characterPositionRow + 1, characterPositionColumn)) {
-                        characterPositionRow++;
-                    }
-                    break;
-                case RIGHT:
-                    if (!realMaze.isWall(characterPositionRow, characterPositionColumn + 1)) {
-                        characterPositionColumn++;
-                    }
-                    break;
-                case LEFT:
-                    if (!realMaze.isWall(characterPositionRow, characterPositionColumn - 1)) {
-                        characterPositionColumn--;
-                    }
-                    break;
+        if(!solved) {
+            try {
+                switch (movement) {
+                    case UP:
+                        if (!realMaze.isWall(characterPositionRow - 1, characterPositionColumn)) {
+                            characterPositionRow--;
+                        }
+                        break;
+                    case DOWN:
+                        if (!realMaze.isWall(characterPositionRow + 1, characterPositionColumn)) {
+                            characterPositionRow++;
+                        }
+                        break;
+                    case RIGHT:
+                        if (!realMaze.isWall(characterPositionRow, characterPositionColumn + 1)) {
+                            characterPositionColumn++;
+                        }
+                        break;
+                    case LEFT:
+                        if (!realMaze.isWall(characterPositionRow, characterPositionColumn - 1)) {
+                            characterPositionColumn--;
+                        }
+                        break;
+                }
+            } catch (Exception e) {
+                System.out.println(e + "");
             }
+
         }
-        catch (Exception e){
-            System.out.println(e+"");
+        if(characterPositionColumn == realMaze.getGoalPosition().getColumnIndex() &&
+                characterPositionRow == realMaze.getGoalPosition().getRowIndex()){
+            solved = true;
+            setChanged();
+            notifyObservers(3); //solved the maze!!!
         }
-        setChanged();
-        notifyObservers(2);
+        else{
+            setChanged();
+            notifyObservers(2);
+        }
+
 
     }
 
@@ -123,30 +156,52 @@ public class MyModel extends Observable implements IModel {
     public int getCharacterPositionRow() {
         return characterPositionRow;
     }
-
     @Override
     public int getCharacterPositionColumn() {
         return characterPositionColumn;
     }
 
-    public Solution getSolution() {
+    //ToDo check properties here!!!
+    public  Solution getSolution() {
         Position realStartPoint = realMaze.getStartPosition();
         realMaze.setStartPosition(new Position(characterPositionRow, characterPositionColumn));
-        //ToDo check Preferences here!!!!
-        DepthFirstSearch d = new DepthFirstSearch();
-        Solution s = d.solve(new SearchableMaze(realMaze));
-        realMaze.setStartPosition(realStartPoint);
-        return s;
+        Solution s;
+        try {
+            Client client = new Client(InetAddress.getLocalHost(), 5401, new IClientStrategy() {
+                @Override
+                public void clientStrategy(InputStream inFromServer, OutputStream outToServer) {
+                    try {
+                        ObjectOutputStream toServer = new ObjectOutputStream(outToServer);
+                        ObjectInputStream fromServer = new ObjectInputStream(inFromServer);
+                        toServer.flush();
+                        Maze maze = realMaze;
+                        toServer.writeObject(maze); //send maze to server
+                        toServer.flush();
+                        Solution mazeSolution = (Solution) fromServer.readObject();
+                        realMaze.setStartPosition(realStartPoint);
+                        currentSol = mazeSolution;
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            client.communicateWithServer();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+        return currentSol;
     }
 
     public int[][] getAllSolution() {
-        int[][] mazeToreturn = new int[realMaze.getRowLength()][realMaze.getColumnLength()];
+        int[][] mazeToReturn = new int[realMaze.getRowLength()][realMaze.getColumnLength()];
         Solution s = getSolution();
-        for (int i = 1; i < s.getSolutionPath().size(); i++) {
+        for (int i = 1; i < s.getSolutionPath().size()-1; i++) {
             Position p = ((MazeState) s.getSolutionPath().get(i)).getCurrentP();
-            mazeToreturn[p.getColumnIndex()][p.getRowIndex()] = 1;
+            mazeToReturn[p.getColumnIndex()][p.getRowIndex()] = 1;
         }
-        return mazeToreturn;
+        return mazeToReturn;
+
     }
 
     public int[][] getNextStep() {
@@ -161,9 +216,6 @@ public class MyModel extends Observable implements IModel {
 
     }
 
-    public Object getMyObject(){
-        return realMaze;
-    }
 @Override
     public void saveMazeToFile (){
 

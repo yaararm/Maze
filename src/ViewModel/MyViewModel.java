@@ -44,11 +44,18 @@ public class MyViewModel extends Observable implements Observer {
                 characterPositionColumn.set(characterPositionColumnIndex + "");
                 setChanged();
                 notifyObservers(2);
+            } else if ((int) arg == 3) {
+                characterPositionRowIndex = model.getCharacterPositionRow();
+                characterPositionRow.set(model.getCharacterPositionRow() + "");
+                characterPositionColumnIndex = model.getCharacterPositionColumn();
+                characterPositionColumn.set(characterPositionColumnIndex + "");
+                setChanged();
+                notifyObservers(3);
             }
-
-
         }
+
     }
+
 
     public void generateMaze(int width, int height) {
         model.generateMaze(width, height);
@@ -82,10 +89,11 @@ public class MyViewModel extends Observable implements Observer {
     public void scroll(ScrollEvent event, MazeDisplayer mazeDisplayer) { //ToDo
     }
 
-    public void saveMazeToFile (){
-         model.saveMazeToFile() ;
+    public void saveMazeToFile() {
+        model.saveMazeToFile();
     }
-    public void openExistMaze(){
+
+    public void openExistMaze() {
         model.openExistMaze();
     }
 }

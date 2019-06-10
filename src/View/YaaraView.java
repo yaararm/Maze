@@ -77,8 +77,11 @@ public class YaaraView  {
     public void musicMute(ActionEvent actionEvent) {
         if (btn_music.isSelected()) {//mute
             this.mediaPlayer.setVolume(0);
+            mazeView.tg_mute.setSelected(true);
         } else {// on
             this.mediaPlayer.setVolume(1);
+            mazeView.tg_mute.setSelected(false);
+
         }
     }
 

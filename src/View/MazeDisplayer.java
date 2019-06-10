@@ -58,7 +58,9 @@ public class MazeDisplayer extends Canvas {
             cellWidth = canvasWidth / maze[0].length;
 
             try {
+                Image goalImage = new Image(new FileInputStream(ImageFileNameGoal.get()));
                 Image wallImage = new Image(new FileInputStream(ImageFileNameWall.get()));
+
                 GraphicsContext gc = getGraphicsContext2D();
                 gc.clearRect(0, 0, getWidth(), getHeight());
 
@@ -70,6 +72,11 @@ public class MazeDisplayer extends Canvas {
                             //gc.fillRect(i * cellHeight, j * cellWidth, cellHeight, cellWidth);
                             gc.drawImage(wallImage, i * cellHeight, j * cellWidth, cellHeight, cellWidth);
                         }
+                        if (maze[i][j] == 2) {
+                            //gc.fillRect(i * cellHeight, j * cellWidth, cellHeight, cellWidth);
+                            gc.drawImage(goalImage, i * cellHeight, j * cellWidth, cellHeight, cellWidth);
+                        }
+
                     }
                 }
 
@@ -80,14 +87,26 @@ public class MazeDisplayer extends Canvas {
     }
     //region Properties
     private StringProperty ImageFileNameWall = new SimpleStringProperty();
+    private StringProperty ImageFileNameGoal = new SimpleStringProperty();
 
     public String getImageFileNameWall() {
         return ImageFileNameWall.get();
+    }
+    public String getImageFileNameGoal() {
+        return ImageFileNameGoal.get();
     }
 
     public void setImageFileNameWall(String imageFileNameWall) {
         this.ImageFileNameWall.set(imageFileNameWall);
     }
+
+    public void setImageFileNameGoal(String imageFileNameGoal) {
+        this.ImageFileNameGoal.set(imageFileNameGoal);
+    }
+
+
+
+
 
 
     //endregion
