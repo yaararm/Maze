@@ -83,6 +83,7 @@ public class MyView implements Observer {
             Parent root = fxmlLoader.load(getClass().getResource("endScene.fxml").openStream());
             Scene scene = new Scene(root, 580, 380);
             stage.setScene(scene);
+            scene.getStylesheets().add("View/mainDisplay.css");
             stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
             stage.show();
         } catch (Exception e) {

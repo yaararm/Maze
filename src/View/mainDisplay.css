@@ -84,7 +84,7 @@ MenuButton{
     -fx-background-radius: 200px, 200px, 200px, 200px;
     -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
     -fx-text-fill: -fx-text-base-color;
-    -fx-background-color: linear-gradient(#00b2b2, #4eb86a);
+    -fx-background-color: linear-gradient(#69eaf3, #5f82e3);
     -fx-alignment: CENTER;
     -fx-content-display: LEFT;
 }
@@ -94,7 +94,32 @@ MenuButton{
     -fx-background-radius: 200px, 200px, 200px, 200px;
     -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
     -fx-text-fill: -fx-text-base-color;
-    -fx-background-color: linear-gradient(#ffad42, #b8542d);
+    -fx-background-color: linear-gradient(#ff6161, #f99100);
     -fx-alignment: CENTER;
     -fx-content-display: LEFT;
+}
+#btn_restart:hover{
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 200px, 200px, 200px, 200px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-background-color: linear-gradient(#57b9c2, #44559b);
+
+
+
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
+
+#btn_exit:hover{
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 200px, 200px, 200px, 200px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-background-color: linear-gradient(#a63e3e, #bc6c00);
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+
+
+
 }
