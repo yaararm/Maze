@@ -1,3 +1,6 @@
+/**
+ * this class is the controller of the welcome scene
+ */
 package View;
 
 import javafx.beans.value.ChangeListener;
@@ -12,11 +15,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 
-public class YaaraView  {
+public class WelcomeView {
     private MyViewController mazeView;
     @FXML
     Scene mazeScene;
-
 
     public javafx.scene.control.Toggle btn_music;
     public javafx.scene.control.ToggleGroup difficult;
@@ -24,43 +26,27 @@ public class YaaraView  {
     public javafx.scene.control.Toggle btn_hard;
     public javafx.scene.control.Toggle btn_easy;
     public javafx.scene.control.Toggle btn_medium;
-
     public static MediaPlayer mediaPlayer;
     public String difficultLevel ;
 
+    /**
+     *  this function set the maze scene
+     * @param mazeScene
+     */
     public void setMazeScene(Scene mazeScene) {
         this.mazeScene = mazeScene;
     }
+    /**
+     * this function set the controller for the maze view
+     * @param view
+     */
     public void setMazeView(MyViewController view) {
         this.mazeView = view;
     }
-
-
-
-
-
-    private void showAlert(String alertMessage) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText(alertMessage);
-        alert.show();
-    }
-
-    public void setResizeEvent(Scene scene) {
-        long width = 0;
-        long height = 0;
-        scene.widthProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneWidth, Number newSceneWidth) {
-                //ToDo redraw maze sol and character
-            }
-        });
-        scene.heightProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneHeight, Number newSceneHeight) {
-            }
-        });
-    }
-
+    /**
+     * this function mute the music
+     * @param actionEvent
+     */
     public void musicMute(ActionEvent actionEvent) {
         if (btn_music.isSelected()) {//mute
             this.mediaPlayer.setVolume(0);
@@ -71,7 +57,10 @@ public class YaaraView  {
 
         }
     }
-
+    /**
+     * this function open the window of the maze game
+     * @throws IOException
+     */
     public void openMazeWindow() throws IOException { // connect with tomer view after start
 
         if (difficult.getSelectedToggle()!=null){
@@ -90,6 +79,10 @@ public class YaaraView  {
         else
             showAlert("you have to choose difficulty level");
     }
+    /**
+     * this function update the difficulty of the maze
+     * @throws IOException
+     */
     public void UpdateDifficultyAtMazeController() throws IOException { // connect with tomer view after start
 
         mazeView.setDifficulty(difficultLevel);
@@ -98,6 +91,10 @@ public class YaaraView  {
 
     }
 
+    /**
+     * set easy level as maze difficulty
+     * @param actionEvent
+     */
     public void easy_level(ActionEvent actionEvent) {
         if (btn_hard.isSelected()||btn_medium.isSelected()||btn_easy.isSelected()){
             difficultLevel = "easy";
@@ -108,6 +105,11 @@ public class YaaraView  {
             btn_start.setDisable(true);
 
     }
+
+    /**
+     * set medium level as maze difficulty
+     * @param actionEvent
+     */
     public void medium_level(ActionEvent actionEvent) {
         if (btn_hard.isSelected()||btn_medium.isSelected()||btn_easy.isSelected()){
             difficultLevel = "medium";
@@ -116,6 +118,10 @@ public class YaaraView  {
         else
             btn_start.setDisable(true);
     }
+    /**
+     * set hard level as maze difficulty
+     * @param actionEvent
+     */
     public void hard_level(ActionEvent actionEvent) {
         if (btn_hard.isSelected()||btn_medium.isSelected()||btn_easy.isSelected()){
             difficultLevel = "hard";
@@ -124,4 +130,15 @@ public class YaaraView  {
         else
             btn_start.setDisable(true);
     }
+
+    /**
+     * this function shows alert
+     * @param alertMessage
+     */
+    private void showAlert(String alertMessage) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText(alertMessage);
+        alert.show();
+    }
+
 }

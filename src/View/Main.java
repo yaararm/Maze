@@ -53,7 +53,7 @@ public class Main extends Application {
 
         //--------------
         MyViewController view = fxmlLoader2.getController();
-        YaaraView yaaraView = fxmlLoader1.getController();
+        WelcomeView yaaraView = fxmlLoader1.getController();
         yaaraView.setMazeScene(mazeScene);
         yaaraView.setMazeView(view);
         //--------------------------
@@ -101,9 +101,9 @@ public class Main extends Application {
     private void startMusic(){
         String musicFile = "resources/opening.mp3";     // For example
         Media sound = new Media(new File(musicFile).toURI().toString());
-        YaaraView.mediaPlayer = new MediaPlayer(sound);
-        YaaraView.mediaPlayer.setCycleCount(INDEFINITE);
-        YaaraView.mediaPlayer.play();
+        WelcomeView.mediaPlayer = new MediaPlayer(sound);
+        WelcomeView.mediaPlayer.setCycleCount(INDEFINITE);
+        WelcomeView.mediaPlayer.play();
     }
 
     public static void main(String[] args) {

@@ -13,7 +13,7 @@
         <Label styleClass="ViewStyle" layoutX="20" layoutY="60"  text="Algorithms to generate maze: &#10;My maze generator using Depth-First search algorithm, &#10;Simple maze algorithm using random method
         &#10;&#10;&#10;&#10;Solve Algorithms: &#10;Breadth-First search, Depth-First search, &#10;Best-First search&#10;" textFill="#000000">
             <effect>
-                <DropShadow color="#777576" offsetX="1.0" offsetY="1.0" spread="0.2"  />
+                <DropShadow color="#c0bebf" offsetX="1.0" offsetY="1.0" spread="0.2"  />
             </effect>
             <font>
                 <Font name="Aharoni Bold" size="22.0"/>

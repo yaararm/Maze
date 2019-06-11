@@ -1,3 +1,6 @@
+/**
+ * this class represent the character displays
+ */
 package View;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -10,37 +13,61 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 
+
 public class ChracterDisplayer extends Canvas {
     private int ArraySize;
     private int characterPositionRow = 1;
     private int characterPositionColumn = 1;
     private double cellHeight, cellWidth;
-
+    private StringProperty ImageFileNameCharacter = new SimpleStringProperty();
+    /**
+     * this function set the array size
+     * @param size
+     */
     public void setArraySize(int size) {
         this.ArraySize = size;
         redraw();
     }
 
+    /**
+     * this function set the sizes of the character
+     * @param newheight
+     * @param newWidth
+     */
     public void setSize(double newheight, double newWidth) {
         setHeight(Math.min(newheight, newWidth));
         setWidth(Math.min(newheight, newWidth));
         redraw();
     }
-
+    /**
+     * this function set the character Position
+     * @param row
+     * @param column
+     */
     public void setCharacterPosition(int row, int column) {
         characterPositionRow = row;
         characterPositionColumn = column;
         redraw();
     }
 
+    /**
+     *
+     * @return Character Position Row
+     */
     public int getCharacterPositionRow() {
         return characterPositionRow;
     }
-
+    /**
+     *
+     * @return Character Position Column
+     */
     public int getCharacterPositionColumn() {
         return characterPositionColumn;
     }
 
+    /**
+     * this function draw the character on the maze
+     */
     public void redraw() {
 
         double canvasHeight = getHeight();
@@ -61,15 +88,17 @@ public class ChracterDisplayer extends Canvas {
             e.printStackTrace();
         }
     }
-
-
-    //region Properties
-    private StringProperty ImageFileNameCharacter = new SimpleStringProperty();
-
+   /**
+     *
+     * @return the file image of the character
+     */
     public String getImageFileNameSolution() {
         return ImageFileNameCharacter.get();
     }
-
+    /**
+     * this function set the image of the character
+     * @param imageFileNameSolution
+     */
     public void setImageFileNameSolution(String imageFileNameSolution) {
         this.ImageFileNameCharacter.set(imageFileNameSolution);
     }

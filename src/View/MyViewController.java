@@ -1,23 +1,19 @@
+/**
+ * this class is the controller of the maze window
+ */
 package View;
 
-import View.Character.Character;
 import ViewModel.MyViewModel;
-import javafx.animation.AnimationTimer;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.ScrollEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Modality;
@@ -278,7 +274,7 @@ public class MyViewController implements Observer,IView {
                 // Button was clicked, do something...
                 generateFirstMaze();
                 FinishSong.stop();
-                YaaraView.mediaPlayer.play();
+                WelcomeView.mediaPlayer.play();
                 stage.close();
                 event.consume();
             });
@@ -288,13 +284,13 @@ public class MyViewController implements Observer,IView {
                 btn_hint.setDisable(true);
                 btn_revealSolution.setDisable(true);
                 FinishSong.stop();
-                YaaraView.mediaPlayer.play();
+                WelcomeView.mediaPlayer.play();
                 stage.close();
                 event.consume();
 
 
             });
-            YaaraView.mediaPlayer.stop();
+            WelcomeView.mediaPlayer.stop();
             stage.show();
             FinishSong.play();
         } catch (Exception e) {
@@ -306,9 +302,9 @@ public class MyViewController implements Observer,IView {
 
     public void mute(ActionEvent actionEvent) {
         if (tg_mute.isSelected()) {
-            YaaraView.mediaPlayer.setVolume(0);
+            WelcomeView.mediaPlayer.setVolume(0);
         } else {
-            YaaraView.mediaPlayer.setVolume(1);
+            WelcomeView.mediaPlayer.setVolume(1);
 
         }
         mainPane.requestFocus();
@@ -316,7 +312,7 @@ public class MyViewController implements Observer,IView {
 
     public void quitFunction(ActionEvent actionEvent) {
         Stage stage = (Stage) btn_hint.getScene().getWindow();
-        YaaraView.mediaPlayer.stop();
+        WelcomeView.mediaPlayer.stop();
 
 
         stage.fireEvent(

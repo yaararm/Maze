@@ -1,3 +1,6 @@
+/**
+ * this class represent the solution displays
+ */
 package View;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -20,32 +23,52 @@ public class SolutionDisplayer extends Canvas {
     private int[][] solution;
     private int characterPositionRow = 1;
     private int characterPositionColumn = 1;
+    //region Properties
+    private StringProperty imageFileNameSolution = new SimpleStringProperty();
 
+    /**
+     * this function set the matrix of the solution
+     * @param mazeSol
+     */
     public void setSolution(int[][] mazeSol) {
         this.solution = mazeSol;
         redraw();
     }
-
+    /**
+     * this function set the size of the cell of the solution
+     * @param newheight
+     * @param newWidth
+     */
     public void setSize(double newheight, double newWidth) {
         setHeight(Math.min(newheight, newWidth));
         setWidth(Math.min(newheight, newWidth));
         redraw();
     }
-
+    /**
+     * this function set the Character Position
+     * @param row
+     * @param column
+     */
     public void setCharacterPosition(int row, int column) {
         characterPositionRow = row;
         characterPositionColumn = column;
         redraw();
     }
-
+    /**
+     * @return the Character Position row
+     */
     public int getCharacterPositionRow() {
         return characterPositionRow;
     }
-
+    /**
+     * @return the Character Position column
+     */
     public int getCharacterPositionColumn() {
         return characterPositionColumn;
     }
-
+    /**
+     * this function draw the solution path on the maze board
+     */
     public void redraw() {
         if (solution != null) {
             double canvasHeight = getHeight();
@@ -74,6 +97,9 @@ public class SolutionDisplayer extends Canvas {
         }
     }
 
+    /**
+     *  this function erase the solution path on the maze board
+     */
     public void clear() {
         if (solution != null) {
 
@@ -82,14 +108,18 @@ public class SolutionDisplayer extends Canvas {
 
         }
     }
-
-    //region Properties
-    private StringProperty imageFileNameSolution = new SimpleStringProperty();
-
+    /**
+     *
+     * @return the image file of the solution path
+     */
     public String getImageFileNameSolution() {
         return imageFileNameSolution.get();
     }
 
+    /**
+     * this function set the image file of the solution path
+     * @param imageFileNameSolution
+     */
     public void setImageFileNameSolution(String imageFileNameSolution) {
         this.imageFileNameSolution.set(imageFileNameSolution);
     }

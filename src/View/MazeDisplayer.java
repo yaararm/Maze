@@ -1,3 +1,6 @@
+/**
+ * this class represent the character displays
+ */
 package View;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -15,39 +18,64 @@ public class MazeDisplayer extends Canvas {
     private int characterPositionRow = 1;
     private int characterPositionColumn = 1;
     private double cellHeight,cellWidth;
-
+    //region Properties
+    private StringProperty ImageFileNameWall = new SimpleStringProperty();
+    private StringProperty ImageFileNameGoal = new SimpleStringProperty();
+    /**
+     *
+     * @return cell height
+     */
     public double getCellHeight() {
         return cellHeight;
     }
-
+    /**
+     *
+     * @return cell width
+     */
     public double getCellWidth() {
         return cellWidth;
     }
-
+    /**
+     * this function set the maze
+     * @param maze
+     */
     public void setMaze(int[][] maze) {
         this.maze = maze;
         redraw();
     }
+    /**
+     * this function set the size of the cell
+     * @param newHeight
+     * @param newWidth
+     */
     public void setSize(double newHeight,double newWidth){
         setHeight(Math.min(newHeight,newWidth));
         setWidth(Math.min(newHeight,newWidth));
         redraw();
     }
-
     //public void setCharacterPosition(int row, int column) {
     //    characterPositionRow = row;
     //    characterPositionColumn = column;
     //    redraw();
     //}
-
+    /**
+     *
+     * @return  Character Position Row
+     */
     public int getCharacterPositionRow() {
         return characterPositionRow;
     }
 
+    /**
+     *
+     * @return CharacterPositionColumn
+     */
     public int getCharacterPositionColumn() {
         return characterPositionColumn;
     }
-
+    /**
+     * this function draw the maze board
+     */
     public void redraw() {
         if (maze != null) {
             double canvasHeight =getHeight();
@@ -85,21 +113,32 @@ public class MazeDisplayer extends Canvas {
             }
         }
     }
-    //region Properties
-    private StringProperty ImageFileNameWall = new SimpleStringProperty();
-    private StringProperty ImageFileNameGoal = new SimpleStringProperty();
 
+    /**
+     *
+     * @return the image of the wall
+     */
     public String getImageFileNameWall() {
         return ImageFileNameWall.get();
     }
+    /**
+     *
+     * @return the target image for the end of the maze
+     */
     public String getImageFileNameGoal() {
         return ImageFileNameGoal.get();
     }
-
+    /**
+     * set the image file of the wall
+     * @param imageFileNameWall
+     */
     public void setImageFileNameWall(String imageFileNameWall) {
         this.ImageFileNameWall.set(imageFileNameWall);
     }
-
+    /**
+     * set the image file of the end of the maze
+     * @param imageFileNameGoal
+     */
     public void setImageFileNameGoal(String imageFileNameGoal) {
         this.ImageFileNameGoal.set(imageFileNameGoal);
     }
@@ -107,8 +146,5 @@ public class MazeDisplayer extends Canvas {
 
 
 
-
-
-    //endregion
 }
 

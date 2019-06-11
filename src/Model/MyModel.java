@@ -1,3 +1,6 @@
+/**
+ * this class represent the connection between view model and the servers
+ */
 package Model;
 
 import Server.Server;
@@ -46,12 +49,17 @@ public class MyModel extends Observable implements IModel {
         solveSearchProblemServer = new Server(5401, 1000, new ServerStrategySolveSearchProblem());
     }
 
-
+    /**
+     * this function start the servers
+     */
     public void startServers() {
         mazeGeneratingServer.start();
         solveSearchProblemServer.start();
     }
 
+    /**
+     * this function stop the servers
+     */
     public void stopServers() {
         mazeGeneratingServer.stop();
         solveSearchProblemServer.stop();
@@ -216,6 +224,7 @@ public class MyModel extends Observable implements IModel {
     }
 
 @Override
+
     public void saveMazeToFile (){
 
     SavedMaze mySave = new SavedMaze(realMaze, getCharacterPositionRow(), getCharacterPositionColumn());
@@ -267,6 +276,10 @@ public class MyModel extends Observable implements IModel {
   
     //ToDo show alert when file not exist/ file not saved
 
+    /**
+     *  this function open a window for allert
+     * @param alertMessage
+     */
     private void showAlert(String alertMessage) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText(alertMessage);
