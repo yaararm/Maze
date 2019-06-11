@@ -22,7 +22,7 @@ onKeyReleased="#KeyReleased"     -->
 <?import View.ChracterDisplayer?>
 <?import javafx.scene.control.ToggleButton?>
 <BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600" minWidth="600" prefHeight="600.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyView"
+            xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController"
             onKeyPressed="#KeyPressed" >
     <top>
         <VBox BorderPane.alignment="CENTER">
@@ -41,7 +41,7 @@ onKeyReleased="#KeyReleased"     -->
                                 <MenuItem fx:id = "btn_save" mnemonicParsing="false" text="Save" onAction="#saveMazeToFile" />
                                 <MenuItem fx:id = "btn_open" mnemonicParsing="false" text="Open…" onAction="#openExistMaze" />
                                 <SeparatorMenuItem mnemonicParsing="false" />
-                                <MenuItem mnemonicParsing="false" text="Quit" />
+                                <MenuItem fx:id = "btn_quit" mnemonicParsing="false" text="Quit" onAction="#quitFunction"/>
                             </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Preferences">

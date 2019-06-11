@@ -39,7 +39,7 @@ public class Main extends Application {
 
         //create main display scene
         FXMLLoader fxmlLoader2 = new FXMLLoader();
-        Parent rootMaze = fxmlLoader2.load(getClass().getResource("BasicView.fxml").openStream());
+        Parent rootMaze = fxmlLoader2.load(getClass().getResource("MyView.fxml").openStream());
         Scene mazeScene = new Scene(rootMaze, 800, 600);
         mazeScene.getStylesheets().add(getClass().getResource("mainDisplay.css").toExternalForm());
 
@@ -51,7 +51,7 @@ public class Main extends Application {
 
 
         //--------------
-        MyView view = fxmlLoader2.getController();
+        MyViewController view = fxmlLoader2.getController();
         YaaraView yaaraView = fxmlLoader1.getController();
         yaaraView.setMazeScene(mazeScene);
         yaaraView.setMazeView(view);

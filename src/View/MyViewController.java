@@ -22,6 +22,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.File;
 import java.util.Observable;
@@ -29,7 +30,7 @@ import java.util.Observer;
 
 
 
-public class MyView implements Observer {
+public class MyViewController implements Observer,IView {
     //public Character player;
     private String mazeDifficulty;
     //private HashMap<KeyCode, Boolean> keys = new HashMap<>();
@@ -49,6 +50,7 @@ public class MyView implements Observer {
     public javafx.scene.layout.BorderPane mainBorderPane;
     public javafx.scene.control.MenuItem btn_save;
     public javafx.scene.control.MenuItem btn_open;
+    public javafx.scene.control.MenuItem btn_quit;
     public javafx.scene.control.Toggle tg_mute;
     public javafx.scene.control.Button btn_hint;
     public javafx.scene.control.Button btn_revealSolution;
@@ -141,7 +143,7 @@ public class MyView implements Observer {
         solutionDisplayer.setSolution(sol);
     }
 
-    private void showAlert(String alertMessage) {
+    public void showAlert(String alertMessage) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText(alertMessage);
         alert.show();
@@ -289,7 +291,7 @@ public class MyView implements Observer {
     public void openExistMaze(ActionEvent actionEvent) {
         viewModel.openExistMaze();
     }
-    private void mazeSolved() {
+    public void mazeSolved() {
         try {
             Stage stage = new Stage();
             stage.setResizable(false);
@@ -368,7 +370,15 @@ public class MyView implements Observer {
         mainPane.requestFocus();
     }
 
+    public void quitFunction(ActionEvent actionEvent){
+        Stage stage = (Stage) btn_hint.getScene().getWindow();
+        YaaraView.mediaPlayer.stop();
 
+
+        stage.fireEvent(
+                new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST)
+        );
+    }
 }
 
 
