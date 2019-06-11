@@ -20,6 +20,7 @@ import static javafx.scene.media.MediaPlayer.INDEFINITE;
 public class Main extends Application {
 
 
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         MyModel model = new MyModel();
@@ -38,8 +39,8 @@ public class Main extends Application {
 
         //create main display scene
         FXMLLoader fxmlLoader2 = new FXMLLoader();
-        Parent rootMaze = fxmlLoader2.load(getClass().getResource("BasicView.fxml").openStream());
-        Scene mazeScene = new Scene(rootMaze,800,900);
+        Parent rootMaze = fxmlLoader2.load(getClass().getResource("MyView.fxml").openStream());
+        Scene mazeScene = new Scene(rootMaze, 800, 600);
         mazeScene.getStylesheets().add(getClass().getResource("mainDisplay.css").toExternalForm());
 
         primaryStage.setScene(welcomeScene);
@@ -48,8 +49,9 @@ public class Main extends Application {
         startMusic();
 
 
+
         //--------------
-        MyView view = fxmlLoader2.getController();
+        MyViewController view = fxmlLoader2.getController();
         YaaraView yaaraView = fxmlLoader1.getController();
         yaaraView.setMazeScene(mazeScene);
         yaaraView.setMazeView(view);
@@ -58,13 +60,13 @@ public class Main extends Application {
         view.setViewModel(viewModel);
         viewModel.addObserver(view);
         //--------------
-        SetStageCloseEvent(primaryStage, model);
-        SetScrollEvent(primaryStage, mazeScene);
+        SetStageCloseEvent(primaryStage,model);
+        SetScrollEvent(mazeScene);
         primaryStage.setResizable(false);
         primaryStage.show();
     }
 
-    private void SetStageCloseEvent(Stage primaryStage, MyModel model) {
+    private void SetStageCloseEvent(Stage primaryStage,MyModel model) {
         primaryStage.setOnCloseRequest(e -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             Optional<ButtonType> result = alert.showAndWait();
@@ -80,21 +82,12 @@ public class Main extends Application {
 
 
     }
-
-    private void SetScrollEvent(Stage stage, Scene scene) {
+    private void SetScrollEvent(Scene scene) {
         scene.setOnScroll(e -> {
-            Double deltaY = e.getDeltaY();
-            if (deltaY > 0) {
-                stage.setWidth(stage.getWidth() + 10);
-                stage.setHeight(stage.getHeight() + 10);
-            } else {
-                stage.setWidth(stage.getWidth() - 10);
-                stage.setHeight(stage.getHeight() - 10);
-            }
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         });
     }
-
-    private void startMusic() {
+    private void startMusic(){
         String musicFile = "resources/opening.mp3";     // For example
         Media sound = new Media(new File(musicFile).toURI().toString());
         YaaraView.mediaPlayer = new MediaPlayer(sound);

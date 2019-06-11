@@ -79,7 +79,7 @@ MenuButton{
     -fx-background-color: linear-gradient(#00b2b2, #4eb86a);
 
 }
-#btn_restart{
+#btn_yes{
     -fx-background-insets: 0 0 -1 0, 0, 1, 2;
     -fx-background-radius: 200px, 200px, 200px, 200px;
     -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
@@ -89,7 +89,7 @@ MenuButton{
     -fx-content-display: LEFT;
 }
 
-#btn_exit{
+#btn_no{
     -fx-background-insets: 0 0 -1 0, 0, 1, 2;
     -fx-background-radius: 200px, 200px, 200px, 200px;
     -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
@@ -98,7 +98,7 @@ MenuButton{
     -fx-alignment: CENTER;
     -fx-content-display: LEFT;
 }
-#btn_restart:hover{
+#btn_yes:hover{
     -fx-background-insets: 0 0 -1 0, 0, 1, 2;
     -fx-background-radius: 200px, 200px, 200px, 200px;
     -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
@@ -111,7 +111,7 @@ MenuButton{
     -fx-content-display: LEFT;
 }
 
-#btn_exit:hover{
+#btn_no:hover{
     -fx-background-insets: 0 0 -1 0, 0, 1, 2;
     -fx-background-radius: 200px, 200px, 200px, 200px;
     -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */

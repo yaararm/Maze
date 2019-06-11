@@ -8,7 +8,7 @@
 
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.effect.DropShadow?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyView" style="-fx-background-image: url('file:resources/Images/field.jpg')">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyViewController" style="-fx-background-image: url('file:resources/Images/field.jpg')">
     <children>
         <Label styleClass="ViewStyle" layoutX="20" layoutY="60"  text="Algorithms to generate maze: &#10;My maze generator using Depth-First search algorithm, &#10;Simple maze algorithm using random method
         &#10;&#10;&#10;&#10;Solve Algorithms: &#10;Breadth-First search, Depth-First search, &#10;Best-First search&#10;" textFill="#000000">

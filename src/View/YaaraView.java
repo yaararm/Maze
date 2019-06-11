@@ -13,7 +13,7 @@ import java.io.IOException;
 
 
 public class YaaraView  {
-    private MyView mazeView;
+    private MyViewController mazeView;
     @FXML
     Scene mazeScene;
 
@@ -31,7 +31,7 @@ public class YaaraView  {
     public void setMazeScene(Scene mazeScene) {
         this.mazeScene = mazeScene;
     }
-    public void setMazeView(MyView view) {
+    public void setMazeView(MyViewController view) {
         this.mazeView = view;
     }
 
