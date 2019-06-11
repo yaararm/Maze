@@ -19,6 +19,26 @@ public class ChracterDisplayer extends Canvas {
     private int characterPositionRow = 1;
     private int characterPositionColumn = 1;
     private double cellHeight, cellWidth;
+    private double offsetX;
+    private double offsetY;
+    private double posX;
+    private double posY;
+
+    public void setPos(double posX, double posY) {
+        this.posX += posX;
+        this.posY += posY;
+    }
+    public void setOffset(double x, double y) {//int row,int col, double paneW, double paneH) {
+        this.offsetX = x;
+        this.offsetY = y;
+        redraw();
+    }
+    public void resetLocation() {
+        posY = 0;
+        posX = 0;
+        offsetY = 0;
+        offsetX = 0;
+    }
     private StringProperty ImageFileNameCharacter = new SimpleStringProperty();
     /**
      * this function set the array size
@@ -31,12 +51,12 @@ public class ChracterDisplayer extends Canvas {
 
     /**
      * this function set the sizes of the character
-     * @param newheight
+     * @param newHeight
      * @param newWidth
      */
-    public void setSize(double newheight, double newWidth) {
-        setHeight(Math.min(newheight, newWidth));
-        setWidth(Math.min(newheight, newWidth));
+    public void setSize(double newHeight, double newWidth) {
+        setHeight(Math.min(newHeight, newWidth));
+        setWidth(Math.min(newHeight, newWidth));
         redraw();
     }
     /**
@@ -82,8 +102,8 @@ public class ChracterDisplayer extends Canvas {
             gc.clearRect(0, 0, getWidth(), getHeight());
 
             //Draw character
-            gc.drawImage(wallImage, characterPositionColumn * cellHeight, characterPositionRow * cellWidth, cellHeight, cellWidth);
-
+            //gc.drawImage(wallImage, characterPositionColumn * cellHeight, characterPositionRow * cellWidth, cellHeight, cellWidth);
+            gc.drawImage(wallImage, (characterPositionColumn * cellHeight)+ offsetX + posX, (characterPositionRow * cellWidth)+ offsetY + posY, cellHeight, cellWidth);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

@@ -23,6 +23,26 @@ public class SolutionDisplayer extends Canvas {
     private int[][] solution;
     private int characterPositionRow = 1;
     private int characterPositionColumn = 1;
+    private double offsetX;
+    private double offsetY;
+    private double posX;
+    private double posY;
+
+    public void setPos(double posX, double posY) {
+        this.posX += posX;
+        this.posY += posY;
+    }
+    public void setOffset(double x, double y) {//int row,int col, double paneW, double paneH) {
+        this.offsetX = x;
+        this.offsetY = y;
+        redraw();
+    }
+    public void resetLocation() {
+        posY = 0;
+        posX = 0;
+        offsetY = 0;
+        offsetX = 0;
+    }
     //region Properties
     private StringProperty imageFileNameSolution = new SimpleStringProperty();
 
@@ -86,7 +106,9 @@ public class SolutionDisplayer extends Canvas {
                 for (int i = 0; i < solution.length; i++) {
                     for (int j = 0; j < solution[i].length; j++) {
                         if (solution[i][j] == 1) {
-                            gc.drawImage(wallImage, i * cellHeight, j * cellWidth, cellHeight, cellWidth);
+                            //gc.drawImage(wallImage, i * cellHeight, j * cellWidth, cellHeight, cellWidth);
+                            gc.drawImage(wallImage, (i * cellHeight) + offsetX + posX, (j * cellWidth) + offsetY + posY, cellHeight, cellWidth);
+
                         }
                     }
                 }
@@ -105,7 +127,7 @@ public class SolutionDisplayer extends Canvas {
 
             GraphicsContext gc = getGraphicsContext2D();
             gc.clearRect(0, 0, getWidth(), getHeight());
-
+            solution = null ;
         }
     }
     /**

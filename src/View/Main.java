@@ -21,7 +21,6 @@ import static javafx.scene.media.MediaPlayer.INDEFINITE;
 public class Main extends Application {
 
 
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         MyModel model = new MyModel();
@@ -50,7 +49,6 @@ public class Main extends Application {
         startMusic();
 
 
-
         //--------------
         MyViewController view = fxmlLoader2.getController();
         WelcomeView yaaraView = fxmlLoader1.getController();
@@ -61,13 +59,15 @@ public class Main extends Application {
         view.setViewModel(viewModel);
         viewModel.addObserver(view);
         //--------------
-        SetStageCloseEvent(primaryStage,model);
-        SetScrollEvent(primaryStage, mazeScene);
+        SetStageCloseEvent(primaryStage, model);
+        view.SetScrollEvent(mazeScene);
+        view.setDragEvent(mazeScene);
+
         primaryStage.setResizable(false);
         primaryStage.show();
     }
 
-    private void SetStageCloseEvent(Stage primaryStage,MyModel model) {
+    private void SetStageCloseEvent(Stage primaryStage, MyModel model) {
         primaryStage.setOnCloseRequest(e -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Exit");
@@ -86,19 +86,24 @@ public class Main extends Application {
 
 
     }
+
     private void SetScrollEvent(Stage stage, Scene scene) {
         scene.setOnScroll(e -> {
-                double deltaY = e.getDeltaY();
-                if (deltaY > 0) {
+            if(e.isControlDown()){
+            double deltaY = e.getDeltaY();
+                if (deltaY > 0) { //zpoom in
                     stage.setWidth(stage.getWidth() + 10);
                     stage.setHeight(stage.getHeight() + 10);
-                } else {
+                } else { //zoom out
                     stage.setWidth(stage.getWidth() - 10);
                     stage.setHeight(stage.getHeight() - 10);
                 }
-            });
+            }
+
+        });
     }
-    private void startMusic(){
+
+    private void startMusic() {
         String musicFile = "resources/opening.mp3";     // For example
         Media sound = new Media(new File(musicFile).toURI().toString());
         WelcomeView.mediaPlayer = new MediaPlayer(sound);

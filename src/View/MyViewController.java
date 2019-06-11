@@ -25,9 +25,14 @@ import java.util.Observable;
 import java.util.Observer;
 
 
-public class MyViewController implements Observer,IView {
+public class MyViewController implements Observer, IView {
     private String mazeDifficulty;
     private boolean isHint;
+    private double clickX;
+    private double clickY;
+    private double deltaX;
+    private double deltaY;
+
 
     @FXML
     private MyViewModel viewModel;
@@ -86,6 +91,8 @@ public class MyViewController implements Observer,IView {
     }
 
     public void generateMaze(int i, int j) {
+        setAllSize(mainPane.getHeight(), mainPane.getWidth());
+        resetLocation();
         solutionDisplayer.clear();
         viewModel.generateMaze(i, j);
         btn_hint.setDisable(false);
@@ -113,7 +120,6 @@ public class MyViewController implements Observer,IView {
     public void getHint() {
         isHint = true;
         int[][] nextStep = viewModel.getNextStep();
-        solutionDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
         solutionDisplayer.setSolution(nextStep);
 
 
@@ -121,12 +127,12 @@ public class MyViewController implements Observer,IView {
 
     public void revealSolution() {
         int[][] sol = viewModel.getAllSolution();
-        solutionDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
+        //solutionDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
         solutionDisplayer.setSolution(sol);
     }
 
     public void KeyPressed(KeyEvent keyEvent) {
-        if (isHint) {
+        if (keyEvent.getCode().isArrowKey() && isHint) {
             solutionDisplayer.clear();
             isHint = false;
         }
@@ -137,9 +143,13 @@ public class MyViewController implements Observer,IView {
     public void setResizeEvent(Scene scene) {
 
         ChangeListener<Number> stageSizeListener = (observable, oldValue, newValue) -> {
-            mazeDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
-            solutionDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
-            chracterDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
+
+
+            setAllSize(mainPane.getHeight(), mainPane.getWidth());
+            resetLocation();
+            //mazeDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
+            //solutionDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
+            //chracterDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
             //System.out.println("Width: " + newValue);
         };
         mainPane.widthProperty().addListener(stageSizeListener);
@@ -318,6 +328,72 @@ public class MyViewController implements Observer,IView {
         stage.fireEvent(
                 new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST)
         );
+    }
+
+    public void SetScrollEvent(Scene scene) {
+        scene.setOnScroll(e -> {
+            if (e.isControlDown()) {
+                double deltaY = e.getDeltaY();
+                if (deltaY > 0) { //zoom in
+                    setAllSize(mazeDisplayer.getHeight() + 20, mazeDisplayer.getWidth() + 20);
+                    //mazeDisplayer.setSize(mazeDisplayer.getHeight() + 20, mazeDisplayer.getWidth() + 20);
+                    //solutionDisplayer.setSize(solutionDisplayer.getHeight() + 20, solutionDisplayer.getWidth() + 20);
+                    //chracterDisplayer.setSize(chracterDisplayer.getHeight() + 20, chracterDisplayer.getWidth() + 20);
+
+                } else { //zoom out
+                    setAllSize(mazeDisplayer.getHeight() - 20, mazeDisplayer.getWidth() - 20);
+                    //mazeDisplayer.setSize(mazeDisplayer.getHeight() - 20, mazeDisplayer.getWidth() - 20);
+                    //solutionDisplayer.setSize(solutionDisplayer.getHeight() - 20, solutionDisplayer.getWidth() - 20);
+                    //chracterDisplayer.setSize(chracterDisplayer.getHeight() - 20, chracterDisplayer.getWidth() - 20);
+
+                }
+            }
+
+        });
+    }
+
+    public void setDragEvent(Scene scene) {
+        mainPane.setOnMousePressed(e -> {
+            if (e.isControlDown()) {
+                //ToDo bug here if press w/o draging
+                //uptade current delta
+                mazeDisplayer.setPos(deltaX, deltaY);
+                chracterDisplayer.setPos(deltaX, deltaY);
+                solutionDisplayer.setPos(deltaX, deltaY);
+
+                //save current location
+                clickX = e.getScreenX();
+                clickY = e.getScreenY();
+            }
+        });
+
+        mainPane.setOnMouseDragged(e -> {
+            if (e.isControlDown()) {
+                deltaX = e.getScreenX() - clickX;
+                deltaY = e.getScreenY() - clickY;
+                mazeDisplayer.setOffset(deltaX, deltaY);
+                chracterDisplayer.setOffset(deltaX, deltaY);
+                solutionDisplayer.setOffset(deltaX, deltaY);
+            }
+        });
+
+
+    }
+
+    private void setAllSize(double hight, double width) {
+        mazeDisplayer.setSize(hight, width);
+        solutionDisplayer.setSize(hight, width);
+        chracterDisplayer.setSize(hight, width);
+    }
+
+    private void resetLocation() {
+        mazeDisplayer.resetLocation();
+        solutionDisplayer.resetLocation();
+        chracterDisplayer.resetLocation();
+        clickX = 0;
+        clickY = 0;
+        deltaX = 0;
+        deltaY = 0;
     }
 }
 
