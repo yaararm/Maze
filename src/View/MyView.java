@@ -159,7 +159,6 @@ public class MyView implements Observer {
     public void setResizeEvent(Scene scene) {
 
         ChangeListener<Number> stageSizeListener = (observable, oldValue, newValue) -> {
-            System.out.println("Height: " + scene.getHeight() + " Width: " + scene.getWidth());
             mazeDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
             solutionDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
             chracterDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
@@ -179,7 +178,6 @@ public class MyView implements Observer {
             //ToDo fix here!!!!!! doesnt work
             @Override
             public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
-                System.out.println("maximized:" + t1.booleanValue());
                 mazeDisplayer.setSize(mainPane.getMaxHeight(), mainPane.getMaxWidth());
                 solutionDisplayer.setSize(mainPane.getMaxHeight(), mainPane.getMaxWidth());
 
@@ -248,9 +246,17 @@ public class MyView implements Observer {
 
     public void generateFirstMaze() {
         if (mazeDifficulty != null) {
-            if (mazeDifficulty == "easy") generateEasyMaze();
-            if (mazeDifficulty == "medium") generateMediumMaze();
-            if (mazeDifficulty == "hard") generateHardMaze();
+            if (mazeDifficulty == "easy") {
+                //Stage stage = (Stage) btn_hint.getScene().getWindow();
+                //stage.
+                generateEasyMaze();
+            }
+            if (mazeDifficulty == "medium"){
+                generateMediumMaze();
+            }
+            if (mazeDifficulty == "hard") {
+                generateHardMaze();
+            }
         }
     }
 
@@ -273,11 +279,6 @@ public class MyView implements Observer {
 
     public StringProperty characterPositionColumnProperty() {
         return characterPositionColumn;
-    }
-
-
-    public void scroll(ScrollEvent event) {
-        viewModel.scroll(event, mazeDisplayer);
     }
 
     //endregion

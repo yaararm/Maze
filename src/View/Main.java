@@ -20,7 +20,6 @@ import static javafx.scene.media.MediaPlayer.INDEFINITE;
 public class Main extends Application {
 
 
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         MyModel model = new MyModel();
@@ -49,7 +48,6 @@ public class Main extends Application {
         startMusic();
 
 
-
         //--------------
         MyView view = fxmlLoader2.getController();
         YaaraView yaaraView = fxmlLoader1.getController();
@@ -60,13 +58,13 @@ public class Main extends Application {
         view.setViewModel(viewModel);
         viewModel.addObserver(view);
         //--------------
-        SetStageCloseEvent(primaryStage,model);
-        SetScrollEvent(mazeScene);
+        SetStageCloseEvent(primaryStage, model);
+        SetScrollEvent(primaryStage, mazeScene);
         primaryStage.setResizable(false);
         primaryStage.show();
     }
 
-    private void SetStageCloseEvent(Stage primaryStage,MyModel model) {
+    private void SetStageCloseEvent(Stage primaryStage, MyModel model) {
         primaryStage.setOnCloseRequest(e -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             Optional<ButtonType> result = alert.showAndWait();
@@ -82,12 +80,21 @@ public class Main extends Application {
 
 
     }
-    private void SetScrollEvent(Scene scene) {
+
+    private void SetScrollEvent(Stage stage, Scene scene) {
         scene.setOnScroll(e -> {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            Double deltaY = e.getDeltaY();
+            if (deltaY > 0) {
+                stage.setWidth(stage.getWidth() + 10);
+                stage.setHeight(stage.getHeight() + 10);
+            } else {
+                stage.setWidth(stage.getWidth() - 10);
+                stage.setHeight(stage.getHeight() - 10);
+            }
         });
     }
-    private void startMusic(){
+
+    private void startMusic() {
         String musicFile = "resources/opening.mp3";     // For example
         Media sound = new Media(new File(musicFile).toURI().toString());
         YaaraView.mediaPlayer = new MediaPlayer(sound);

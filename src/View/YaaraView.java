@@ -1,27 +1,15 @@
 package View;
 
-import ViewModel.MyViewModel;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.Observable;
-import java.util.Observer;
 
 
 public class YaaraView  {
@@ -89,7 +77,7 @@ public class YaaraView  {
         if (difficult.getSelectedToggle()!=null){
             btn_start.setDisable(false);
             //showAlert("YES");
-            UpdateDifficultyAtMazeContriller();
+            UpdateDifficultyAtMazeController();
             Stage stage = (Stage) btn_start.getScene().getWindow();
             stage.setResizable(true);
             stage.setScene(mazeScene);
@@ -100,7 +88,7 @@ public class YaaraView  {
         else
             showAlert("you have to choose difficulty level");
     }
-    public void UpdateDifficultyAtMazeContriller() throws IOException { // connect with tomer view after start
+    public void UpdateDifficultyAtMazeController() throws IOException { // connect with tomer view after start
 
         mazeView.setDifficulty(difficultLevel);
         mazeView.generateFirstMaze();
