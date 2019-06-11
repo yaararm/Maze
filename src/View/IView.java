@@ -62,8 +62,6 @@ public interface IView {
 
     void generateFirstMaze();
 
-    void scroll(ScrollEvent event);
-
     void saveMazeToFile(ActionEvent actionEvent);
 
     void openExistMaze(ActionEvent actionEvent);
