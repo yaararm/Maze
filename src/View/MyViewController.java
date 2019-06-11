@@ -161,16 +161,17 @@ public class MyViewController implements Observer,IView {
     public void setResizeEvent(Scene scene) {
 
         ChangeListener<Number> stageSizeListener = (observable, oldValue, newValue) -> {
-            System.out.println("Height: " + scene.getHeight() + " Width: " + scene.getWidth());
             mazeDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
             solutionDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
             chracterDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
+            //System.out.println("Width: " + newValue);
+
 
         };
 
 
-        scene.widthProperty().addListener(stageSizeListener);
-        scene.heightProperty().addListener(stageSizeListener);
+        mainPane.widthProperty().addListener(stageSizeListener);
+        mainPane.heightProperty().addListener(stageSizeListener);
 
 
     }
@@ -181,7 +182,6 @@ public class MyViewController implements Observer,IView {
             //ToDo fix here!!!!!! doesnt work
             @Override
             public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
-                System.out.println("maximized:" + t1.booleanValue());
                 mazeDisplayer.setSize(mainPane.getMaxHeight(), mainPane.getMaxWidth());
                 solutionDisplayer.setSize(mainPane.getMaxHeight(), mainPane.getMaxWidth());
 
@@ -250,9 +250,19 @@ public class MyViewController implements Observer,IView {
 
     public void generateFirstMaze() {
         if (mazeDifficulty != null) {
-            if (mazeDifficulty == "easy") generateEasyMaze();
-            if (mazeDifficulty == "medium") generateMediumMaze();
-            if (mazeDifficulty == "hard") generateHardMaze();
+            if (mazeDifficulty == "easy") {
+                Stage stage = (Stage) mainPane.getScene().getWindow();
+                //stage.setWidth(900);
+                //stage.setHeight(900);
+                //btn_hint.getScene().wi
+                generateEasyMaze();
+            }
+            if (mazeDifficulty == "medium"){
+                generateMediumMaze();
+            }
+            if (mazeDifficulty == "hard") {
+                generateHardMaze();
+            }
         }
     }
 
@@ -275,11 +285,6 @@ public class MyViewController implements Observer,IView {
 
     public StringProperty characterPositionColumnProperty() {
         return characterPositionColumn;
-    }
-
-
-    public void scroll(ScrollEvent event) {
-        viewModel.scroll(event, mazeDisplayer);
     }
 
     //endregion

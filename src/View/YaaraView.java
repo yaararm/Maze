@@ -77,18 +77,20 @@ public class YaaraView  {
         if (difficult.getSelectedToggle()!=null){
             btn_start.setDisable(false);
             //showAlert("YES");
-            UpdateDifficultyAtMazeContriller();
+            UpdateDifficultyAtMazeController();
             Stage stage = (Stage) btn_start.getScene().getWindow();
             stage.setResizable(true);
             stage.setScene(mazeScene);
             stage.centerOnScreen();
+            stage.setMinHeight(700);
+            stage.setMinWidth(605);
 
 
         }
         else
             showAlert("you have to choose difficulty level");
     }
-    public void UpdateDifficultyAtMazeContriller() throws IOException { // connect with tomer view after start
+    public void UpdateDifficultyAtMazeController() throws IOException { // connect with tomer view after start
 
         mazeView.setDifficulty(difficultLevel);
         mazeView.generateFirstMaze();
