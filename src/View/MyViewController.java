@@ -29,18 +29,15 @@ import java.util.Observable;
 import java.util.Observer;
 
 
-public class MyViewController implements Observer {
-    //public Character player;
+public class MyViewController implements Observer,IView {
     private String mazeDifficulty;
-    //private HashMap<KeyCode, Boolean> keys = new HashMap<>();
+    private boolean isHint;
 
     @FXML
     private MyViewModel viewModel;
     public MazeDisplayer mazeDisplayer;
     public SolutionDisplayer solutionDisplayer;
     public ChracterDisplayer chracterDisplayer;
-    private boolean isHint;
-
     public javafx.scene.control.MenuItem btn_newEasy;
     public javafx.scene.control.MenuItem btn_newMedium;
     public javafx.scene.control.MenuItem btn_newHard;
@@ -74,14 +71,12 @@ public class MyViewController implements Observer {
 
     }
 
-
     public void setViewModel(MyViewModel viewModel) {
         this.viewModel = viewModel;
     }
 
     public void displayMaze(int[][] maze) {
         mazeDisplayer.setMaze(maze);
-
     }
 
     public void displayCharecter(int lenght) {
@@ -93,7 +88,6 @@ public class MyViewController implements Observer {
         this.characterPositionRow.set(characterPositionRow + "");
         this.characterPositionColumn.set(characterPositionColumn + "");
     }
-
 
     public void generateMaze(int i, int j) {
         solutionDisplayer.clear();
@@ -111,16 +105,11 @@ public class MyViewController implements Observer {
     }
 
     public void generateMediumMaze() {
-        //Stage stage = (Stage) mainPane.getScene().getWindow();
-
-
         btn_new.setDisable(true);
         generateMaze(35, 35);
     }
 
     public void generateHardMaze() {
-        // Stage stage = (Stage) mainPane.getScene().getWindow();
-
         btn_new.setDisable(true);
         generateMaze(51, 51);
     }
@@ -140,12 +129,6 @@ public class MyViewController implements Observer {
         solutionDisplayer.setSolution(sol);
     }
 
-    private void showAlert(String alertMessage) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText(alertMessage);
-        alert.show();
-    }
-
     public void KeyPressed(KeyEvent keyEvent) {
         if (isHint) {
             solutionDisplayer.clear();
@@ -162,15 +145,9 @@ public class MyViewController implements Observer {
             solutionDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
             chracterDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
             //System.out.println("Width: " + newValue);
-
-
         };
-
-
         mainPane.widthProperty().addListener(stageSizeListener);
         mainPane.heightProperty().addListener(stageSizeListener);
-
-
     }
 
 
@@ -337,7 +314,7 @@ public class MyViewController implements Observer {
         mainPane.requestFocus();
     }
 
-    public void quitFunction(ActionEvent actionEvent){
+    public void quitFunction(ActionEvent actionEvent) {
         Stage stage = (Stage) btn_hint.getScene().getWindow();
         YaaraView.mediaPlayer.stop();
 

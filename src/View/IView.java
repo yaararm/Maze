@@ -44,13 +44,9 @@ public interface IView {
 
     void revealSolution();
 
-    void showAlert(String alertMessage);
-
     void KeyPressed(KeyEvent keyEvent);
 
     void setResizeEvent(Scene scene);
-
-    void setMaximizeEvent(Stage stage);
 
     void AboutUs(ActionEvent actionEvent);
 
@@ -65,8 +61,6 @@ public interface IView {
     void saveMazeToFile(ActionEvent actionEvent);
 
     void openExistMaze(ActionEvent actionEvent);
-
-    void mazeSolved();
 
     void mute(ActionEvent actionEvent);
 
