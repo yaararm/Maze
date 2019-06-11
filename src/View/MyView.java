@@ -28,7 +28,6 @@ import java.util.Observable;
 import java.util.Observer;
 
 
-
 public class MyView implements Observer {
     //public Character player;
     private String mazeDifficulty;
@@ -73,7 +72,6 @@ public class MyView implements Observer {
         }
 
     }
-
 
 
     public void setViewModel(MyViewModel viewModel) {
@@ -148,7 +146,7 @@ public class MyView implements Observer {
     }
 
     public void KeyPressed(KeyEvent keyEvent) {
-        if(isHint){
+        if (isHint) {
             solutionDisplayer.clear();
             isHint = false;
         }
@@ -174,20 +172,6 @@ public class MyView implements Observer {
 
     }
 
-    //ToDo
-    public void setMaximizeEvent(Stage stage) {
-        stage.maximizedProperty().addListener(new ChangeListener<Boolean>() {
-            //ToDo fix here!!!!!! doesnt work
-            @Override
-            public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
-                mazeDisplayer.setSize(mainPane.getMaxHeight(), mainPane.getMaxWidth());
-                solutionDisplayer.setSize(mainPane.getMaxHeight(), mainPane.getMaxWidth());
-
-            }
-        });
-
-    }
-
 
     public void AboutUs(ActionEvent actionEvent) {
         //showAlert("this is us!!!!!!!!");
@@ -208,8 +192,6 @@ public class MyView implements Observer {
     }
 
     public void AboutTheGame(ActionEvent actionEvent) {
-        //showAlert("this is maze!!!!!!!!");
-
         try {
             Stage stage = new Stage();
             stage.setResizable(false);
@@ -248,19 +230,10 @@ public class MyView implements Observer {
 
     public void generateFirstMaze() {
         if (mazeDifficulty != null) {
-            if (mazeDifficulty == "easy") {
-                Stage stage = (Stage) mainPane.getScene().getWindow();
-                //stage.setWidth(900);
-                //stage.setHeight(900);
-                //btn_hint.getScene().wi
-                generateEasyMaze();
-            }
-            if (mazeDifficulty == "medium"){
-                generateMediumMaze();
-            }
-            if (mazeDifficulty == "hard") {
-                generateHardMaze();
-            }
+            if (mazeDifficulty == "easy") generateEasyMaze();
+            if (mazeDifficulty == "medium") generateMediumMaze();
+            if (mazeDifficulty == "hard") generateHardMaze();
+
         }
     }
 
@@ -294,6 +267,7 @@ public class MyView implements Observer {
     public void openExistMaze(ActionEvent actionEvent) {
         viewModel.openExistMaze();
     }
+
     private void mazeSolved() {
         try {
             Stage stage = new Stage();
@@ -307,14 +281,18 @@ public class MyView implements Observer {
             scene.getStylesheets().add("View/mainDisplay.css");
             stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
 
+            //set winnig sound
             String musicFile = "resources/End.mp3";     // For example
             Media sound = new Media(new File(musicFile).toURI().toString());
             MediaPlayer FinishSong = new MediaPlayer(sound);
+
+            //set buttons
             btn_yes = new Button();
             btn_no = new Button();
             Button no = (Button) scene.lookup("#btn_no");
             Button yes = (Button) scene.lookup("#btn_yes");
 
+            //set action events
             stage.setOnCloseRequest(e -> {
                 no.fire();
             });
