@@ -82,6 +82,8 @@ public class YaaraView  {
             stage.setResizable(true);
             stage.setScene(mazeScene);
             stage.centerOnScreen();
+            stage.setMinHeight(700);
+            stage.setMinWidth(605);
 
 
         }

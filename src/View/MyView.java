@@ -162,12 +162,14 @@ public class MyView implements Observer {
             mazeDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
             solutionDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
             chracterDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
+            //System.out.println("Width: " + newValue);
+
 
         };
 
 
-        scene.widthProperty().addListener(stageSizeListener);
-        scene.heightProperty().addListener(stageSizeListener);
+        mainPane.widthProperty().addListener(stageSizeListener);
+        mainPane.heightProperty().addListener(stageSizeListener);
 
 
     }
@@ -247,8 +249,10 @@ public class MyView implements Observer {
     public void generateFirstMaze() {
         if (mazeDifficulty != null) {
             if (mazeDifficulty == "easy") {
-                //Stage stage = (Stage) btn_hint.getScene().getWindow();
-                //stage.
+                Stage stage = (Stage) mainPane.getScene().getWindow();
+                //stage.setWidth(900);
+                //stage.setHeight(900);
+                //btn_hint.getScene().wi
                 generateEasyMaze();
             }
             if (mazeDifficulty == "medium"){
