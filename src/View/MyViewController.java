@@ -249,6 +249,8 @@ public class MyViewController implements Observer, IView {
     }
 
     public void openExistMaze(ActionEvent actionEvent) {
+        setAllSize(mainPane.getHeight(), mainPane.getWidth());
+        resetLocation();
         viewModel.openExistMaze();
     }
 
