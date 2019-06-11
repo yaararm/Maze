@@ -11,7 +11,8 @@
 <?import javafx.scene.image.Image?>
 <?import java.awt.Insets?>
 <?import java.net.URL?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyView" style="-fx-background-image: url('file:resources/Images/end3.jpg')">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyView" style="-fx-background-image: url('file:resources/Images/end3.jpg')">
 
    <children>
 
@@ -24,10 +25,10 @@
             <Font name="Aharoni Bold" size="21.0" />
          </font>
           </Text>
-       <Button fx:id="btn_restart" mnemonicParsing="false" onAction="#newGame" prefHeight="25.0" prefWidth="71.0" text="Yes" layoutX="50" layoutY="355"  style="">
+       <Button fx:id="btn_yes" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Yes" layoutX="50" layoutY="355"  style="">
 
        </Button>
-       <Button fx:id="btn_exit" mnemonicParsing="false" onAction="#quitFunction" prefHeight="25.0" prefWidth="71.0" text="No" layoutX="150" layoutY="355" >
+       <Button fx:id="btn_no" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="No" layoutX="150" layoutY="355" >
        </Button>
 
    </children>

@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -23,13 +24,9 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Optional;
 
-import static javafx.scene.media.MediaPlayer.INDEFINITE;
 
 
 public class MyView implements Observer {
@@ -42,6 +39,7 @@ public class MyView implements Observer {
     public MazeDisplayer mazeDisplayer;
     public SolutionDisplayer solutionDisplayer;
     public ChracterDisplayer chracterDisplayer;
+    private boolean isHint;
 
     public javafx.scene.control.MenuItem btn_newEasy;
     public javafx.scene.control.MenuItem btn_newMedium;
@@ -54,6 +52,8 @@ public class MyView implements Observer {
     public javafx.scene.control.Toggle tg_mute;
     public javafx.scene.control.Button btn_hint;
     public javafx.scene.control.Button btn_revealSolution;
+    public javafx.scene.control.Button btn_yes;
+    public javafx.scene.control.Button btn_no;
 
 
     @Override
@@ -74,47 +74,6 @@ public class MyView implements Observer {
 
     }
 
-    private void mazeSolved() {
-        try {
-            Stage stage = new Stage();
-            stage.setResizable(false);
-            stage.setTitle("Winning!!!");
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            Parent root = fxmlLoader.load(getClass().getResource("endScene.fxml").openStream());
-            Scene scene = new Scene(root, 580, 380);
-            stage.setScene(scene);
-            scene.getStylesheets().add("View/mainDisplay.css");
-            stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
-            stage.show();
-        } catch (Exception e) {
-
-        }
-        YaaraView.mediaPlayer.stop();
-        String musicFile = "resources/End.mp3";     // For example
-        Media sound = new Media(new File(musicFile).toURI().toString());
-        MediaPlayer FinishSong = new MediaPlayer(sound);
-        FinishSong.play();
-        //showAlert("congratulation");
-        /*
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"congratulations!! great job!\n would you like to start a new game? ");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK) {
-            // ... user chose OK
-            generateFirstMaze();
-
-        } else {
-            // ... user chose CANCEL or closed the dialog
-            solutionDisplayer.clear();
-            btn_hint.setDisable(true);
-            btn_revealSolution.setDisable(true);
-        }
-        */
-        FinishSong.stop();
-
-        YaaraView.mediaPlayer.play();
-
-
-    }
 
 
     public void setViewModel(MyViewModel viewModel) {
@@ -142,6 +101,8 @@ public class MyView implements Observer {
         viewModel.generateMaze(i, j);
         btn_hint.setDisable(false);
         btn_revealSolution.setDisable(false);
+        mainPane.requestFocus();
+
     }
 
     public void generateEasyMaze() {
@@ -166,6 +127,7 @@ public class MyView implements Observer {
     }
 
     public void getHint() {
+        isHint = true;
         int[][] nextStep = viewModel.getNextStep();
         solutionDisplayer.setSize(mainPane.getHeight(), mainPane.getWidth());
         solutionDisplayer.setSolution(nextStep);
@@ -186,7 +148,10 @@ public class MyView implements Observer {
     }
 
     public void KeyPressed(KeyEvent keyEvent) {
-
+        if(isHint){
+            solutionDisplayer.clear();
+            isHint = false;
+        }
         viewModel.moveCharacter(keyEvent.getCode());
         keyEvent.consume();
     }
@@ -207,7 +172,8 @@ public class MyView implements Observer {
 
 
     }
-//ToDo
+
+    //ToDo
     public void setMaximizeEvent(Stage stage) {
         stage.maximizedProperty().addListener(new ChangeListener<Boolean>() {
             //ToDo fix here!!!!!! doesnt work
@@ -323,6 +289,74 @@ public class MyView implements Observer {
     public void openExistMaze(ActionEvent actionEvent) {
         viewModel.openExistMaze();
     }
+    private void mazeSolved() {
+        try {
+            Stage stage = new Stage();
+            stage.setResizable(false);
+            stage.setTitle("Winning!!!");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            Parent root = fxmlLoader.load(getClass().getResource("endScene.fxml").openStream());
+            fxmlLoader.setController(this);
+            Scene scene = new Scene(root, 580, 380);
+            stage.setScene(scene);
+            scene.getStylesheets().add("View/mainDisplay.css");
+            stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
+
+            String musicFile = "resources/End.mp3";     // For example
+            Media sound = new Media(new File(musicFile).toURI().toString());
+            MediaPlayer FinishSong = new MediaPlayer(sound);
+            btn_yes = new Button();
+            btn_no = new Button();
+            Button no = (Button) scene.lookup("#btn_no");
+            Button yes = (Button) scene.lookup("#btn_yes");
+
+            stage.setOnCloseRequest(e -> {
+                no.fire();
+            });
+            yes.setOnAction((event) -> {
+                // Button was clicked, do something...
+                generateFirstMaze();
+                FinishSong.stop();
+                YaaraView.mediaPlayer.play();
+                stage.close();
+                event.consume();
+            });
+            no.setOnAction((event) -> {
+                // Button was clicked, do something...
+                solutionDisplayer.clear();
+                btn_hint.setDisable(true);
+                btn_revealSolution.setDisable(true);
+                FinishSong.stop();
+                YaaraView.mediaPlayer.play();
+                stage.close();
+                event.consume();
+
+
+            });
+            YaaraView.mediaPlayer.stop();
+            stage.show();
+            FinishSong.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //showAlert("congratulation");
+        /*
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"congratulations!! great job!\n would you like to start a new game? ");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            // ... user chose OK
+            generateFirstMaze();
+
+        } else {
+            // ... user chose CANCEL or closed the dialog
+            solutionDisplayer.clear();
+            btn_hint.setDisable(true);
+            btn_revealSolution.setDisable(true);
+        }
+        */
+
+
+    }
 
     public void mute(ActionEvent actionEvent) {
         if (tg_mute.isSelected()) {
@@ -333,12 +367,8 @@ public class MyView implements Observer {
         }
         mainPane.requestFocus();
     }
-    public void newGame(ActionEvent actionEvent){
 
-    }
-    public void quitFunction(ActionEvent actionEvent){
 
-    }
 }
 
 

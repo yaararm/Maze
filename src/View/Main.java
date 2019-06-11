@@ -61,7 +61,7 @@ public class Main extends Application {
         viewModel.addObserver(view);
         //--------------
         SetStageCloseEvent(primaryStage,model);
-
+        SetScrollEvent(mazeScene);
         primaryStage.setResizable(false);
         primaryStage.show();
     }
@@ -80,6 +80,12 @@ public class Main extends Application {
             }
         });
 
+
+    }
+    private void SetScrollEvent(Scene scene) {
+        scene.setOnScroll(e -> {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        });
     }
     private void startMusic(){
         String musicFile = "resources/opening.mp3";     // For example
