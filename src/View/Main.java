@@ -11,6 +11,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.File;
 import java.util.Optional;
@@ -61,7 +62,7 @@ public class Main extends Application {
         viewModel.addObserver(view);
         //--------------
         SetStageCloseEvent(primaryStage,model);
-        SetScrollEvent(mazeScene);
+        SetScrollEvent(primaryStage, mazeScene);
         primaryStage.setResizable(false);
         primaryStage.show();
     }
@@ -69,10 +70,15 @@ public class Main extends Application {
     private void SetStageCloseEvent(Stage primaryStage,MyModel model) {
         primaryStage.setOnCloseRequest(e -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Exit");
+            alert.setHeaderText(null);
+            alert.setContentText("Are you sure you want to exit?");
+            alert.initStyle(StageStyle.UTILITY);
+
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
-                model.stopServers();
                 // ... user chose OK
+                model.stopServers();
                 // Close program
             } else {
                 // ... user chose CANCEL or closed the dialog
@@ -82,10 +88,17 @@ public class Main extends Application {
 
 
     }
-    private void SetScrollEvent(Scene scene) {
+    private void SetScrollEvent(Stage stage, Scene scene) {
         scene.setOnScroll(e -> {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        });
+                Double deltaY = e.getDeltaY();
+                if (deltaY > 0) {
+                    stage.setWidth(stage.getWidth() + 10);
+                    stage.setHeight(stage.getHeight() + 10);
+                } else {
+                    stage.setWidth(stage.getWidth() - 10);
+                    stage.setHeight(stage.getHeight() - 10);
+                }
+            });
     }
     private void startMusic(){
         String musicFile = "resources/opening.mp3";     // For example
