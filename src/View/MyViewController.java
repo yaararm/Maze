@@ -22,13 +22,14 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.File;
 import java.util.Observable;
 import java.util.Observer;
 
 
-public class MyView implements Observer {
+public class MyViewController implements Observer {
     //public Character player;
     private String mazeDifficulty;
     //private HashMap<KeyCode, Boolean> keys = new HashMap<>();
@@ -322,21 +323,6 @@ public class MyView implements Observer {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //showAlert("congratulation");
-        /*
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"congratulations!! great job!\n would you like to start a new game? ");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK) {
-            // ... user chose OK
-            generateFirstMaze();
-
-        } else {
-            // ... user chose CANCEL or closed the dialog
-            solutionDisplayer.clear();
-            btn_hint.setDisable(true);
-            btn_revealSolution.setDisable(true);
-        }
-        */
 
 
     }
@@ -351,7 +337,15 @@ public class MyView implements Observer {
         mainPane.requestFocus();
     }
 
+    public void quitFunction(ActionEvent actionEvent){
+        Stage stage = (Stage) btn_hint.getScene().getWindow();
+        YaaraView.mediaPlayer.stop();
 
+
+        stage.fireEvent(
+                new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST)
+        );
+    }
 }
 
 
