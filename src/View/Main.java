@@ -41,7 +41,7 @@ public class Main extends Application {
         //create main display scene
         FXMLLoader fxmlLoader2 = new FXMLLoader();
         Parent rootMaze = fxmlLoader2.load(getClass().getResource("MyView.fxml").openStream());
-        Scene mazeScene = new Scene(rootMaze, 800, 600);
+        Scene mazeScene = new Scene(rootMaze, 800, 900);
         mazeScene.getStylesheets().add(getClass().getResource("mainDisplay.css").toExternalForm());
 
         primaryStage.setScene(welcomeScene);
@@ -76,21 +76,19 @@ public class Main extends Application {
             alert.initStyle(StageStyle.UTILITY);
 
             Optional<ButtonType> result = alert.showAndWait();
+            // ... user chose CANCEL or closed the dialog
             if (result.get() == ButtonType.OK) {
                 // ... user chose OK
                 model.stopServers();
                 // Close program
-            } else {
-                // ... user chose CANCEL or closed the dialog
-                e.consume();
-            }
+            } else e.consume();
         });
 
 
     }
     private void SetScrollEvent(Stage stage, Scene scene) {
         scene.setOnScroll(e -> {
-                Double deltaY = e.getDeltaY();
+                double deltaY = e.getDeltaY();
                 if (deltaY > 0) {
                     stage.setWidth(stage.getWidth() + 10);
                     stage.setHeight(stage.getHeight() + 10);
