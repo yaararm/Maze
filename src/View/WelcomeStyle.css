@@ -2,7 +2,7 @@
 
         -fx-background-color:#f7e9c0;
     -fx-background-image : url('file:resources/Images/3bros.png');
-
+    -fx-background-size: cover;
 }/*
 #AnchorPane{
     -fx-background-image: url("file:resources/Images/Roundbale1.jpg");
@@ -199,7 +199,7 @@ MenuButton{
     -fx-background-size: 18 18;
     -fx-background-repeat: no-repeat;
     -fx-background-position:center;
-    -fx-background-color: linear-gradient(#c653c6, #8B008B);
+    -fx-background-color: linear-gradient(#e25be2, #d700d7);
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
 #btn_music:hover {
@@ -207,7 +207,7 @@ MenuButton{
     -fx-background-size: 18 18;
     -fx-background-repeat: no-repeat;
     -fx-background-position:center;
-    -fx-background-color: linear-gradient(#c653c6, #FFE4E1);
+    -fx-background-color: linear-gradient(#a647a6, #840084);
 //-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
     -fx-background-insets: 0 0 -1 0, 0, 1, 2;
     -fx-background-radius: 200px, 200px, 200px, 200px;
@@ -222,7 +222,7 @@ MenuButton{
     -fx-background-size: 18 18;
     -fx-background-repeat: no-repeat;
     -fx-background-position:center;
-    -fx-background-color: linear-gradient(#c653c6, #FFE4E1);
+    -fx-background-color: linear-gradient(#a647a6, #840084);
 //-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
     -fx-background-insets: 0 0 -1 0, 0, 1, 2;
     -fx-background-radius: 200px, 200px, 200px, 200px;

@@ -10,7 +10,7 @@ Button {
     -fx-font-family: "Arial Narrow";
     -fx-font-weight: bold;
     -fx-background-radius: 200px, 200px, 200px, 200px;
-    -fx-background-color: linear-gradient(#00FFFF, #66ff99);
+    -fx-background-color: linear-gradient(#ff9ac4, #ff6f80);
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
 
@@ -20,7 +20,7 @@ Button:hover{
     -fx-background-radius: 200px, 200px, 200px, 200px;
     -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
     -fx-text-fill: -fx-text-base-color;
-    -fx-background-color: linear-gradient(#00b2b2, #4eb86a);
+    -fx-background-color: linear-gradient(#d97ab0, #cb4f66);
     -fx-alignment: CENTER;
     -fx-content-display: LEFT;
 }
@@ -46,7 +46,7 @@ MenuButton{
     -fx-background-size: 18 18;
     -fx-background-repeat: no-repeat;
     -fx-background-position:center;
-    -fx-background-color: linear-gradient(#00FFFF, #66ff99);
+    -fx-background-color: linear-gradient(#ff66ff, #d600d6);
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
 #tg_mute:hover {
@@ -61,7 +61,7 @@ MenuButton{
     -fx-text-fill: -fx-text-base-color;
     -fx-alignment: CENTER;
     -fx-content-display: LEFT;
-    -fx-background-color: linear-gradient(#00cbcb, #53d481);
+    -fx-background-color: linear-gradient(#c552c5, #a000a0);
 
 }
 
@@ -77,7 +77,7 @@ MenuButton{
     -fx-text-fill: -fx-text-base-color;
     -fx-alignment: CENTER;
     -fx-content-display: LEFT;
-    -fx-background-color: linear-gradient(#00b2b2, #4eb86a);
+    -fx-background-color: linear-gradient(#c552c5, #a000a0);
 
 }
 #btn_yes{
