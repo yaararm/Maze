@@ -1,7 +1,8 @@
 .root {
 
     -fx-background-color: #f7e9c0;
-    -fx-background-image: url('file:resources/Images/hay4.jpg');
+    -fx-background-image: url('file:resources/Images/grass7.jpg');
+    -fx-background-size: cover;
 }
 
 Button {
