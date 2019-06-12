@@ -18,72 +18,11 @@ public class ChracterDisplayer extends Canvas {
     private int ArraySize;
     private int characterPositionRow = 1;
     private int characterPositionColumn = 1;
-    private double cellHeight, cellWidth;
     private double offsetX;
     private double offsetY;
     private double posX;
     private double posY;
-
-    public void setPos(double posX, double posY) {
-        this.posX += posX;
-        this.posY += posY;
-    }
-    public void setOffset(double x, double y) {//int row,int col, double paneW, double paneH) {
-        this.offsetX = x;
-        this.offsetY = y;
-        redraw();
-    }
-    public void resetLocation() {
-        posY = 0;
-        posX = 0;
-        offsetY = 0;
-        offsetX = 0;
-    }
     private StringProperty ImageFileNameCharacter = new SimpleStringProperty();
-    /**
-     * this function set the array size
-     * @param size
-     */
-    public void setArraySize(int size) {
-        this.ArraySize = size;
-        redraw();
-    }
-
-    /**
-     * this function set the sizes of the character
-     * @param newHeight
-     * @param newWidth
-     */
-    public void setSize(double newHeight, double newWidth) {
-        setHeight(Math.min(newHeight, newWidth));
-        setWidth(Math.min(newHeight, newWidth));
-        redraw();
-    }
-    /**
-     * this function set the character Position
-     * @param row
-     * @param column
-     */
-    public void setCharacterPosition(int row, int column) {
-        characterPositionRow = row;
-        characterPositionColumn = column;
-        redraw();
-    }
-
-    /**
-     *
-     * @return Character Position Row
-     */
-    public int getCharacterPositionRow() {
-        return characterPositionRow;
-    }
-    /**
-     *
-     * @return Character Position Column
-     */
-    public int getCharacterPositionColumn() {
-        return characterPositionColumn;
-    }
 
     /**
      * this function draw the character on the maze
@@ -108,13 +47,79 @@ public class ChracterDisplayer extends Canvas {
             e.printStackTrace();
         }
     }
-   /**
+
+    /**
+     * set current maze location on screen
+     * @param posX position X
+     * @param posY position Y
+     */
+    public void setPos(double posX, double posY) {
+        this.posX += posX;
+        this.posY += posY;
+    }
+
+    /**
+     * set offset location from current one. triggerd on mouse drag event
+     * @param x - offset X
+     * @param y - offset Y
+     */
+    public void setOffset(double x, double y) {//int row,int col, double paneW, double paneH) {
+        this.offsetX = x;
+        this.offsetY = y;
+        redraw();
+    }
+
+    /**
+     * reset position and offset values
+     */
+    public void resetLocation() {
+        posY = 0;
+        posX = 0;
+        offsetY = 0;
+        offsetX = 0;
+    }
+
+    /**
+     * this function set the array size
+     * @param size
+     */
+    public void setArraySize(int size) {
+        this.ArraySize = size;
+        redraw();
+    }
+
+    /**
+     * this function set the sizes of the character
+     * @param newHeight
+     * @param newWidth
+     */
+    public void setSize(double newHeight, double newWidth) {
+        setHeight(Math.min(newHeight, newWidth));
+        setWidth(Math.min(newHeight, newWidth));
+        redraw();
+    }
+
+    /**
+     * this function set the character Position
+     * @param row
+     * @param column
+     */
+    public void setCharacterPosition(int row, int column) {
+        characterPositionRow = row;
+        characterPositionColumn = column;
+        redraw();
+    }
+
+    //region String Property for Binding
+
+    /**
      *
      * @return the file image of the character
      */
     public String getImageFileNameSolution() {
         return ImageFileNameCharacter.get();
     }
+
     /**
      * this function set the image of the character
      * @param imageFileNameSolution
@@ -122,9 +127,8 @@ public class ChracterDisplayer extends Canvas {
     public void setImageFileNameSolution(String imageFileNameSolution) {
         this.ImageFileNameCharacter.set(imageFileNameSolution);
     }
-
-
     //endregion
+
 }
 
 

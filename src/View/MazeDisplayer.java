@@ -20,31 +20,9 @@ public class MazeDisplayer extends Canvas {
     private double offsetY;
     private double posX;
     private double posY;
-
-    public void setPos(double posX, double posY) {
-        this.posX += posX;
-        this.posY += posY;
-
-    }
-
-
-    //region Properties
     private StringProperty ImageFileNameWall = new SimpleStringProperty();
     private StringProperty ImageFileNameGoal = new SimpleStringProperty();
 
-    /**
-     * @return cell height
-     */
-    public double getCellHeight() {
-        return cellHeight;
-    }
-
-    /**
-     * @return cell width
-     */
-    public double getCellWidth() {
-        return cellWidth;
-    }
 
     /**
      * this function set the maze
@@ -69,13 +47,29 @@ public class MazeDisplayer extends Canvas {
         setWidth(Math.min(newHeight, newWidth));
         redraw();
     }
+    /**
+     * set current maze location on screen
+     * @param posX position X
+     * @param posY position Y
+     */
+    public void setPos(double posX, double posY) {
+        this.posX += posX;
+        this.posY += posY;
 
+    }
+    /**
+     * set offset location from current one. triggerd on mouse drag event
+     * @param x - offset X
+     * @param y - offset Y
+     */
     public void setOffset(double x, double y) {//int row,int col, double paneW, double paneH) {
         this.offsetX = x;
         this.offsetY = y;
         redraw();
     }
-
+    /**
+     * reset position and offset values
+     */
     public void resetLocation() {
         posY = 0;
         posX = 0;
@@ -126,46 +120,8 @@ public class MazeDisplayer extends Canvas {
             }
         }
     }
-    //public void redraw() {
-    //    if (maze != null) {
-    //        double canvasHeight = getHeight();
-    //        double canvasWidth = getWidth();
 
-
-    //        cellHeight = canvasHeight / maze.length;
-    //        cellWidth = canvasWidth / maze[0].length;
-
-    //        try {
-    //            Image goalImage = new Image(new FileInputStream(ImageFileNameGoal.get()));
-    //            Image wallImage = new Image(new FileInputStream(ImageFileNameWall.get()));
-
-    //            GraphicsContext gc = getGraphicsContext2D();
-    //            gc.clearRect(0, 0, getWidth(), getHeight());
-
-
-    //            //Draw Maze
-    //            for (int i = 0; i < maze.length; i++) {
-    //                for (int j = 0; j < maze[i].length; j++) {
-    //                    if (maze[i][j] == 1) {
-    //                        //gc.fillRect(i * cellHeight, j * cellWidth, cellHeight, cellWidth);
-    //                        // gc.drawImage(wallImage, (i * cellHeight), (j * cellWidth), cellHeight, cellWidth);
-
-    //                    }
-    //                    if (maze[i][j] == 2) {
-    //                        //gc.fillRect(i * cellHeight, j * cellWidth, cellHeight, cellWidth);
-    //                        //gc.drawImage(goalImage, (i * cellHeight), j * cellWidth, cellHeight, cellWidth);
-
-    //                    }
-
-    //                }
-    //            }
-
-    //        } catch (FileNotFoundException e) {
-    //            //e.printStackTrace();
-    //        }
-    //    }
-    //}
-
+    //region String Property for Binding
     /**
      * @return the image of the wall
      */
@@ -197,6 +153,7 @@ public class MazeDisplayer extends Canvas {
     public void setImageFileNameGoal(String imageFileNameGoal) {
         this.ImageFileNameGoal.set(imageFileNameGoal);
     }
+    //endregion
 
 
 }

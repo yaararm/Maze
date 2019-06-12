@@ -21,30 +21,42 @@ import java.io.FileNotFoundException;
 
 public class SolutionDisplayer extends Canvas {
     private int[][] solution;
-    private int characterPositionRow = 1;
-    private int characterPositionColumn = 1;
     private double offsetX;
     private double offsetY;
     private double posX;
     private double posY;
+    private StringProperty imageFileNameSolution = new SimpleStringProperty();
 
+    /**
+     * set current maze location on screen
+     * @param posX position X
+     * @param posY position Y
+     */
     public void setPos(double posX, double posY) {
         this.posX += posX;
         this.posY += posY;
     }
+
+    /**
+     * set offset location from current one. triggerd on mouse drag event
+     * @param x - offset X
+     * @param y - offset Y
+     */
     public void setOffset(double x, double y) {//int row,int col, double paneW, double paneH) {
         this.offsetX = x;
         this.offsetY = y;
         redraw();
     }
+
+    /**
+     * reset position and offset values
+     */
     public void resetLocation() {
         posY = 0;
         posX = 0;
         offsetY = 0;
         offsetX = 0;
     }
-    //region Properties
-    private StringProperty imageFileNameSolution = new SimpleStringProperty();
 
     /**
      * this function set the matrix of the solution
@@ -54,6 +66,7 @@ public class SolutionDisplayer extends Canvas {
         this.solution = mazeSol;
         redraw();
     }
+
     /**
      * this function set the size of the cell of the solution
      * @param newheight
@@ -64,28 +77,7 @@ public class SolutionDisplayer extends Canvas {
         setWidth(Math.min(newheight, newWidth));
         redraw();
     }
-    /**
-     * this function set the Character Position
-     * @param row
-     * @param column
-     */
-    public void setCharacterPosition(int row, int column) {
-        characterPositionRow = row;
-        characterPositionColumn = column;
-        redraw();
-    }
-    /**
-     * @return the Character Position row
-     */
-    public int getCharacterPositionRow() {
-        return characterPositionRow;
-    }
-    /**
-     * @return the Character Position column
-     */
-    public int getCharacterPositionColumn() {
-        return characterPositionColumn;
-    }
+
     /**
      * this function draw the solution path on the maze board
      */
@@ -130,6 +122,9 @@ public class SolutionDisplayer extends Canvas {
             solution = null ;
         }
     }
+
+    //region String Property for Binding
+
     /**
      *
      * @return the image file of the solution path
