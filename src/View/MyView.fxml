@@ -105,7 +105,7 @@ onKeyReleased="#KeyReleased"     -->
     <center>
         <Pane fx:id="mainPane" BorderPane.alignment="CENTER" style="-fx-background-color:transparent;">
             <children>
-                <MazeDisplayer fx:id="mazeDisplayer" height="600" width="600" imageFileNameWall="resources/Images/grass.jpg"  imageFileNameGoal="resources/Images/grandma2.jpg"/>
+                <MazeDisplayer fx:id="mazeDisplayer" height="600" width="600" imageFileNameWall="resources/Images/grass.jpg"  imageFileNameGoal="resources/Images/grandma1.png"/>
                 <SolutionDisplayer fx:id="solutionDisplayer" height="600.0" imageFileNameSolution="resources/Images/11-512.png" width="600.0" />
                 <ChracterDisplayer fx:id="chracterDisplayer" height="600" width="600" imageFileNameSolution="resources/Images/char2.png"  />
             </children>
