@@ -3,6 +3,7 @@ package ViewModel;
 
 import Model.IModel;
 
+import Model.MyModel;
 import View.MazeDisplayer;
 import algorithms.mazeGenerators.Position;
 import javafx.beans.property.SimpleStringProperty;
@@ -13,10 +14,10 @@ import javafx.scene.input.ScrollEvent;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Properties;
 
 public class MyViewModel extends Observable implements Observer {
     private IModel model;
-
     private int characterPositionRowIndex;
     private int characterPositionColumnIndex;
 
@@ -96,4 +97,13 @@ public class MyViewModel extends Observable implements Observer {
     public void openExistMaze() {
         model.openExistMaze();
     }
+
+    public Properties getProperties() {
+        return model.getProperties();
+    }
+
+    public void setProperties(Properties prop){
+        model.setProperties(prop);
+    }
+
 }

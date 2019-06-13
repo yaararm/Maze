@@ -8,6 +8,7 @@ import algorithms.search.Solution;
 import javafx.scene.input.KeyCode;
 
 import java.io.IOException;
+import java.util.Properties;
 
 public interface IModel {
     /**
@@ -68,6 +69,17 @@ public interface IModel {
      * this function load the maze from existing file
      */
     void openExistMaze();
+
+    /**
+     * get project Properties
+     * @return Properties file
+     */
+    public Properties getProperties();
+    /**
+     * set project Properties
+     */
+    public void setProperties(Properties prop);
+
 
     }
 

@@ -48,13 +48,13 @@ onKeyReleased="#KeyReleased"     -->
                             <items>
                                 <Menu mnemonicParsing="false" text="Solution Alogorithm">
                                     <items>
-                                        <RadioMenuItem mnemonicParsing="false" selected="true" text="DFS">
+                                        <RadioMenuItem fx:id="DFS" onAction="#ChangeProp" mnemonicParsing="false" text="DFS">
                                             <toggleGroup>
                                                 <ToggleGroup fx:id="algoGroup" />
                                             </toggleGroup>
                                         </RadioMenuItem>
-                                        <RadioMenuItem mnemonicParsing="false" text="BFS" toggleGroup="$algoGroup" />
-                                        <RadioMenuItem mnemonicParsing="false" text="Best" toggleGroup="$algoGroup" />
+                                        <RadioMenuItem fx:id="BFS" onAction="#ChangeProp" mnemonicParsing="false" text="BFS" toggleGroup="$algoGroup" />
+                                        <RadioMenuItem fx:id="Best" onAction="#ChangeProp" mnemonicParsing="false" text="Best" toggleGroup="$algoGroup" />
                                     </items>
                                 </Menu>
                             </items>

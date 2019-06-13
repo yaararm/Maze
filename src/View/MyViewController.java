@@ -3,6 +3,7 @@
  */
 package View;
 
+import Server.Server;
 import ViewModel.MyViewModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -13,6 +14,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Toggle;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -20,9 +24,10 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
-import java.io.File;
+import java.io.*;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Properties;
 
 
 public class MyViewController implements Observer, IView {
@@ -52,6 +57,13 @@ public class MyViewController implements Observer, IView {
     public javafx.scene.control.Button btn_revealSolution;
     public javafx.scene.control.Button btn_yes;
     public javafx.scene.control.Button btn_no;
+    public javafx.scene.control.ToggleGroup algoGroup;
+    public javafx.scene.control.Toggle DFS;
+    public javafx.scene.control.Toggle BFS;
+    public javafx.scene.control.Toggle Best;
+   // public javafx.scene.image.Image yaara;
+    // public javafx.scene.image.ImageView tomer;
+
 
     @Override
     public void update(Observable o, Object arg) {
@@ -124,6 +136,7 @@ public class MyViewController implements Observer, IView {
     public void revealSolution() {
         int[][] sol = viewModel.getAllSolution();
         solutionDisplayer.setSolution(sol);
+        isHint = false;
     }
 
     public void KeyPressed(KeyEvent keyEvent) {
@@ -150,7 +163,10 @@ public class MyViewController implements Observer, IView {
         try {
             Stage stage = new Stage();
             stage.setResizable(false);
+
+            //yaara = new ImageView(new Image("/resources/Images/3bros.png"));
             stage.setTitle("About Us");
+         //   yaara = new Image("resources/Images/3bros.png");
             FXMLLoader fxmlLoader = new FXMLLoader();
             Parent root = fxmlLoader.load(getClass().getResource("aboutUs.fxml").openStream());
             Scene scene = new Scene(root, 550, 400);
@@ -203,8 +219,14 @@ public class MyViewController implements Observer, IView {
             if (mazeDifficulty == "easy") generateEasyMaze();
             if (mazeDifficulty == "medium") generateMediumMaze();
             if (mazeDifficulty == "hard") generateHardMaze();
-
         }
+        // set cuurent solve algo according to properties file
+        Properties p = viewModel.getProperties();
+        String s = p.getProperty("MazeSolverType");
+        if (s.equals("BestFirstSearch")) Best.setSelected(true);
+        if (s.equals("DepthFirstSearch")) DFS.setSelected(true);
+        if (s.equals("BreadthFirstSearch")) BFS.setSelected(true);
+
     }
 
     public void saveMazeToFile(ActionEvent actionEvent) {
@@ -293,7 +315,7 @@ public class MyViewController implements Observer, IView {
             stage.initModality(Modality.APPLICATION_MODAL); //Lock the window until it closes
 
             //set winnig sound
-            String musicFile = "resources/End.mp3";     // For example
+            String musicFile = "resources/Music/End.mp3";     // For example
             Media sound = new Media(new File(musicFile).toURI().toString());
             MediaPlayer FinishSong = new MediaPlayer(sound);
 
@@ -350,6 +372,24 @@ public class MyViewController implements Observer, IView {
         deltaX = 0;
         deltaY = 0;
     }
+
+    public void ChangeProp() {
+        Properties prop = viewModel.getProperties();
+
+        if (Best.isSelected()) {
+            prop.setProperty("MazeSolverType", "BestFirstSearch");
+        }
+        if (BFS.isSelected()) {
+            prop.setProperty("MazeSolverType", "BreadthFirstSearch");
+        }
+        if (DFS.isSelected()) {
+            prop.setProperty("MazeSolverType", "DepthFirstSearch");
+        }
+        viewModel.setProperties(prop);
+
+    }
+
+
 }
 
 

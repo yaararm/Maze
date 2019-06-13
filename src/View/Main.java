@@ -104,7 +104,7 @@ public class Main extends Application {
     }
 
     private void startMusic() {
-        String musicFile = "resources/opening.mp3";     // For example
+        String musicFile = "resources/Music/opening.mp3";     // For example
         Media sound = new Media(new File(musicFile).toURI().toString());
         WelcomeView.mediaPlayer = new MediaPlayer(sound);
         WelcomeView.mediaPlayer.setCycleCount(INDEFINITE);

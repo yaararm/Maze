@@ -16,6 +16,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Observable;
+import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -32,7 +33,6 @@ import test.PrintableMazeSolution;
 
 public class MyModel extends Observable implements IModel {
 
-    private ExecutorService threadPool = Executors.newCachedThreadPool();
     Maze realMaze;
     private Server mazeGeneratingServer;
     private Server solveSearchProblemServer;
@@ -41,8 +41,7 @@ public class MyModel extends Observable implements IModel {
 
     private int characterPositionRow = 1;
     private int characterPositionColumn = 1;
-    private int characterPositionX = 0;
-    private int characterPositionY = 0;
+
 
     public MyModel() {
         mazeGeneratingServer = new Server(5400, 1000, new ServerStrategyGenerateMaze());
@@ -95,13 +94,12 @@ public class MyModel extends Observable implements IModel {
                 UnknownHostException e) {
             e.printStackTrace();
         }
-            characterPositionRow = realMaze.getStartPosition().getRowIndex();
-            characterPositionColumn = realMaze.getStartPosition().getColumnIndex();
-            solved = false;
-            setChanged();
-            notifyObservers(1);
+        characterPositionRow = realMaze.getStartPosition().getRowIndex();
+        characterPositionColumn = realMaze.getStartPosition().getColumnIndex();
+        solved = false;
+        setChanged();
+        notifyObservers(1);
     }
-
 
     @Override
     public int[][] getMaze() {
@@ -117,7 +115,7 @@ public class MyModel extends Observable implements IModel {
 
     @Override
     public void moveCharacter(KeyCode movement) { //ToDo make checks here!!
-        if(!solved) {
+        if (!solved) {
             try {
                 switch (movement) {
                     case UP:
@@ -143,13 +141,12 @@ public class MyModel extends Observable implements IModel {
                 }
             } catch (Exception e) {
             }
-            if(characterPositionColumn == realMaze.getGoalPosition().getColumnIndex() &&
-                    characterPositionRow == realMaze.getGoalPosition().getRowIndex()){
+            if (characterPositionColumn == realMaze.getGoalPosition().getColumnIndex() &&
+                    characterPositionRow == realMaze.getGoalPosition().getRowIndex()) {
                 solved = true;
                 setChanged();
                 notifyObservers(3); //solved the maze!!!
-            }
-            else{
+            } else {
                 setChanged();
                 notifyObservers(2);
             }
@@ -163,16 +160,16 @@ public class MyModel extends Observable implements IModel {
     public int getCharacterPositionRow() {
         return characterPositionRow;
     }
+
     @Override
     public int getCharacterPositionColumn() {
         return characterPositionColumn;
     }
 
     //ToDo check properties here!!!
-    public  Solution getSolution() {
+    public Solution getSolution() {
         Position realStartPoint = realMaze.getStartPosition();
         realMaze.setStartPosition(new Position(characterPositionRow, characterPositionColumn));
-        Solution s;
         try {
             Client client = new Client(InetAddress.getLocalHost(), 5401, new IClientStrategy() {
                 @Override
@@ -203,7 +200,7 @@ public class MyModel extends Observable implements IModel {
     public int[][] getAllSolution() {
         int[][] mazeToReturn = new int[realMaze.getRowLength()][realMaze.getColumnLength()];
         Solution s = getSolution();
-        for (int i = 1; i < s.getSolutionPath().size()-1; i++) {
+        for (int i = 1; i < s.getSolutionPath().size() - 1; i++) {
             Position p = ((MazeState) s.getSolutionPath().get(i)).getCurrentP();
             mazeToReturn[p.getColumnIndex()][p.getRowIndex()] = 1;
         }
@@ -223,66 +220,92 @@ public class MyModel extends Observable implements IModel {
 
     }
 
-@Override
+    @Override
+    public void saveMazeToFile() {
 
-    public void saveMazeToFile (){
+        SavedMaze mySave = new SavedMaze(realMaze, getCharacterPositionRow(), getCharacterPositionColumn());
 
-    SavedMaze mySave = new SavedMaze(realMaze, getCharacterPositionRow(), getCharacterPositionColumn());
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Maze files ", "*.maze");
+        fileChooser.getExtensionFilters().add(extFilter);
+        fileChooser.setTitle("Save the Maze");
+        Stage window = new Stage();
+        File file = fileChooser.showSaveDialog(window);
+        try {
+            if (file != null) {
 
-    FileChooser fileChooser = new FileChooser();
-    FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Maze files ", "*.maze");
-    fileChooser.getExtensionFilters().add(extFilter);
-    fileChooser.setTitle("Save the Maze");
-    Stage window = new Stage();
-    File file = fileChooser.showSaveDialog(window);
-    try {
-        if (file != null) {
+                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+                oos.writeObject(mySave);
+                oos.close();
+            }
 
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
-            oos.writeObject(mySave);
-            oos.close();
+
+        } catch (IOException e) {
+            showAlert("File could not be saved");
+
         }
-
-
-    } catch (IOException e) {
-        showAlert("File could not be saved");
-
     }
-}
+
     @Override
     public void openExistMaze() {
-    FileChooser fileChooser = new FileChooser();
-    fileChooser.setTitle("Load the Maze");
-    Stage window = new Stage();
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Load the Maze");
+        Stage window = new Stage();
 
-       File file = fileChooser.showOpenDialog(window);
+        File file = fileChooser.showOpenDialog(window);
 
         try {
             if (file != null) {
-             ObjectInputStream oin = new ObjectInputStream(new FileInputStream(file)) ;
-             SavedMaze mySave = (SavedMaze)oin.readObject();
-             this.realMaze = mySave.getMaze();
-             this.characterPositionRow = mySave.getRowPosition();
-             this.characterPositionColumn = mySave.getColumnPosition();
+                ObjectInputStream oin = new ObjectInputStream(new FileInputStream(file));
+                SavedMaze mySave = (SavedMaze) oin.readObject();
+                this.realMaze = mySave.getMaze();
+                this.characterPositionRow = mySave.getRowPosition();
+                this.characterPositionColumn = mySave.getColumnPosition();
                 setChanged();
                 notifyObservers(1);
 
-         }
+            }
         } catch (IOException | ClassNotFoundException e) {
             showAlert("File could not be upload");
 
         }
     }
-  
-    //ToDo show alert when file not exist/ file not saved
 
     /**
-     *  this function open a window for allert
+     * this function open a window for allert
+     *
      * @param alertMessage
      */
     private void showAlert(String alertMessage) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText(alertMessage);
         alert.show();
+    }
+
+    public Properties getProperties(){
+        Properties prop = new Properties();
+        try {
+            InputStream input = Server.class.getClassLoader().getResourceAsStream("config.properties");
+            if (input == null) { //check if file exist
+                //return createNewConfigFile();
+                System.out.println("cant find config file");
+                throw new NullPointerException();
+            }
+            prop.load(input);
+            input.close();
+        } catch (Exception e) {
+            System.out.println("could not load prop file" + e);
+        }
+        return prop;
+    }
+
+    public void setProperties(Properties prop){
+        try{
+            OutputStream output = new FileOutputStream("resources/config.properties");
+            prop.store(output, null);
+        }
+        catch (Exception e){
+            System.out.println("cant write to properties file");
+        }
     }
 }

@@ -1,0 +1,448 @@
+2019.06.13 17:52:59.506 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 17:52:59.506 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 17:52:59.509 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 17:52:59.509 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 17:52:59.510 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 17:52:59.510 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 17:53:30.684 INFO  Server.Server - Stopping server..
+2019.06.13 17:53:30.685 INFO  Server.Server - Stopping server..
+2019.06.13 18:00:56.304 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 18:00:56.304 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 18:00:56.308 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 18:00:56.308 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 18:00:56.309 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:00:56.309 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:01:01.779 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=49790,localport=5400]
+2019.06.13 18:01:01.781 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=49790,localport=5400]
+2019.06.13 18:01:04.659 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=49791,localport=5401]
+2019.06.13 18:01:04.660 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=49791,localport=5401]
+2019.06.13 18:01:04.678 INFO  Server.Server - solution file name is: 0 5 15 20 21 21_-971378882
+2019.06.13 18:01:04.678 INFO  Server.Server - calculating Solution...
+2019.06.13 18:01:05.329 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=49792,localport=5401]
+2019.06.13 18:01:05.331 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=49792,localport=5401]
+2019.06.13 18:01:05.352 INFO  Server.Server - solution file name is: 0 5 15 20 21 21_-971378882
+2019.06.13 18:01:05.352 INFO  Server.Server - solution Found. restoring...
+2019.06.13 18:01:06.126 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=49793,localport=5401]
+2019.06.13 18:01:06.128 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=49793,localport=5401]
+2019.06.13 18:01:06.138 INFO  Server.Server - solution file name is: 0 5 15 20 21 21_-971378882
+2019.06.13 18:01:06.139 INFO  Server.Server - solution Found. restoring...
+2019.06.13 18:01:06.859 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=49794,localport=5401]
+2019.06.13 18:01:06.861 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=49794,localport=5401]
+2019.06.13 18:01:06.879 INFO  Server.Server - solution file name is: 0 5 15 20 21 21_-971378882
+2019.06.13 18:01:06.879 INFO  Server.Server - solution Found. restoring...
+2019.06.13 18:01:07.575 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=49795,localport=5401]
+2019.06.13 18:01:07.576 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=49795,localport=5401]
+2019.06.13 18:01:07.590 INFO  Server.Server - solution file name is: 0 5 15 20 21 21_-971378882
+2019.06.13 18:01:07.591 INFO  Server.Server - solution Found. restoring...
+2019.06.13 18:01:21.525 INFO  Server.Server - Stopping server..
+2019.06.13 18:01:21.526 INFO  Server.Server - Stopping server..
+2019.06.13 18:09:09.863 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 18:09:09.863 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 18:09:09.867 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 18:09:09.867 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 18:09:09.867 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:09:09.867 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:09:13.973 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=49850,localport=5400]
+2019.06.13 18:09:13.973 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 18:09:13.974 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=49850,localport=5400]
+2019.06.13 18:09:13.979 INFO  Server.Server - Generating a new Maze...
+2019.06.13 18:09:13.983 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=49850,localport=5400]
+2019.06.13 18:09:34.463 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=49853,localport=5401]
+2019.06.13 18:09:34.463 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5401)
+2019.06.13 18:09:34.465 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=49853,localport=5401]
+2019.06.13 18:09:34.482 INFO  Server.Server - solution file name is: 4 0 20 16 21 21_-442771166
+2019.06.13 18:09:34.483 INFO  Server.Server - calculating Solution...
+2019.06.13 18:09:34.510 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=49853,localport=5401]
+2019.06.13 18:09:45.041 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5401)
+2019.06.13 18:09:45.041 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=49855,localport=5401]
+2019.06.13 18:09:45.043 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=49855,localport=5401]
+2019.06.13 18:09:45.058 INFO  Server.Server - solution file name is: 4 0 20 16 21 21_-442771166
+2019.06.13 18:09:45.058 INFO  Server.Server - solution Found. restoring...
+2019.06.13 18:09:45.063 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=49855,localport=5401]
+2019.06.13 18:10:15.002 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 18:10:15.002 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=49856,localport=5400]
+2019.06.13 18:10:15.003 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=49856,localport=5400]
+2019.06.13 18:10:15.004 INFO  Server.Server - Generating a new Maze...
+2019.06.13 18:10:15.005 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=49856,localport=5400]
+2019.06.13 18:10:26.500 INFO  Server.Server - Stopping server..
+2019.06.13 18:10:26.501 INFO  Server.Server - Stopping server..
+2019.06.13 18:11:10.665 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 18:11:10.665 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 18:11:10.668 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 18:11:10.668 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 18:11:10.668 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:11:10.668 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:11:13.839 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 18:11:13.839 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=49869,localport=5400]
+2019.06.13 18:11:13.840 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=49869,localport=5400]
+2019.06.13 18:11:13.844 INFO  Server.Server - Generating a new Maze...
+2019.06.13 18:11:13.847 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=49869,localport=5400]
+2019.06.13 18:11:16.703 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5401)
+2019.06.13 18:11:16.703 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=49870,localport=5401]
+2019.06.13 18:11:16.704 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=49870,localport=5401]
+2019.06.13 18:11:16.720 INFO  Server.Server - solution file name is: 3 0 15 20 21 21_-769629996
+2019.06.13 18:11:16.720 INFO  Server.Server - calculating Solution...
+2019.06.13 18:11:16.748 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=49870,localport=5401]
+2019.06.13 18:11:19.652 INFO  Server.Server - Stopping server..
+2019.06.13 18:11:19.653 INFO  Server.Server - Stopping server..
+2019.06.13 18:12:16.516 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 18:12:16.516 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 18:12:16.519 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 18:12:16.519 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 18:12:16.519 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:12:16.519 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:12:41.198 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 18:12:41.198 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 18:12:41.201 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 18:12:41.201 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 18:12:41.201 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:12:41.201 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:12:44.449 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=49895,localport=5400]
+2019.06.13 18:12:44.448 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 18:12:44.450 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=49895,localport=5400]
+2019.06.13 18:12:44.454 INFO  Server.Server - Generating a new Maze...
+2019.06.13 18:12:44.459 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=49895,localport=5400]
+2019.06.13 18:12:46.573 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5401)
+2019.06.13 18:12:46.573 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=49896,localport=5401]
+2019.06.13 18:12:46.574 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=49896,localport=5401]
+2019.06.13 18:12:46.591 INFO  Server.Server - solution file name is: 0 6 19 20 21 21_433223927
+2019.06.13 18:12:46.591 INFO  Server.Server - calculating Solution...
+2019.06.13 18:12:46.618 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=49896,localport=5401]
+2019.06.13 18:13:08.548 INFO  Server.Server - Stopping server..
+2019.06.13 18:13:08.548 INFO  Server.Server - Stopping server..
+2019.06.13 18:13:21.581 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 18:13:21.581 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 18:13:21.585 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 18:13:21.585 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 18:13:21.585 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:13:21.585 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:13:24.564 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 18:13:24.564 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=49906,localport=5400]
+2019.06.13 18:13:24.565 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=49906,localport=5400]
+2019.06.13 18:13:24.570 INFO  Server.Server - Generating a new Maze...
+2019.06.13 18:13:24.573 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=49906,localport=5400]
+2019.06.13 18:13:26.546 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5401)
+2019.06.13 18:13:26.547 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=49907,localport=5401]
+2019.06.13 18:13:26.549 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=49907,localport=5401]
+2019.06.13 18:13:26.582 INFO  Server.Server - solution file name is: 0 7 20 13 21 21_1208385924
+2019.06.13 18:13:26.582 INFO  Server.Server - calculating Solution...
+2019.06.13 18:13:26.612 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=49907,localport=5401]
+2019.06.13 18:13:45.843 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 18:13:45.843 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=49909,localport=5400]
+2019.06.13 18:13:45.844 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=49909,localport=5400]
+2019.06.13 18:13:45.845 INFO  Server.Server - Generating a new Maze...
+2019.06.13 18:13:45.847 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=49909,localport=5400]
+2019.06.13 18:13:48.664 INFO  Server.Server - Stopping server..
+2019.06.13 18:13:48.665 INFO  Server.Server - Stopping server..
+2019.06.13 18:20:31.615 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 18:20:31.615 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 18:20:31.618 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 18:20:31.618 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 18:20:31.618 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:20:31.618 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:20:34.276 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=49965,localport=5400]
+2019.06.13 18:20:34.275 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 18:20:34.277 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=49965,localport=5400]
+2019.06.13 18:20:34.281 INFO  Server.Server - Generating a new Maze...
+2019.06.13 18:20:34.285 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=49965,localport=5400]
+2019.06.13 18:20:41.134 INFO  Server.Server - Stopping server..
+2019.06.13 18:20:41.134 INFO  Server.Server - Stopping server..
+2019.06.13 18:20:54.242 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 18:20:54.242 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 18:20:54.245 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 18:20:54.245 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 18:20:54.246 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:20:54.246 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:20:57.412 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 18:20:57.412 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=49977,localport=5400]
+2019.06.13 18:20:57.413 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=49977,localport=5400]
+2019.06.13 18:20:57.417 INFO  Server.Server - Generating a new Maze...
+2019.06.13 18:20:57.421 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=49977,localport=5400]
+2019.06.13 18:21:05.297 INFO  Server.Server - Stopping server..
+2019.06.13 18:21:05.297 INFO  Server.Server - Stopping server..
+2019.06.13 18:23:47.818 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 18:23:47.818 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 18:23:47.821 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 18:23:47.821 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 18:23:47.822 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:23:47.822 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:23:50.462 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=49994,localport=5400]
+2019.06.13 18:23:50.461 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 18:23:50.463 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=49994,localport=5400]
+2019.06.13 18:23:50.466 INFO  Server.Server - Generating a new Maze...
+2019.06.13 18:23:50.470 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=49994,localport=5400]
+2019.06.13 18:24:00.815 INFO  Server.Server - Stopping server..
+2019.06.13 18:24:00.817 INFO  Server.Server - Stopping server..
+2019.06.13 18:24:12.844 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 18:24:12.844 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 18:24:12.847 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 18:24:12.847 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 18:24:12.847 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:24:12.847 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:24:15.533 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 18:24:15.533 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50007,localport=5400]
+2019.06.13 18:24:15.534 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50007,localport=5400]
+2019.06.13 18:24:15.537 INFO  Server.Server - Generating a new Maze...
+2019.06.13 18:24:15.541 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50007,localport=5400]
+2019.06.13 18:24:21.202 INFO  Server.Server - Stopping server..
+2019.06.13 18:24:21.202 INFO  Server.Server - Stopping server..
+2019.06.13 18:33:37.844 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 18:33:37.844 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 18:33:37.848 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 18:33:37.848 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 18:33:37.848 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:33:37.848 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:33:40.558 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 18:33:40.558 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50076,localport=5400]
+2019.06.13 18:33:40.559 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50076,localport=5400]
+2019.06.13 18:33:40.562 INFO  Server.Server - Generating a new Maze...
+2019.06.13 18:33:40.566 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50076,localport=5400]
+2019.06.13 18:33:44.627 INFO  Server.Server - Stopping server..
+2019.06.13 18:33:44.627 INFO  Server.Server - Stopping server..
+2019.06.13 18:33:57.305 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 18:33:57.305 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 18:33:57.309 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 18:33:57.309 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 18:33:57.309 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:33:57.309 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:34:00.347 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 18:34:00.347 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50085,localport=5400]
+2019.06.13 18:34:00.347 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50085,localport=5400]
+2019.06.13 18:34:00.354 INFO  Server.Server - Generating a new Maze...
+2019.06.13 18:34:00.357 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50085,localport=5400]
+2019.06.13 18:34:05.477 INFO  Server.Server - Stopping server..
+2019.06.13 18:34:05.477 INFO  Server.Server - Stopping server..
+2019.06.13 18:35:57.531 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 18:35:57.531 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 18:35:57.536 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 18:35:57.536 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 18:35:57.536 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:35:57.536 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:36:00.209 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50099,localport=5400]
+2019.06.13 18:36:00.209 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 18:36:00.211 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50099,localport=5400]
+2019.06.13 18:36:00.216 INFO  Server.Server - Generating a new Maze...
+2019.06.13 18:36:00.220 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50099,localport=5400]
+2019.06.13 18:36:04.265 INFO  Server.Server - Stopping server..
+2019.06.13 18:36:04.265 INFO  Server.Server - Stopping server..
+2019.06.13 18:36:18.847 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 18:36:18.847 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 18:36:18.850 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 18:36:18.850 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:36:18.850 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 18:36:18.851 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:36:21.732 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 18:36:21.733 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50108,localport=5400]
+2019.06.13 18:36:21.734 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50108,localport=5400]
+2019.06.13 18:36:21.737 INFO  Server.Server - Generating a new Maze...
+2019.06.13 18:36:21.743 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50108,localport=5400]
+2019.06.13 18:36:27.661 INFO  Server.Server - Stopping server..
+2019.06.13 18:36:27.662 INFO  Server.Server - Stopping server..
+2019.06.13 18:36:36.788 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 18:36:36.788 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 18:36:36.791 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 18:36:36.791 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 18:36:36.792 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:36:36.792 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:36:39.900 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 18:36:39.900 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50117,localport=5400]
+2019.06.13 18:36:39.901 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50117,localport=5400]
+2019.06.13 18:36:39.904 INFO  Server.Server - Generating a new Maze...
+2019.06.13 18:36:39.910 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50117,localport=5400]
+2019.06.13 18:36:47.554 INFO  Server.Server - Stopping server..
+2019.06.13 18:36:47.555 INFO  Server.Server - Stopping server..
+2019.06.13 18:39:56.589 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 18:39:56.589 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 18:39:56.593 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 18:39:56.593 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 18:39:56.593 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:39:56.593 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:39:59.249 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 18:39:59.249 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50148,localport=5400]
+2019.06.13 18:39:59.250 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50148,localport=5400]
+2019.06.13 18:39:59.253 INFO  Server.Server - Generating a new Maze...
+2019.06.13 18:39:59.257 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50148,localport=5400]
+2019.06.13 18:40:02.952 INFO  Server.Server - Stopping server..
+2019.06.13 18:40:02.952 INFO  Server.Server - Stopping server..
+2019.06.13 18:40:13.391 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 18:40:13.391 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 18:40:13.395 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 18:40:13.395 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 18:40:13.396 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:40:13.396 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:40:15.760 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 18:40:15.761 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50156,localport=5400]
+2019.06.13 18:40:15.761 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50156,localport=5400]
+2019.06.13 18:40:15.765 INFO  Server.Server - Generating a new Maze...
+2019.06.13 18:40:15.770 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50156,localport=5400]
+2019.06.13 18:40:19.906 INFO  Server.Server - Stopping server..
+2019.06.13 18:40:19.906 INFO  Server.Server - Stopping server..
+2019.06.13 18:40:30.079 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 18:40:30.079 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 18:40:30.082 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 18:40:30.082 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 18:40:30.083 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:40:30.083 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:40:33.327 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50164,localport=5400]
+2019.06.13 18:40:33.327 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 18:40:33.328 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50164,localport=5400]
+2019.06.13 18:40:33.332 INFO  Server.Server - Generating a new Maze...
+2019.06.13 18:40:33.336 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50164,localport=5400]
+2019.06.13 18:40:38.045 INFO  Server.Server - Stopping server..
+2019.06.13 18:40:38.046 INFO  Server.Server - Stopping server..
+2019.06.13 18:47:23.561 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 18:47:23.561 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 18:47:23.565 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 18:47:23.565 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 18:47:23.566 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:47:23.566 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:47:27.523 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50249,localport=5400]
+2019.06.13 18:47:27.523 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 18:47:27.526 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50249,localport=5400]
+2019.06.13 18:47:27.548 INFO  Server.Server - Generating a new Maze...
+2019.06.13 18:47:27.559 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50249,localport=5400]
+2019.06.13 18:52:32.071 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 18:52:32.071 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 18:52:32.075 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 18:52:32.075 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 18:52:32.075 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:52:32.075 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:52:37.154 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50285,localport=5400]
+2019.06.13 18:52:37.154 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 18:52:37.160 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50285,localport=5400]
+2019.06.13 18:52:37.186 INFO  Server.Server - Generating a new Maze...
+2019.06.13 18:52:37.200 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50285,localport=5400]
+2019.06.13 18:53:09.649 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 18:53:09.649 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 18:53:09.653 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 18:53:09.653 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 18:53:09.653 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:53:09.653 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 18:53:13.222 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 18:53:13.222 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50295,localport=5400]
+2019.06.13 18:53:13.224 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50295,localport=5400]
+2019.06.13 18:53:13.246 INFO  Server.Server - Generating a new Maze...
+2019.06.13 18:53:13.258 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50295,localport=5400]
+2019.06.13 19:05:25.058 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 19:05:25.058 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 19:05:25.062 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 19:05:25.062 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 19:05:25.063 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 19:05:25.063 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 19:05:28.161 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50376,localport=5400]
+2019.06.13 19:05:28.161 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 19:05:28.163 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50376,localport=5400]
+2019.06.13 19:05:28.167 INFO  Server.Server - Generating a new Maze...
+2019.06.13 19:05:28.171 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50376,localport=5400]
+2019.06.13 19:05:44.895 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5401)
+2019.06.13 19:05:44.895 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50378,localport=5401]
+2019.06.13 19:05:44.897 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50378,localport=5401]
+2019.06.13 19:05:44.933 INFO  Server.Server - solution file name is: 7 2 20 19 21 21_-1431308939
+2019.06.13 19:05:44.934 INFO  Server.Server - calculating Solution...
+2019.06.13 19:05:44.961 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50378,localport=5401]
+2019.06.13 19:06:11.737 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 19:06:11.737 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50380,localport=5400]
+2019.06.13 19:06:11.738 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50380,localport=5400]
+2019.06.13 19:06:11.739 INFO  Server.Server - Generating a new Maze...
+2019.06.13 19:06:11.740 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50380,localport=5400]
+2019.06.13 19:07:55.997 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5401)
+2019.06.13 19:07:55.998 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50387,localport=5401]
+2019.06.13 19:07:56.000 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50387,localport=5401]
+2019.06.13 19:07:56.013 INFO  Server.Server - solution file name is: 13 11 17 20 21 21_-34063171
+2019.06.13 19:07:56.014 INFO  Server.Server - calculating Solution...
+2019.06.13 19:07:56.034 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50387,localport=5401]
+2019.06.13 19:07:57.928 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5401)
+2019.06.13 19:07:57.928 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50388,localport=5401]
+2019.06.13 19:07:57.930 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50388,localport=5401]
+2019.06.13 19:07:57.954 INFO  Server.Server - solution file name is: 13 11 17 20 21 21_-34063171
+2019.06.13 19:07:57.955 INFO  Server.Server - solution Found. restoring...
+2019.06.13 19:07:57.962 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50388,localport=5401]
+2019.06.13 19:08:00.491 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5401)
+2019.06.13 19:08:00.491 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50389,localport=5401]
+2019.06.13 19:08:00.493 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50389,localport=5401]
+2019.06.13 19:08:00.506 INFO  Server.Server - solution file name is: 11 7 17 20 21 21_-1160844617
+2019.06.13 19:08:00.506 INFO  Server.Server - calculating Solution...
+2019.06.13 19:08:00.524 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50389,localport=5401]
+2019.06.13 19:08:06.426 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 19:08:06.426 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50391,localport=5400]
+2019.06.13 19:08:06.426 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50391,localport=5400]
+2019.06.13 19:08:06.428 INFO  Server.Server - Generating a new Maze...
+2019.06.13 19:08:06.430 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50391,localport=5400]
+2019.06.13 19:08:12.258 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5401)
+2019.06.13 19:08:12.259 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50392,localport=5401]
+2019.06.13 19:08:12.261 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50392,localport=5401]
+2019.06.13 19:08:12.330 INFO  Server.Server - solution file name is: 11 7 46 50 51 51_1151298970
+2019.06.13 19:08:12.330 INFO  Server.Server - calculating Solution...
+2019.06.13 19:08:12.362 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50392,localport=5401]
+2019.06.13 19:08:18.884 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5401)
+2019.06.13 19:08:18.884 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50394,localport=5401]
+2019.06.13 19:08:18.886 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50394,localport=5401]
+2019.06.13 19:08:18.948 INFO  Server.Server - solution file name is: 15 5 46 50 51 51_284613532
+2019.06.13 19:08:18.948 INFO  Server.Server - calculating Solution...
+2019.06.13 19:08:18.975 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50394,localport=5401]
+2019.06.13 19:08:33.824 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5401)
+2019.06.13 19:08:33.824 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50396,localport=5401]
+2019.06.13 19:08:33.825 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50396,localport=5401]
+2019.06.13 19:08:33.894 INFO  Server.Server - solution file name is: 17 18 46 50 51 51_-2047885909
+2019.06.13 19:08:33.894 INFO  Server.Server - calculating Solution...
+2019.06.13 19:08:33.919 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50396,localport=5401]
+2019.06.13 19:08:56.109 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5401)
+2019.06.13 19:08:56.110 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50398,localport=5401]
+2019.06.13 19:08:56.112 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50398,localport=5401]
+2019.06.13 19:08:56.164 INFO  Server.Server - solution file name is: 1 33 46 50 51 51_-604464342
+2019.06.13 19:08:56.164 INFO  Server.Server - calculating Solution...
+2019.06.13 19:08:56.186 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50398,localport=5401]
+2019.06.13 19:08:59.120 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5401)
+2019.06.13 19:08:59.120 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50399,localport=5401]
+2019.06.13 19:08:59.121 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50399,localport=5401]
+2019.06.13 19:08:59.169 INFO  Server.Server - solution file name is: 17 34 46 50 51 51_1303750075
+2019.06.13 19:08:59.169 INFO  Server.Server - calculating Solution...
+2019.06.13 19:08:59.188 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50399,localport=5401]
+2019.06.13 19:09:01.356 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5401)
+2019.06.13 19:09:01.356 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50400,localport=5401]
+2019.06.13 19:09:01.357 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50400,localport=5401]
+2019.06.13 19:09:01.404 INFO  Server.Server - solution file name is: 17 35 46 50 51 51_-1439562692
+2019.06.13 19:09:01.404 INFO  Server.Server - calculating Solution...
+2019.06.13 19:09:01.424 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50400,localport=5401]
+2019.06.13 19:09:10.074 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5401)
+2019.06.13 19:09:10.075 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50401,localport=5401]
+2019.06.13 19:09:10.076 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50401,localport=5401]
+2019.06.13 19:09:10.144 INFO  Server.Server - solution file name is: 13 45 46 50 51 51_-1044542910
+2019.06.13 19:09:10.145 INFO  Server.Server - calculating Solution...
+2019.06.13 19:09:10.164 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50401,localport=5401]
+2019.06.13 19:09:11.288 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5401)
+2019.06.13 19:09:11.289 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50402,localport=5401]
+2019.06.13 19:09:11.290 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50402,localport=5401]
+2019.06.13 19:09:11.344 INFO  Server.Server - solution file name is: 12 45 46 50 51 51_1617526657
+2019.06.13 19:09:11.344 INFO  Server.Server - calculating Solution...
+2019.06.13 19:09:11.366 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50402,localport=5401]
+2019.06.13 19:09:12.377 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5401)
+2019.06.13 19:09:12.377 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50403,localport=5401]
+2019.06.13 19:09:12.378 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50403,localport=5401]
+2019.06.13 19:09:12.419 INFO  Server.Server - solution file name is: 11 45 46 50 51 51_-15371072
+2019.06.13 19:09:12.419 INFO  Server.Server - calculating Solution...
+2019.06.13 19:09:12.439 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50403,localport=5401]
+2019.06.13 19:09:16.907 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5401)
+2019.06.13 19:09:16.907 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50405,localport=5401]
+2019.06.13 19:09:16.908 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50405,localport=5401]
+2019.06.13 19:09:16.955 INFO  Server.Server - solution file name is: 7 41 46 50 51 51_131321784
+2019.06.13 19:09:16.955 INFO  Server.Server - calculating Solution...
+2019.06.13 19:09:16.973 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50405,localport=5401]
+2019.06.13 19:10:10.842 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 19:10:10.842 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50408,localport=5400]
+2019.06.13 19:10:10.843 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50408,localport=5400]
+2019.06.13 19:10:10.844 INFO  Server.Server - Generating a new Maze...
+2019.06.13 19:10:10.845 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50408,localport=5400]
+2019.06.13 19:10:31.708 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5401)
+2019.06.13 19:10:31.708 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50409,localport=5401]
+2019.06.13 19:10:31.708 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50409,localport=5401]
+2019.06.13 19:10:31.720 INFO  Server.Server - solution file name is: 0 2 20 18 21 21_942593476
+2019.06.13 19:10:31.721 INFO  Server.Server - calculating Solution...
+2019.06.13 19:10:31.737 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50409,localport=5401]
+2019.06.13 19:11:29.971 INFO  Server.Server - Client is connected to server (IP: Tomer/192.168.1.23, port: 5400)
+2019.06.13 19:11:29.971 INFO  Server.Server - Client excepted: Socket[addr=/192.168.1.23,port=50416,localport=5400]
+2019.06.13 19:11:29.972 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.1.23,port=50416,localport=5400]
+2019.06.13 19:11:29.972 INFO  Server.Server - Generating a new Maze...
+2019.06.13 19:11:29.973 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50416,localport=5400]
+2019.06.13 19:11:48.797 INFO  Server.Server - Stopping server..
+2019.06.13 19:11:48.798 INFO  Server.Server - Stopping server..
