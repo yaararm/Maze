@@ -446,3 +446,27 @@
 2019.06.13 19:11:29.973 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.1.23,port=50416,localport=5400]
 2019.06.13 19:11:48.797 INFO  Server.Server - Stopping server..
 2019.06.13 19:11:48.798 INFO  Server.Server - Stopping server..
+2019.06.13 19:16:35.646 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5400]!
+2019.06.13 19:16:35.646 INFO  Server.Server - Server starter at ServerSocket[addr=0.0.0.0/0.0.0.0,localport=5401]!
+2019.06.13 19:16:35.651 INFO  Server.Server - Server's Strategy: ServerStrategyGenerateMaze
+2019.06.13 19:16:35.651 INFO  Server.Server - Server's Strategy: ServerStrategySolveSearchProblem
+2019.06.13 19:16:35.652 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 19:16:35.652 INFO  Server.Server - Server is waiting for clients...
+2019.06.13 19:16:41.869 INFO  Server.Server - Client excepted: Socket[addr=/192.168.241.1,port=52404,localport=5400]
+2019.06.13 19:16:41.869 INFO  Server.Server - Client is connected to server (IP: Yaara/192.168.241.1, port: 5400)
+2019.06.13 19:16:41.870 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.241.1,port=52404,localport=5400]
+2019.06.13 19:16:41.876 INFO  Server.Server - Generating a new Maze...
+2019.06.13 19:16:41.880 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.241.1,port=52404,localport=5400]
+2019.06.13 19:16:46.209 INFO  Server.Server - Client excepted: Socket[addr=/192.168.241.1,port=52405,localport=5400]
+2019.06.13 19:16:46.209 INFO  Server.Server - Client is connected to server (IP: Yaara/192.168.241.1, port: 5400)
+2019.06.13 19:16:46.210 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.241.1,port=52405,localport=5400]
+2019.06.13 19:16:46.211 INFO  Server.Server - Generating a new Maze...
+2019.06.13 19:16:46.214 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.241.1,port=52405,localport=5400]
+2019.06.13 19:16:59.730 INFO  Server.Server - Client excepted: Socket[addr=/192.168.241.1,port=52406,localport=5401]
+2019.06.13 19:16:59.730 INFO  Server.Server - Client is connected to server (IP: Yaara/192.168.241.1, port: 5401)
+2019.06.13 19:16:59.732 INFO  Server.Server - Handling client with socket: Socket[addr=/192.168.241.1,port=52406,localport=5401]
+2019.06.13 19:16:59.825 INFO  Server.Server - solution file name is: 0 10 50 49 51 51_500239125
+2019.06.13 19:16:59.826 INFO  Server.Server - calculating Solution...
+2019.06.13 19:16:59.886 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.241.1,port=52406,localport=5401]
+2019.06.13 19:17:24.999 INFO  Server.Server - Stopping server..
+2019.06.13 19:17:24.999 INFO  Server.Server - Stopping server..
