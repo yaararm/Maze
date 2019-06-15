@@ -61,8 +61,7 @@ public class MyViewController implements Observer, IView {
     public javafx.scene.control.Toggle DFS;
     public javafx.scene.control.Toggle BFS;
     public javafx.scene.control.Toggle Best;
-   // public javafx.scene.image.Image yaara;
-    // public javafx.scene.image.ImageView tomer;
+
 
 
     @Override
@@ -113,17 +112,20 @@ public class MyViewController implements Observer, IView {
 
     public void generateEasyMaze() {
         btn_new.setDisable(true);
+        mazeDifficulty = "easy";
         generateMaze(21, 21);
 
     }
 
     public void generateMediumMaze() {
         btn_new.setDisable(true);
+        mazeDifficulty = "medium";
         generateMaze(35, 35);
     }
 
     public void generateHardMaze() {
         btn_new.setDisable(true);
+        mazeDifficulty = "hard";
         generateMaze(51, 51);
     }
 
