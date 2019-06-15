@@ -20,23 +20,23 @@
                <children>
                   <Label id="text_up" alignment="CENTER" prefHeight="37.0" prefWidth="552.0" text="Help  the brothers find grandma Haya!" textFill="#a23778">
                       <effect>
-                          <DropShadow color="#777576" offsetX="1.0" offsetY="1.0" spread="0.75" />
+                          <DropShadow color="#fffdfe" offsetX="1.0" offsetY="1.0" spread="0.8" />
                       </effect>
                       <font>
-                        <Font name="Aharoni Bold" size="22.0" />
+                        <Font name="Aharoni Bold" size="24.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
-            <Label id="text_level" alignment="CENTER" layoutX="100.0" prefHeight="19.0" prefWidth="509.0" text="please choose your difficulty level:" textFill="#d55e5e">
+            <Label id="text_level" alignment="CENTER" layoutX="140.0" prefHeight="26.0" prefWidth="521.0" text="please choose your difficulty level:" textFill="#d55e5e">
                 <effect>
-                    <DropShadow color="#000000" offsetX="1.0" offsetY="1.0" spread="0.5" />
+                    <DropShadow color="#000000" offsetX="1.0" offsetY="1.0" spread="0.8" />
                 </effect>
                 <VBox.margin>
                   <Insets />
                </VBox.margin>
                <font>
-                  <Font name="Aharoni Bold" size="16.0" />
+                  <Font name="Aharoni Bold" size="20.0" />
                </font>
             </Label>
             <HBox id="btn_level" prefHeight="63.0" prefWidth="560.0">
