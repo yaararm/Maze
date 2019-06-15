@@ -496,3 +496,4 @@
 2019.06.15 20:12:26.259 INFO  Server.Server - Finished handle client: Socket[addr=/192.168.241.1,port=56650,localport=5400]
 2019.06.15 20:12:43.770 INFO  Server.Server - Stopping server..
 2019.06.15 20:12:43.770 INFO  Server.Server - Stopping server..
+

@@ -116,6 +116,5 @@ onKeyReleased="#KeyReleased"     -->
                 <Insets bottom="0.0" left="20.0" right="20.0" top="20.0" />
             </BorderPane.margin>
         </Pane>
-
     </center>
 </BorderPane>

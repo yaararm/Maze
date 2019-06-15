@@ -5,13 +5,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.effect.DropShadow?>
 <AnchorPane fx:id="anchorPAne" prefHeight="330.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.WelcomeView">
    <children>
       <VBox layoutX="10.0" layoutY="10.0" prefHeight="317.0" prefWidth="552.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -20,7 +20,7 @@
                <children>
                   <Label id="text_up" alignment="CENTER" prefHeight="37.0" prefWidth="552.0" text="Help  the brothers find grandma Haya!" textFill="#a23778">
                       <effect>
-                          <DropShadow color="#777576" offsetX="1.0" offsetY="1.0" spread="0.75"  />
+                          <DropShadow color="#777576" offsetX="1.0" offsetY="1.0" spread="0.75" />
                       </effect>
                       <font>
                         <Font name="Aharoni Bold" size="22.0" />
@@ -28,9 +28,9 @@
                   </Label>
                </children>
             </HBox>
-            <Label id="text_level" alignment="CENTER" prefHeight="17.0" prefWidth="313.0" text="please choose your difficulty level:" textFill="#d55e5e">
+            <Label id="text_level" alignment="CENTER" layoutX="100.0" prefHeight="19.0" prefWidth="509.0" text="please choose your difficulty level:" textFill="#d55e5e">
                 <effect>
-                    <DropShadow color="#000000" offsetX="1.0" offsetY="1.0"  spread="0.5" />
+                    <DropShadow color="#000000" offsetX="1.0" offsetY="1.0" spread="0.5" />
                 </effect>
                 <VBox.margin>
                   <Insets />
