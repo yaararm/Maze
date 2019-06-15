@@ -105,5 +105,4 @@ public interface IView {
      */
     void quitFunction(ActionEvent actionEvent);
 
-
 }
