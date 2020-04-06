@@ -4,7 +4,7 @@ Every time you run it, a different maze is generated.
 
 here you can choose your maze difficulty level:
 
-<img src="/resources/intro.PNG" width="500" alt="graph flow example">
+<img src="/resources/intro1.PNG" width="500" alt="graph flow example">
 
 
 You start at the entrance at the upper left and work your way through the maze to 
